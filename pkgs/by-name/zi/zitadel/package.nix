@@ -18,9 +18,10 @@
     owner = "zitadel";
     repo = "zitadel";
     rev = "v${version}";
-    hash = "sha256-WqsK6DAYkLs5wBNvkVGarLMm/unBLtipFkl07pR90HI=";
+    hash = "sha256-Lq2LQluTF2deNl4KF0hOKZN/R+xtSAasaVDZQLG4mHI=";
+    # hash = "sha256-0wlqp2ql1nahd6n0cj3dxi3pz4r99r41f2jy6rg6f5wkbd18pb9f=";
   };
-  goModulesHash = "sha256-IVf1YVnhyEYgZqM31Cv3aBFnPG7v5WW6fCEvlN+sTIE=";
+  goModulesHash = "sha256-PQch046YjYhAmVlNNdgDLWIqFvEpXRgXAYFMwSZmk4w=";
 
   buildZitadelProtocGen = name:
     buildGo121Module {
@@ -89,7 +90,7 @@
       protoc-gen-zitadel
     ];
     outputPath = ".artifacts";
-    hash = "sha256-xrEF1B4pMoCZs1WO9F6IoqHnSyt5BhPVTIABMWK/q2E=";
+    hash = "sha256-VITY5MeDLprwKzqwOtH3rCrtF8ezuDg7JUL7Ceo1LV8=";
   };
 in
   buildGo121Module rec {

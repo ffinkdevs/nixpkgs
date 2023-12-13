@@ -12,7 +12,7 @@
     workDir = "console";
     bufArgs = "../proto --include-imports --include-wkt";
     outputPath = "src/app/proto";
-    hash = "sha256-+uHQNP9ZZB3tRZOrl8xwZql/L9EG9oNQICX/CVeawe4=";
+    hash = "sha256-jaj3ZtwYL69KZWXv4bXwmqtZVkrRJEbZJM+0ZkKMobU=";
   };
 in
   mkYarnPackage rec {
@@ -21,10 +21,10 @@ in
 
     src = "${zitadelRepo}/console";
 
-    packageJSON = ./package.json;
+    packageJSON = "${src}/package.json";
     offlineCache = fetchYarnDeps {
       yarnLock = "${src}/yarn.lock";
-      # hash = "sha256-rSKoIznYVDNgrBmut7YSxNhgPJnbIeO+/s0HnrYWPUc=";
+      hash = "sha256-cfo2WLSbfU8tYADjF7j9zTLNsboVThF6MUBrb49MrII=";
     };
 
     postPatch = ''
