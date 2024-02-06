@@ -20,7 +20,8 @@
     workDir = "console";
     bufArgs = "../proto --include-imports --include-wkt";
     outputPath = "src/app/proto";
-    hash = "sha256-BBXFt4f2SQphr106sQ0eEL4Z2ooAI8fxXhu2rKqhjb4=";
+    hash = "sha256-vwpuIYUgq4u62yv2uisxwsSjRkOCkZ4OJNnL3Kku9vM=";
+    # hash = "sha256-BBXFt4f2SQphr106sQ0eEL4Z2ooAI8fxXhu2rKqhjb4=";
   };
 in
   mkYarnPackage rec {
@@ -32,7 +33,7 @@ in
     packageJSON = "${src}/package.json";
     offlineCache = fetchYarnDeps {
       yarnLock = "${src}/yarn.lock";
-      hash = "sha256-cfo2WLSbfU8tYADjF7j9zTLNsboVThF6MUBrb49MrII=";
+      hash = "sha256-n2LCgU+6zf/2pjUEoTKzHUmO3Xe70fN7+el/Qn5s1Z0=";
     };
 
     postPatch = ''

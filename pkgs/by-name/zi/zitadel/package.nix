@@ -18,9 +18,9 @@
     owner = "zitadel";
     repo = "zitadel";
     rev = "v${version}";
-    hash = "sha256-Uv0iEIFkTdBAi0WDBQHf0ATs4L2FOU4NmiE9p1MHSa0=";
+    hash = "sha256-2KzX7o049hARLaJNqnPeuFA03MHLCcUw+pEuD26r7U8=";
   };
-  goModulesHash = "sha256-PQch046YjYhAmVlNNdgDLWIqFvEpXRgXAYFMwSZmk4w=";
+  goModulesHash = "sha256-NC/26lc5KoQf9lPNwwLTUPLvssJ/nXQOmqZdMSgFauk=";
 
   buildZitadelProtocGen = name:
     buildGoModule {
@@ -90,7 +90,7 @@
       protoc-gen-zitadel
     ];
     outputPath = ".artifacts";
-    hash = "sha256-B7gaOXwgLNAQgIxMYDFqmp3H3TSqZPXJG/dAKxK3LC0=";
+    hash = "sha256-Jv442pU3my4idja+KiHDO04rUaLiK+pVShL4640RoJ0";
   };
 in
   buildGoModule rec {
