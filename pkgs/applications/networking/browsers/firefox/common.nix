@@ -21,6 +21,11 @@
 , tests ? []
 }:
 
+let
+  # Rename the variables to prevent infinite recursion
+  requireSigningDefault = requireSigning;
+  allowAddonSideloadDefault = allowAddonSideload;
+in
 
 { lib
 , pkgs
@@ -79,6 +84,10 @@
 , pkgsBuildBuild
 
 # optionals
+
+## addon signing/sideloading
+, requireSigning ? requireSigningDefault
+, allowAddonSideload ? allowAddonSideloadDefault
 
 ## debugging
 
@@ -245,7 +254,7 @@ buildStdenv.mkDerivation {
       hash = "sha256-cWOyvjIPUU1tavPRqg61xJ53XE4EJTdsFzadfVxyTyM=";
     })
   ]
-  ++ lib.optionals (lib.versionAtLeast version "122" && lib.versionOlder version "122.0.1") [
+  ++ lib.optionals (lib.versionAtLeast version "122" && lib.versionOlder version "123") [
     ./122.0-libvpx-mozbz1875201.patch
   ]
   ++ extraPatches;
@@ -559,6 +568,7 @@ buildStdenv.mkDerivation {
     inherit updateScript;
     inherit alsaSupport;
     inherit binaryName;
+    inherit requireSigning allowAddonSideload;
     inherit jackSupport;
     inherit pipewireSupport;
     inherit sndioSupport;

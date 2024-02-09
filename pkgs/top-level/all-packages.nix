@@ -2050,10 +2050,6 @@ with pkgs;
 
   sorted-grep = callPackage ../tools/text/sorted-grep { };
 
-  smb3-foundry = callPackage ../applications/misc/smb3-foundry {
-    python3 = python311;
-  };
-
   smbmap = callPackage ../tools/security/smbmap { };
 
   smbscan = callPackage ../tools/security/smbscan { };
@@ -3225,8 +3221,6 @@ with pkgs;
   antora = callPackage ../development/tools/documentation/antora { };
 
   apfs-fuse = callPackage ../tools/filesystems/apfs-fuse { };
-
-  apfsprogs = callPackage ../tools/filesystems/apfsprogs { };
 
   api-linter = callPackage ../development/tools/api-linter { };
 
@@ -4462,10 +4456,7 @@ with pkgs;
 
   brltty = callPackage ../tools/misc/brltty { };
 
-  brook = callPackage ../tools/networking/brook {
-    # See https://hydra.nixos.org/build/239027853/nixlog/2.
-    buildGoModule = buildGo120Module;
-  };
+  brook = callPackage ../tools/networking/brook { };
 
   broot = callPackage ../tools/misc/broot {
     inherit (darwin.apple_sdk.frameworks) Foundation Security;
@@ -4689,8 +4680,19 @@ with pkgs;
   cloudbrute = callPackage ../tools/security/cloudbrute { };
 
   cloudflared = callPackage ../applications/networking/cloudflared {
-    # https://github.com/cloudflare/cloudflared/issues/1054
-    buildGoModule = buildGo120Module;
+    # https://github.com/cloudflare/cloudflared/issues/1151#issuecomment-1888819250
+    buildGoModule = buildGoModule.override {
+      go = go.overrideAttrs {
+        pname = "cloudflare-go";
+        version = "0-unstable-2023-12-06";
+        src = fetchFromGitHub {
+          owner = "cloudflare";
+          repo = "go";
+          rev = "34129e47042e214121b6bbff0ded4712debed18e";
+          sha256 = "sha256-RA9KTY4cSxIt7dyJgAFQPemc6YBgcSwc/hqB4JHPxng=";
+        };
+      };
+    };
   };
 
   cloudflare-dyndns = callPackage ../applications/networking/cloudflare-dyndns { };
@@ -7733,7 +7735,7 @@ with pkgs;
   kramdown-asciidoc = callPackage ../tools/typesetting/kramdown-asciidoc { };
 
   lychee = callPackage ../tools/networking/lychee {
-    inherit (darwin.apple_sdk.frameworks) Security;
+    inherit (darwin.apple_sdk.frameworks) Security SystemConfiguration;
   };
 
   magic-vlsi = callPackage ../applications/science/electronics/magic-vlsi { };
@@ -9088,7 +9090,9 @@ with pkgs;
 
   hatch = python3Packages.callPackage ../development/tools/hatch { };
 
-  hal-hardware-analyzer = libsForQt5.callPackage ../applications/science/electronics/hal-hardware-analyzer { };
+  hal-hardware-analyzer = libsForQt5.callPackage ../applications/science/electronics/hal-hardware-analyzer {
+    stdenv = if stdenv.isDarwin then darwin.apple_sdk_11_0.stdenv else stdenv;
+  };
 
   half = callPackage ../development/libraries/half { };
 
@@ -10757,10 +10761,6 @@ with pkgs;
     inherit (python3Packages) mako;
   };
 
-  manix = callPackage ../tools/nix/manix {
-    inherit (darwin.apple_sdk.frameworks) Security;
-  };
-
   marktext = callPackage ../applications/misc/marktext { };
 
   mars-mips = callPackage ../development/tools/mars-mips { };
@@ -11973,8 +11973,6 @@ with pkgs;
 
   pdf-quench = callPackage ../applications/misc/pdf-quench { };
 
-  pdf-sign = callPackage ../tools/graphics/pdf-sign { };
-
   pdfarranger = callPackage ../applications/misc/pdfarranger { };
 
   briss = callPackage ../tools/graphics/briss { };
@@ -12021,7 +12019,7 @@ with pkgs;
   pfstools = libsForQt5.callPackage ../tools/graphics/pfstools { };
 
   phoc = callPackage ../applications/misc/phoc {
-    wlroots = wlroots_0_16;
+    wlroots = wlroots_0_17;
   };
 
   phockup = callPackage ../applications/misc/phockup { };
@@ -14140,7 +14138,7 @@ with pkgs;
   tuptime = callPackage ../tools/system/tuptime { };
 
   turbo = callPackage ../tools/misc/turbo {
-    inherit (darwin.apple_sdk_11_0.frameworks) Security IOKit CoreServices CoreFoundation;
+    inherit (darwin.apple_sdk_11_0.frameworks) IOKit CoreServices CoreFoundation;
   };
 
   turses = callPackage ../applications/networking/instant-messengers/turses { };
@@ -19242,7 +19240,9 @@ with pkgs;
 
   gtranslator = callPackage ../tools/text/gtranslator { };
 
-  gtree = callPackage ../tools/text/gtree { };
+  gtree = callPackage ../tools/text/gtree {
+    buildGoModule = buildGo122Module;
+  };
 
   guff = callPackage ../tools/graphics/guff { };
 
@@ -25515,7 +25515,6 @@ with pkgs;
 
   wxSVG = callPackage ../development/libraries/wxSVG {
     wxGTK = wxGTK32;
-    stdenv = gcc12Stdenv;
   };
 
   wtk = callPackage ../development/libraries/wtk { };
@@ -25935,12 +25934,12 @@ with pkgs;
 
   # Steel Bank Common Lisp
   sbcl_2_4_0 = wrapLisp {
-    pkg = callPackage ../by-name/sb/sbcl/package.nix { version = "2.4.0"; };
+    pkg = callPackage ../development/compilers/sbcl { version = "2.4.0"; };
     faslExt = "fasl";
     flags = [ "--dynamic-space-size" "3000" ];
   };
   sbcl_2_4_1 = wrapLisp {
-    pkg = callPackage ../by-name/sb/sbcl/package.nix { version = "2.4.1"; };
+    pkg = callPackage ../development/compilers/sbcl { version = "2.4.1"; };
     faslExt = "fasl";
     flags = [ "--dynamic-space-size" "3000" ];
   };
@@ -27625,8 +27624,6 @@ with pkgs;
 
   cramfsswap = callPackage ../os-specific/linux/cramfsswap { };
 
-  crda = callPackage ../os-specific/linux/crda { };
-
   cshatag = callPackage ../os-specific/linux/cshatag { };
 
   # Darwin package set
@@ -28399,8 +28396,6 @@ with pkgs;
   pam_tmpdir = callPackage ../os-specific/linux/pam_tmpdir { };
 
   pam_u2f = callPackage ../os-specific/linux/pam_u2f { };
-
-  pam_usb = callPackage ../os-specific/linux/pam_usb { };
 
   pam_ussh = callPackage ../os-specific/linux/pam_ussh { };
 
@@ -29570,10 +29565,6 @@ with pkgs;
   national-park-typeface = callPackage ../data/fonts/national-park { };
 
   netease-music-tui = callPackage ../applications/audio/netease-music-tui { };
-
-  netease-cloud-music-gtk = callPackage ../applications/audio/netease-cloud-music-gtk {
-    inherit (darwin.apple_sdk.frameworks) Foundation SystemConfiguration;
-  };
 
   nordic = libsForQt5.callPackage ../data/themes/nordic { };
 
@@ -34616,8 +34607,6 @@ with pkgs;
   pothos = libsForQt5.callPackage ../applications/radio/pothos { };
 
   potrace = callPackage ../applications/graphics/potrace { };
-
-  posterazor = callPackage ../applications/misc/posterazor { };
 
   pqiv = callPackage ../applications/graphics/pqiv { };
 

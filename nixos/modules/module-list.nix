@@ -219,6 +219,7 @@
   ./programs/msmtp.nix
   ./programs/mtr.nix
   ./programs/nano.nix
+  ./programs/nautilus-open-any-terminal.nix
   ./programs/nbd.nix
   ./programs/neovim.nix
   ./programs/nethoscope.nix
@@ -316,7 +317,6 @@
   ./security/oath.nix
   ./security/pam.nix
   ./security/pam_mount.nix
-  ./security/pam_usb.nix
   ./security/please.nix
   ./security/polkit.nix
   ./security/rngd.nix
@@ -578,6 +578,7 @@
   ./services/home-automation/ebusd.nix
   ./services/home-automation/esphome.nix
   ./services/home-automation/evcc.nix
+  ./services/home-automation/govee2mqtt.nix
   ./services/home-automation/home-assistant.nix
   ./services/home-automation/homeassistant-satellite.nix
   ./services/home-automation/zigbee2mqtt.nix
