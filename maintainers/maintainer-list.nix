@@ -241,6 +241,12 @@
       fingerprint = "DBF4 E6D0 90B8 BEA4 4BFE  1F1C 3442 4321 39B5 0691";
     }];
   };
+  _9R = {
+    email = "nix@9-r.net";
+    github = "9R";
+    githubId = 381298;
+    name = "9R";
+  };
   a1russell = {
     email = "adamlr6+pub@gmail.com";
     github = "a1russell";
@@ -360,6 +366,12 @@
     github = "aboseley";
     githubId = 13504599;
     name = "Adam Boseley";
+  };
+  abueide = {
+    email = "andrea@abueide.com";
+    github = "abueide";
+    githubId = 19354425;
+    name = "Andrea Bueide";
   };
   abuibrahim = {
     email = "ruslan@babayev.com";
@@ -4433,6 +4445,12 @@
     github = "dbrock";
     githubId = 14032;
     name = "Daniel Brockman";
+  };
+  DCsunset = {
+    email = "DCsunset@protonmail.com";
+    github = "DCsunset";
+    githubId = 23468812;
+    name = "DCsunset";
   };
   ddelabru = {
     email = "ddelabru@redhat.com";
@@ -9289,6 +9307,12 @@
     github = "josephst";
     githubId = 1269177;
   };
+  josephsurin = {
+    name = "Joseph Surin";
+    email = "nix@jsur.in";
+    github = "josephsurin";
+    githubId = 14977484;
+  };
   joshniemela = {
     name = "Joshua Niemelä";
     email = "josh@jniemela.dk";
@@ -14017,6 +14041,12 @@
     matrix = "@numkem:matrix.org";
     github = "numkem";
     githubId = 332423;
+  };
+  nu-nu-ko = {
+    email = "host@nuko.city";
+    github = "nu-nu-ko";
+    githubId = 153512689;
+    name = "nuko";
   };
   nviets = {
     email = "nathan.g.viets@gmail.com";

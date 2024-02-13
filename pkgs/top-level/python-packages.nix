@@ -5055,6 +5055,8 @@ self: super: with self; {
     inherit (pkgs) h3;
   };
 
+  h5io = callPackage ../development/python-modules/h5io { };
+
   h5netcdf = callPackage ../development/python-modules/h5netcdf { };
 
   h5py = callPackage ../development/python-modules/h5py { };
@@ -6974,6 +6976,8 @@ self: super: with self; {
   mediafire-dl = callPackage ../development/python-modules/mediafire-dl { };
 
   mediapy = callPackage ../development/python-modules/mediapy { };
+
+  medpy = callPackage ../development/python-modules/medpy { };
 
   meeko = callPackage ../development/python-modules/meeko { };
 
@@ -10313,17 +10317,7 @@ self: super: with self; {
 
   pycxx = callPackage ../development/python-modules/pycxx { };
 
-  pycyphal = callPackage ../development/python-modules/pycyphal {
-    # Does not yet support nunavut 2+, use latest 1.X version instead
-    # https://github.com/OpenCyphal/pycyphal/issues/277
-    nunavut = self.nunavut.overridePythonAttrs (prev: rec {
-      version = "1.9.0";
-      src = prev.src.override {
-        inherit version;
-        hash = "sha256-KhgijXJ908uxM7VZdXo1WU/RGU0cfqctBCbpF2wOcy8=";
-      };
-    });
-  };
+  pycyphal = callPackage ../development/python-modules/pycyphal { };
 
   pydaikin = callPackage ../development/python-modules/pydaikin { };
 
@@ -10822,6 +10816,8 @@ self: super: with self; {
   pymata-express = callPackage ../development/python-modules/pymata-express { };
 
   pymatgen = callPackage ../development/python-modules/pymatgen { };
+
+  pymatreader = callPackage ../development/python-modules/pymatreader { };
 
   pymatting = callPackage ../development/python-modules/pymatting { };
 
@@ -11595,6 +11591,8 @@ self: super: with self; {
 
   pytest-grpc = callPackage ../development/python-modules/pytest-grpc { };
 
+  pytest-harvest = callPackage ../development/python-modules/pytest-harvest { };
+
   pytest-helpers-namespace = callPackage ../development/python-modules/pytest-helpers-namespace { };
 
   pytest-html = callPackage ../development/python-modules/pytest-html { };
@@ -11774,6 +11772,8 @@ self: super: with self; {
   python-binance = callPackage ../development/python-modules/python-binance { };
 
   python-box = callPackage ../development/python-modules/python-box { };
+
+  python-bring-api = callPackage ../development/python-modules/python-bring-api { };
 
   python-bsblan = callPackage ../development/python-modules/python-bsblan { };
 
@@ -12131,17 +12131,6 @@ self: super: with self; {
   pytzdata = callPackage ../development/python-modules/pytzdata { };
 
   pyu2f = callPackage ../development/python-modules/pyu2f { };
-
-  pyuavcan = callPackage
-    ../development/python-modules/pyuavcan { # this version pinpoint to anold version is necessary due to a regression
-      nunavut = self.nunavut.overridePythonAttrs (old: rec {
-        version = "0.2.3";
-        src = old.src.override {
-          inherit version;
-          hash = "sha256-pZtRUvQMpqrnW5+8umsRcNhF9NJZJZ3I9yILVglMCnU=";
-        };
-      });
-    };
 
   pyudev = callPackage ../development/python-modules/pyudev {
     inherit (pkgs) udev;
