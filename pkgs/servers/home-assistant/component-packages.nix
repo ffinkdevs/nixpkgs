@@ -568,7 +568,8 @@
     "brel_home" = ps: with ps; [
     ];
     "bring" = ps: with ps; [
-    ]; # missing inputs: python-bring-api
+      python-bring-api
+    ];
     "broadlink" = ps: with ps; [
       broadlink
     ];
@@ -3268,9 +3269,10 @@
       aiohttp-fast-url-dispatcher
       aiohttp-zlib-ng
       fnv-hash-fast
+      myuplink
       psutil-home-assistant
       sqlalchemy
-    ]; # missing inputs: myuplink
+    ];
     "nad" = ps: with ps; [
       nad-receiver
     ];
@@ -5895,6 +5897,7 @@
     "bond"
     "bosch_shc"
     "braviatv"
+    "bring"
     "broadlink"
     "brother"
     "brottsplatskartan"
@@ -6248,6 +6251,7 @@
     "mysensors"
     "mystrom"
     "mythicbeastsdns"
+    "myuplink"
     "nam"
     "namecheapdns"
     "nanoleaf"
