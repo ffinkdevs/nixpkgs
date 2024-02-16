@@ -4924,8 +4924,6 @@ with pkgs;
 
   crunch = callPackage ../tools/security/crunch { };
 
-  crunchy-cli = callPackage ../applications/video/crunchy-cli { };
-
   crudini = callPackage ../tools/misc/crudini { };
 
   csv2odf = callPackage ../applications/office/csv2odf { };
@@ -17213,7 +17211,6 @@ with pkgs;
   tbb = tbb_2020_3;
 
   terra = callPackage ../development/compilers/terra {
-    llvmPackages = llvmPackages_11;
     inherit (darwin) libobjc;
     inherit (darwin.apple_sdk.frameworks) Cocoa Foundation;
   };
@@ -18141,8 +18138,6 @@ with pkgs;
   actionlint = callPackage ../development/tools/analysis/actionlint { };
 
   adreaper = callPackage ../tools/security/adreaper { };
-
-  adtool = callPackage ../tools/admin/adtool { };
 
   aeron = callPackage ../servers/aeron { };
 
@@ -35089,7 +35084,7 @@ with pkgs;
 
   spice-vdagent = callPackage ../applications/virtualization/spice-vdagent { };
 
-  spike = pin-to-gcc12-if-gcc13 (callPackage ../applications/virtualization/spike { });
+  spike = callPackage ../applications/virtualization/spike { };
 
   tensorman = callPackage ../tools/misc/tensorman { };
 
@@ -36417,14 +36412,6 @@ with pkgs;
 
   x-create-mouse-void = callPackage ../applications/window-managers/x-create-mouse-void { };
 
-  picom = callPackage ../applications/window-managers/picom { };
-
-  picom-allusive = callPackage ../applications/window-managers/picom/picom-allusive.nix { };
-
-  picom-jonaburg = callPackage ../applications/window-managers/picom/picom-jonaburg.nix { };
-
-  picom-next = callPackage ../applications/window-managers/picom/picom-next.nix { };
-
   xd = callPackage ../applications/networking/p2p/xd { };
 
   xdaliclock = callPackage ../tools/misc/xdaliclock { };
@@ -36505,7 +36492,9 @@ with pkgs;
 
   apvlv = callPackage ../applications/misc/apvlv { };
 
-  xpdf = libsForQt5.callPackage ../applications/misc/xpdf { };
+  xpdf = libsForQt5.callPackage ../applications/misc/xpdf {
+    stdenv = if stdenv.isDarwin then darwin.apple_sdk_11_0.stdenv else stdenv;
+  };
 
   xplugd = callPackage ../tools/X11/xplugd { };
 
