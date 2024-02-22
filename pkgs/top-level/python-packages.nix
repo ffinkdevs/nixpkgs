@@ -803,6 +803,8 @@ self: super: with self; {
 
   asterisk-mbox = callPackage ../development/python-modules/asterisk-mbox { };
 
+  asteroid-filterbanks = callPackage ../development/python-modules/asteroid-filterbanks { };
+
   asteval = callPackage ../development/python-modules/asteval { };
 
   astor = callPackage ../development/python-modules/astor { };
@@ -2705,6 +2707,8 @@ self: super: with self; {
   datrie = callPackage ../development/python-modules/datrie { };
 
   dawg-python = callPackage ../development/python-modules/dawg-python { };
+
+  dazl = callPackage ../development/python-modules/dazl { };
 
   dbf = callPackage ../development/python-modules/dbf { };
 
@@ -5996,6 +6000,8 @@ self: super: with self; {
   jstyleson = callPackage ../development/python-modules/jstyleson { };
 
   jug = callPackage ../development/python-modules/jug { };
+
+  julius = callPackage ../development/python-modules/julius { };
 
   junitparser = callPackage ../development/python-modules/junitparser { };
 
@@ -9917,6 +9923,8 @@ self: super: with self; {
 
   primecountpy = callPackage ../development/python-modules/primecountpy { };
 
+  primepy = callPackage ../development/python-modules/primepy { };
+
   primer3 = callPackage ../development/python-modules/primer3 { };
 
   priority = callPackage ../development/python-modules/priority { };
@@ -10172,6 +10180,16 @@ self: super: with self; {
   pyaml = callPackage ../development/python-modules/pyaml { };
 
   pyannotate = callPackage ../development/python-modules/pyannotate { };
+
+  pyannote-audio = callPackage ../development/python-modules/pyannote-audio { };
+
+  pyannote-pipeline = callPackage ../development/python-modules/pyannote-pipeline { };
+
+  pyannote-metrics = callPackage ../development/python-modules/pyannote-metrics { };
+
+  pyannote-database = callPackage ../development/python-modules/pyannote-database { };
+
+  pyannote-core = callPackage ../development/python-modules/pyannote-core { };
 
   pyarlo = callPackage ../development/python-modules/pyarlo { };
 
@@ -11301,6 +11319,20 @@ self: super: with self; {
   pyscard = callPackage ../development/python-modules/pyscard {
     inherit (pkgs.darwin.apple_sdk.frameworks) PCSC;
   };
+
+  pyscaffold = callPackage ../development/python-modules/pyscaffold { };
+
+  pyscaffoldext-cookiecutter = callPackage ../development/python-modules/pyscaffoldext-cookiecutter { };
+
+  pyscaffoldext-custom-extension = callPackage ../development/python-modules/pyscaffoldext-custom-extension { };
+
+  pyscaffoldext-django = callPackage ../development/python-modules/pyscaffoldext-django { };
+
+  pyscaffoldext-dsproject = callPackage ../development/python-modules/pyscaffoldext-dsproject { };
+
+  pyscaffoldext-markdown = callPackage ../development/python-modules/pyscaffoldext-markdown { };
+
+  pyscaffoldext-travis = callPackage ../development/python-modules/pyscaffoldext-travis { };
 
   pyscf = callPackage ../development/python-modules/pyscf { };
 
@@ -12589,6 +12621,8 @@ self: super: with self; {
   reedsolo = callPackage ../development/python-modules/reedsolo { };
 
   referencing = callPackage ../development/python-modules/referencing { };
+
+  refery = callPackage ../development/python-modules/refery { };
 
   reflink = callPackage ../development/python-modules/reflink { };
 
@@ -14585,6 +14619,8 @@ self: super: with self; {
 
   tlslite-ng = callPackage ../development/python-modules/tlslite-ng { };
 
+  tls-client = callPackage ../development/python-modules/tls-client { };
+
   tls-parser = callPackage ../development/python-modules/tls-parser { };
 
   tlv8 = callPackage ../development/python-modules/tlv8 { };
@@ -14631,6 +14667,10 @@ self: super: with self; {
     inherit (pkgs.darwin.apple_sdk.frameworks) Accelerate CoreServices;
     inherit (pkgs.darwin) libobjc;
   };
+
+  torch-audiomentations = callPackage ../development/python-modules/torch-audiomentations { };
+
+  torch-pitch-shift = callPackage ../development/python-modules/torch-pitch-shift { };
 
   torch-bin = callPackage ../development/python-modules/torch/bin.nix {
     openai-triton = self.openai-triton-bin;
@@ -16261,6 +16301,8 @@ self: super: with self; {
   wheezy-captcha = callPackage ../development/python-modules/wheezy-captcha { };
 
   wheezy-template = callPackage ../development/python-modules/wheezy-template { };
+
+  whenever = callPackage ../development/python-modules/whenever { };
 
   whichcraft = callPackage ../development/python-modules/whichcraft { };
 

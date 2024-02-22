@@ -8642,6 +8642,7 @@ with pkgs;
   };
 
   gnucap = callPackage ../applications/science/electronics/gnucap { };
+  gnucap-full = gnucap.withPlugins(p: [ p.verilog ]);
 
   gnu-cim = callPackage ../development/compilers/gnu-cim { };
 
@@ -11652,6 +11653,8 @@ with pkgs;
   openvpn-auth-ldap = callPackage ../tools/networking/openvpn/openvpn-auth-ldap.nix {
     stdenv = clangStdenv;
   };
+
+  namespaced-openvpn = python3Packages.callPackage ../tools/networking/namespaced-openvpn { };
 
   oq = callPackage ../development/tools/oq { };
 
@@ -16293,6 +16296,8 @@ with pkgs;
 
   go-junit-report = callPackage ../development/tools/go-junit-report { };
 
+  gocover-cobertura = callPackage ../development/tools/gocover-cobertura { };
+
   gobang = callPackage ../development/tools/database/gobang {
     inherit (darwin.apple_sdk.frameworks) CoreFoundation Security SystemConfiguration;
   };
@@ -16870,7 +16875,7 @@ with pkgs;
   cargo-all-features = callPackage ../development/tools/rust/cargo-all-features { };
   cargo-apk = callPackage ../development/tools/rust/cargo-apk { };
   cargo-audit = callPackage ../development/tools/rust/cargo-audit {
-    inherit (darwin.apple_sdk.frameworks) Security;
+    inherit (darwin.apple_sdk.frameworks) Security SystemConfiguration;
   };
   cargo-benchcmp = callPackage ../development/tools/rust/cargo-benchcmp { };
   cargo-binstall = callPackage ../development/tools/rust/cargo-binstall { };
@@ -20773,8 +20778,6 @@ with pkgs;
 
   cointop = callPackage ../applications/misc/cointop { };
 
-  collada-dom = callPackage ../development/libraries/collada-dom { };
-
   coloquinte = callPackage ../development/libraries/science/electronics/coloquinte { };
 
   cog = callPackage ../development/web/cog { };
@@ -21964,42 +21967,22 @@ with pkgs;
 
   hyperscan = callPackage ../development/libraries/hyperscan { };
 
-  icu58 = callPackage (import ../development/libraries/icu/58.nix fetchurl) ({
-    nativeBuildRoot = buildPackages.icu58.override { buildRootOnly = true; };
-  });
-  icu60 = callPackage ../development/libraries/icu/60.nix ({
-    nativeBuildRoot = buildPackages.icu60.override { buildRootOnly = true; };
-  });
-  icu63 = callPackage ../development/libraries/icu/63.nix ({
-    nativeBuildRoot = buildPackages.icu63.override { buildRootOnly = true; };
-  });
-  icu64 = callPackage ../development/libraries/icu/64.nix ({
-    nativeBuildRoot = buildPackages.icu64.override { buildRootOnly = true; };
-  });
-  icu66 = callPackage ../development/libraries/icu/66.nix ({
-    nativeBuildRoot = buildPackages.icu66.override { buildRootOnly = true; };
-  });
-  icu67 = callPackage ../development/libraries/icu/67.nix ({
-    nativeBuildRoot = buildPackages.icu67.override { buildRootOnly = true; };
-  });
-  icu68 = callPackage ../development/libraries/icu/68.nix ({
-    nativeBuildRoot = buildPackages.icu68.override { buildRootOnly = true; };
-  });
-  icu69 = callPackage ../development/libraries/icu/69.nix ({
-    nativeBuildRoot = buildPackages.icu69.override { buildRootOnly = true; };
-  });
-  icu70 = callPackage ../development/libraries/icu/70.nix ({
-    nativeBuildRoot = buildPackages.icu70.override { buildRootOnly = true; };
-  });
-  icu71 = callPackage ../development/libraries/icu/71.nix ({
-    nativeBuildRoot = buildPackages.icu71.override { buildRootOnly = true; };
-  });
-  icu72 = callPackage ../development/libraries/icu/72.nix ({
-    nativeBuildRoot = buildPackages.icu72.override { buildRootOnly = true; };
-  });
-  icu73 = callPackage ../development/libraries/icu/73.nix ({
-    nativeBuildRoot = buildPackages.icu72.override { buildRootOnly = true; };
-  });
+  icu-versions = callPackages ../development/libraries/icu { };
+  inherit (icu-versions)
+    icu58
+    icu60
+    icu63
+    icu64
+    icu66
+    icu67
+    icu68
+    icu69
+    icu70
+    icu71
+    icu72
+    icu73
+    icu74
+  ;
 
   icu = icu73;
 
@@ -31028,8 +31011,6 @@ with pkgs;
   drumgizmo = callPackage ../applications/audio/drumgizmo { };
 
   dsf2flac = callPackage ../applications/audio/dsf2flac { };
-
-  dunst = callPackage ../applications/misc/dunst { };
 
   dust = callPackage ../by-name/du/dust/package.nix {
     inherit (darwin.apple_sdk_11_0.frameworks) AppKit;
