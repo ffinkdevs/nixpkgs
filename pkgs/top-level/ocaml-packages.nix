@@ -1134,8 +1134,6 @@ let
 
     mirage-flow-unix = callPackage ../development/ocaml-modules/mirage-flow/unix.nix { };
 
-    mirage-fs = callPackage ../development/ocaml-modules/mirage-fs { };
-
     mirage-kv = callPackage ../development/ocaml-modules/mirage-kv { };
 
     mirage-logs = callPackage ../development/ocaml-modules/mirage-logs { };
@@ -1814,6 +1812,8 @@ let
     twt = callPackage ../development/ocaml-modules/twt { };
 
     type_eq = callPackage ../development/ocaml-modules/type_eq { };
+
+    type_id = callPackage ../development/ocaml-modules/type_id { };
 
     tyxml = callPackage ../development/ocaml-modules/tyxml { };
 

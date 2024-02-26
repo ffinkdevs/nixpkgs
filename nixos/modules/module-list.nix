@@ -133,6 +133,7 @@
   ./misc/meta.nix
   ./misc/nixops-autoluks.nix
   ./misc/nixpkgs.nix
+  ./misc/nixpkgs-flake.nix
   ./misc/passthru.nix
   ./misc/version.nix
   ./misc/wordlist.nix
@@ -900,7 +901,6 @@
   ./services/networking/autossh.nix
   ./services/networking/avahi-daemon.nix
   ./services/networking/babeld.nix
-  ./services/networking/bee-clef.nix
   ./services/networking/bee.nix
   ./services/networking/biboumi.nix
   ./services/networking/bind.nix
