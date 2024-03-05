@@ -331,6 +331,8 @@ self: super: with self; {
 
   aiooss2 = callPackage ../development/python-modules/aiooss2 { };
 
+  aiooui = callPackage ../development/python-modules/aiooui { };
+
   aiopegelonline = callPackage ../development/python-modules/aiopegelonline { };
 
   aiopg = callPackage ../development/python-modules/aiopg { };
@@ -1310,6 +1312,8 @@ self: super: with self; {
 
   paddlepaddle = callPackage ../development/python-modules/paddlepaddle { };
 
+  pueblo = callPackage ../development/python-modules/pueblo { };
+
   pulumi = callPackage ../development/python-modules/pulumi { inherit (pkgs) pulumi; };
 
   pulumi-aws = callPackage ../development/python-modules/pulumi-aws { };
@@ -1933,7 +1937,7 @@ self: super: with self; {
 
   command_runner = callPackage ../development/python-modules/command_runner { };
 
-  connect-box = callPackage ../development/python-modules/connect_box { };
+  connect-box = callPackage ../development/python-modules/connect-box { };
 
   connection-pool = callPackage ../development/python-modules/connection-pool { };
 
@@ -2060,6 +2064,10 @@ self: super: with self; {
   chirpstack-api = callPackage ../development/python-modules/chirpstack-api { };
 
   chispa = callPackage ../development/python-modules/chispa { };
+
+  chroma-hnswlib = callPackage ../development/python-modules/chroma-hnswlib { };
+
+  chromadb = callPackage ../development/python-modules/chromadb { };
 
   chromaprint = callPackage ../development/python-modules/chromaprint { };
 
@@ -2922,6 +2930,8 @@ self: super: with self; {
 
   dirty-equals = callPackage ../development/python-modules/dirty-equals { };
 
+  dirtyjson = callPackage ../development/python-modules/dirtyjson { };
+
   discid = callPackage ../development/python-modules/discid { };
 
   discogs-client = callPackage ../development/python-modules/discogs-client { };
@@ -3493,6 +3503,8 @@ self: super: with self; {
   duckduckgo-search = callPackage ../development/python-modules/duckduckgo-search { };
 
   duct-py = callPackage ../development/python-modules/duct-py { };
+
+  duden = callPackage ../development/python-modules/duden { };
 
   duecredit = callPackage ../development/python-modules/duecredit { };
 
@@ -5660,6 +5672,8 @@ self: super: with self; {
 
   intensity-normalization = callPackage ../development/python-modules/intensity-normalization { };
 
+  interegular = callPackage ../development/python-modules/interegular { };
+
   interface-meta = callPackage ../development/python-modules/interface-meta { };
 
   internetarchive = callPackage ../development/python-modules/internetarchive { };
@@ -6284,6 +6298,8 @@ self: super: with self; {
 
   langchain-core = callPackage ../development/python-modules/langchain-core { };
 
+  langchain-text-splitters = callPackage ../development/python-modules/langchain-text-splitters { };
+
   langcodes = callPackage ../development/python-modules/langcodes { };
 
   langdetect = callPackage ../development/python-modules/langdetect { };
@@ -6669,6 +6685,46 @@ self: super: with self; {
   livereload = callPackage ../development/python-modules/livereload { };
 
   lizard = callPackage ../development/python-modules/lizard { };
+
+  llama-index = callPackage ../development/python-modules/llama-index { };
+
+  llama-index-agent-openai = callPackage ../development/python-modules/llama-index-agent-openai { };
+
+  llama-index-cli = callPackage ../development/python-modules/llama-index-cli { };
+
+  llama-index-core = callPackage ../development/python-modules/llama-index-core { };
+
+  llama-index-embeddings-gemini = callPackage ../development/python-modules/llama-index-embeddings-gemini { };
+
+  llama-index-embeddings-google = callPackage ../development/python-modules/llama-index-embeddings-google { };
+
+  llama-index-embeddings-openai = callPackage ../development/python-modules/llama-index-embeddings-openai { };
+
+  llama-index-indices-managed-llama-cloud = callPackage ../development/python-modules/llama-index-indices-managed-llama-cloud { };
+
+  llama-index-legacy = callPackage ../development/python-modules/llama-index-legacy { };
+
+  llama-index-llms-openai = callPackage ../development/python-modules/llama-index-llms-openai { };
+
+  llama-index-multi-modal-llms-openai = callPackage ../development/python-modules/llama-index-multi-modal-llms-openai { };
+
+  llama-index-program-openai = callPackage ../development/python-modules/llama-index-program-openai { };
+
+  llama-index-question-gen-openai = callPackage ../development/python-modules/llama-index-question-gen-openai { };
+
+  llama-index-readers-file = callPackage ../development/python-modules/llama-index-readers-file { };
+
+  llama-index-readers-json = callPackage ../development/python-modules/llama-index-readers-json { };
+
+  llama-index-readers-llama-parse = callPackage ../development/python-modules/llama-index-readers-llama-parse { };
+
+  llama-index-readers-weather = callPackage ../development/python-modules/llama-index-readers-weather { };
+
+  llama-index-vector-stores-chroma = callPackage ../development/python-modules/llama-index-vector-stores-chroma { };
+
+  llama-parse = callPackage ../development/python-modules/llama-parse { };
+
+  llamaindex-py-client = callPackage ../development/python-modules/llamaindex-py-client { };
 
   llfuse = callPackage ../development/python-modules/llfuse {
     inherit (pkgs) fuse;
@@ -7298,7 +7354,7 @@ self: super: with self; {
 
   moderngl = callPackage ../development/python-modules/moderngl { };
 
-  moderngl-window = callPackage ../development/python-modules/moderngl_window { };
+  moderngl-window = callPackage ../development/python-modules/moderngl-window { };
 
   modestmaps = callPackage ../development/python-modules/modestmaps { };
 
@@ -8887,6 +8943,8 @@ self: super: with self; {
 
   opentelemetry-instrumentation-django = callPackage ../development/python-modules/opentelemetry-instrumentation-django { };
 
+  opentelemetry-instrumentation-fastapi = callPackage ../development/python-modules/opentelemetry-instrumentation-fastapi { };
+
   opentelemetry-instrumentation-flask = callPackage ../development/python-modules/opentelemetry-instrumentation-flask { };
 
   opentelemetry-instrumentation-grpc = callPackage ../development/python-modules/opentelemetry-instrumentation-grpc { };
@@ -9363,6 +9421,8 @@ self: super: with self; {
     alembic = pkgs.alembic;
   };
 
+  outlines = callPackage ../development/python-modules/outlines { };
+
   overly = callPackage ../development/python-modules/overly { };
 
   overpy = callPackage ../development/python-modules/overpy { };
@@ -9748,6 +9808,8 @@ self: super: with self; {
 
   python-tado = callPackage ../development/python-modules/python-tado { };
 
+  python-idzip = callPackage ../development/python-modules/python-idzip { };
+
   pythonfinder = callPackage ../development/python-modules/pythonfinder { };
 
   pytomorrowio = callPackage ../development/python-modules/pytomorrowio { };
@@ -10088,6 +10150,8 @@ self: super: with self; {
   pudb = callPackage ../development/python-modules/pudb { };
 
   pulp = callPackage ../development/python-modules/pulp { };
+
+  pulsar-client = callPackage ../development/python-modules/pulsar-client { };
 
   pulsectl-asyncio = callPackage ../development/python-modules/pulsectl-asyncio { };
 
@@ -14034,6 +14098,8 @@ self: super: with self; {
 
   statsmodels = callPackage ../development/python-modules/statsmodels { };
 
+  std-uritemplate = callPackage ../development/python-modules/std-uritemplate { };
+
   std2 = callPackage ../development/python-modules/std2 { };
 
   stdiomask = callPackage ../development/python-modules/stdiomask { };
@@ -14588,6 +14654,8 @@ self: super: with self; {
   thriftpy2 = callPackage ../development/python-modules/thriftpy2 { };
 
   throttler = callPackage ../development/python-modules/throttler { };
+
+  thttp = callPackage ../development/python-modules/thttp { };
 
   tkinter = callPackage ../development/python-modules/tkinter {
     py = python.override { x11Support=true; };
@@ -15748,6 +15816,8 @@ self: super: with self; {
 
   types-ipaddress = callPackage ../development/python-modules/types-ipaddress { };
 
+  types-lxml = callPackage ../development/python-modules/types-lxml { };
+
   types-markdown = callPackage ../development/python-modules/types-markdown { };
 
   types-mock = callPackage ../development/python-modules/types-mock { };
@@ -16085,6 +16155,8 @@ self: super: with self; {
   velbus-aio = callPackage ../development/python-modules/velbus-aio { };
 
   verboselogs = callPackage ../development/python-modules/verboselogs { };
+
+  verlib2 = callPackage ../development/python-modules/verlib2 { };
 
   versioneer = callPackage ../development/python-modules/versioneer { };
 

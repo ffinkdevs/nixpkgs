@@ -10,6 +10,11 @@
 
   inherit (pkgs) kdePackages;
   inherit (lib) literalExpression mkDefault mkIf mkOption mkPackageOptionMD types;
+
+  activationScript = ''
+    # will be rebuilt automatically
+    rm -fv $HOME/.cache/ksycoca*
+  '';
 in {
   options = {
     services.xserver.desktopManager.plasma6 = {
@@ -127,6 +132,7 @@ in {
 
         spectacle
         systemsettings
+        kcmutils
 
         # Gear
         baloo
@@ -272,5 +278,14 @@ in {
     };
 
     programs.kdeconnect.package = kdePackages.kdeconnect-kde;
+
+    # FIXME: ugly hack. See #292632 for details.
+    system.userActivationScripts.rebuildSycoca = activationScript;
+    systemd.user.services.nixos-rebuild-sycoca = {
+      description = "Rebuild KDE system configuration cache";
+      wantedBy = [ "graphical-session-pre.target" ];
+      serviceConfig.Type = "oneshot";
+      script = activationScript;
+    };
   };
 }
