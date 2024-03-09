@@ -161,7 +161,9 @@ mapAliases ({
   chrome-gnome-shell = gnome-browser-connector; # Added 2022-07-27
   chromiumBeta = throw "'chromiumBeta' has been removed due to the lack of maintenance in nixpkgs. Consider using 'chromium' instead."; # Added 2023-10-18
   chromiumDev = throw "'chromiumDev' has been removed due to the lack of maintenance in nixpkgs. Consider using 'chromium' instead."; # Added 2023-10-18
-  citra = citra-nightly; # added 2022-05-17
+  citra = throw "citra has been removed from nixpkgs, as it has been taken down upstream"; # added 2024-03-04
+  citra-nightly = throw "citra-nightly has been removed from nixpkgs, as it has been taken down upstream"; # added 2024-03-04
+  citra-canary = throw "citra-canary has been removed from nixpkgs, as it has been taken down upstream"; # added 2024-03-04
   clang-ocl = throw "'clang-ocl' has been replaced with 'rocmPackages.clang-ocl'"; # Added 2023-10-08
   inherit (libsForQt5.mauiPackages) clip; # added 2022-05-17
   collada-dom = opencollada; # added 2024-02-21
@@ -221,6 +223,7 @@ mapAliases ({
   demjson = with python3Packages; toPythonApplication demjson; # Added 2022-01-18
   dep = throw "'dep' has been removed, because it is deprecated and archived in favor of Go modules"; # Added 2023-12-26
   devserver = throw "'devserver' has been removed in favor of 'miniserve' or other alternatives"; # Added 2023-01-13
+  dfeet = throw "'dfeet' has been removed because it is archived upstream. Please use 'd-spy' instead"; # Added 2024-03-07
   dhcp = throw "dhcp (ISC DHCP) has been removed from nixpkgs, because it reached its end of life"; # Added 2023-04-04
   dnnl = oneDNN; # Added 2020-04-22
   docker-machine = throw "'docker-machine' has been removed, because the upstream project was archived"; # Added 2023-12-27
@@ -780,8 +783,12 @@ mapAliases ({
   nix_2_4 = nixVersions.nix_2_4;
   nix_2_5 = nixVersions.nix_2_5;
   nix_2_6 = nixVersions.nix_2_6;
-  nixops = throw "'nixops' has been removed. Please use 'nixops_unstable' for the time being."; # Added 2023-10-26
+  nixops = throw "'nixops' has been removed. Please use 'nixops_unstable_minimal' for the time being. E.g. nixops_unstable_minimal.withPlugins (ps: [ ps.nixops-gce ])"; # Added 2023-10-26
   nixopsUnstable = nixops_unstable; # Added 2022-03-03
+
+  # When the nixops_unstable alias is removed, nixops_unstable_minimal can be renamed to nixops_unstable.
+  nixops_unstable = throw "nixops_unstable has been replaced. Please use for example 'nixops_unstable_minimal.withPlugins (ps: [ ps.nixops-gce ps.nixops-encrypted-links ])' instead"; # Added 2024-02-28
+
   nixosTest = testers.nixosTest; # Added 2022-05-05
   nmap-unfree = nmap; # Added 2021-04-06
   nodejs_14 = throw "nodejs_14 has been removed as it is EOL."; # Added 2023-10-30
@@ -959,6 +966,7 @@ mapAliases ({
   restya-board = throw "'restya-board' has been removed from nixpkgs, as it was broken and unmaintained"; # Added 2024-01-22
   retdec-full = throw "'retdec-full' is no longer needed, please use 'retdec'"; # Added 2024-02-05
   retroshare06 = retroshare;
+  ricochet = throw "ricochet has been deprecated in favor of ricochet-refresh"; # Added 2024-02-26
   rigsofrods = rigsofrods-bin; # Added 2023-03-22
   ring-daemon = jami-daemon; # Added 2021-10-26
   rockbox_utility = rockbox-utility; # Added 2022-03-17
@@ -1092,6 +1100,7 @@ mapAliases ({
   swift-im = throw "swift-im has been removed as it is unmaintained and depends on deprecated Python 2 / Qt WebKit"; # Added 2023-01-06
   swtpm-tpm2 = swtpm; # Added 2021-02-26
   syncthing-cli = syncthing; # Added 2021-04-06
+  syncthingtray-qt6 = syncthingtray; # Added 2024-03-06
 
   ### T ###
 
@@ -1220,10 +1229,11 @@ mapAliases ({
   yafaray-core = libyafaray; # Added 2022-09-23
   yarn2nix-moretea-openssl_1_1 = throw "'yarn2nix-moretea-openssl_1_1' has been removed."; # Added 2023-02-04
   yubikey-manager4 = throw "yubikey-manager4 has been removed, since it is no longer required by yubikey-manager-qt. Please update to yubikey-manager."; # Added 2024-01-14
-  yuzu-ea = yuzuPackages.early-access; # Added 2022-08-18
-  yuzu-early-access = yuzuPackages.early-access; # Added 2023-12-29
-  yuzu = yuzuPackages.mainline; # Added 2021-01-25
-  yuzu-mainline = yuzuPackages.mainline; # Added 2023-12-29
+  yuzu-ea = throw "yuzu-ea has been removed from nixpkgs, as it has been taken down upstream"; # Added 2024-03-04
+  yuzu-early-access = throw "yuzu-early-access has been removed from nixpkgs, as it has been taken down upstream"; # Added 2024-03-04
+  yuzu = throw "yuzu has been removed from nixpkgs, as it has been taken down upstream"; # Added 2024-03-04
+  yuzu-mainline = throw "yuzu-mainline has been removed from nixpkgs, as it has been taken down upstream"; # Added 2024-03-04
+  yuzuPackages = throw "yuzuPackages has been removed from nixpkgs, as it has been taken down upstream"; # Added 2024-03-04
 
   ### Z ###
 
