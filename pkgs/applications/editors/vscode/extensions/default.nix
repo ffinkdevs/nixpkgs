@@ -409,8 +409,8 @@ let
         mktplcRef = {
           name = "vscode-neovim";
           publisher = "asvetliakov";
-          version = "1.5.0";
-          sha256 = "1glad9xmzq58jc7js8afjmqrxgd3rqm80fk528wv5kqcmn90bgk3";
+          version = "1.7.1";
+          sha256 = "0ib4sjk7r370ckvaqb4yzgy7csy8pli9z2jhibhhwwcq2748ah4q";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/asvetliakov.vscode-neovim/changelog";
@@ -1867,7 +1867,7 @@ let
           publisher = "github";
           name = "copilot-chat";
           version = "0.14.2024030801"; # compatible with vscode >= 1.87
-          sha256 = "sha256-4ArWVFko2T6ze/i+HTdXAioWC7euWCycDsQxFTrEtUw=";
+          sha256 = "sha256-v9RS+pEEQzq2t0EY/gVTTfIwRlGmIuIq2qCockDpsn8=";
         };
         meta = {
           description = "GitHub Copilot Chat is a companion extension to GitHub Copilot that houses experimental chat features";
@@ -3325,6 +3325,23 @@ let
           description = "VSCode extension for syntax highlighting, formatting, auto-completion, jump-to-definition and linting for .prisma files";
           downloadPage = "https://marketplace.visualstudio.com/items?itemName=Prisma.prisma";
           homepage = "https://github.com/prisma/language-tools";
+          license = lib.licenses.asl20;
+          maintainers = [ ];
+        };
+      };
+
+      pythagoratechnologies.gpt-pilot-vs-code = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "gpt-pilot-vs-code";
+          publisher = "PythagoraTechnologies";
+          version = "0.1.7";
+          sha256 = "sha256-EUddanrB6h5cn3pK2JTkEPffVb06ZMI2qDPh0kFfJjA=";
+        };
+        meta = {
+          changelog = "https://marketplace.visualstudio.com/items/PythagoraTechnologies.gpt-pilot-vs-code/changelog";
+          description = "A VSCode extension for assisting the developer to code, debug, build applications using LLMs/AI";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=PythagoraTechnologies.gpt-pilot-vs-code";
+          homepage = "https://github.com/Pythagora-io/gpt-pilot/";
           license = lib.licenses.asl20;
           maintainers = [ ];
         };
