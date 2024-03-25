@@ -669,7 +669,7 @@
   };
 
   hardhat-nvim = super.hardhat-nvim.overrideAttrs {
-    dependencies = with self; [ plenary-nvim ];
+    dependencies = with self; [ overseer-nvim plenary-nvim ];
   };
 
   harpoon = super.harpoon.overrideAttrs {
@@ -953,6 +953,10 @@
 
   neotest-gradle = super.neotest-gradle.overrideAttrs {
     dependencies = with self; [ plenary-nvim ];
+  };
+
+  neotest-gtest = super.neotest-gtest.overrideAttrs {
+    dependencies = [ self.plenary-nvim ];
   };
 
   neo-tree-nvim = super.neo-tree-nvim.overrideAttrs {
