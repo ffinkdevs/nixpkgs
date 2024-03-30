@@ -607,6 +607,7 @@ mapAliases ({
   libcap_pam = throw "'libcap_pam' has been replaced with 'libcap'"; # Converted to throw 2023-09-10
   libclc = llvmPackages_latest.libclc; # Added 2023-10-28
   libcxxabi = throw "'libcxxabi' was merged into 'libcxx'"; # Converted to throw 2024-03-08
+  libdwarf_20210528 = throw "'libdwarf_20210528' has been removed because it is not used in nixpkgs, move to libdwarf"; # Added 2024-03-23
   libgme = game-music-emu; # Added 2022-07-20
   libgpgerror = libgpg-error; # Added 2021-09-04
   libheimdal = heimdal; # Added 2022-11-18
@@ -1194,7 +1195,7 @@ mapAliases ({
   tdesktop = telegram-desktop; # Added 2023-04-07
   telegram-cli = throw "telegram-cli was removed because it was broken and abandoned upstream"; # Added 2023-07-28
   teleport_11 = throw "teleport 11 has been removed as it is EOL. Please upgrade to Teleport 12 or later"; # Added 2023-11-27
-  teleprompter = throw "teleprompter has been removed. reason: upstream dead and does not work with recent electron versions"; # Adedd 2024-03-14
+  teleprompter = throw "teleprompter has been removed. reason: upstream dead and does not work with recent electron versions"; # Added 2024-03-14
   tensile = throw "'tensile' has been replaced with 'rocmPackages.tensile'"; # Added 2023-10-08
   testVersion = testers.testVersion; # Added 2022-04-20
   tfplugindocs = terraform-plugin-docs; # Added 2023-11-01

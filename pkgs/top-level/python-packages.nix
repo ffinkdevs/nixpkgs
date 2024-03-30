@@ -783,6 +783,8 @@ self: super: with self; {
 
   asgi-csrf = callPackage ../development/python-modules/asgi-csrf { };
 
+  asgi-lifespan = callPackage ../development/python-modules/asgi-lifespan { };
+
   asgi-logger = callPackage ../development/python-modules/asgi-logger { };
 
   asgineer = callPackage ../development/python-modules/asgineer { };
@@ -1389,6 +1391,8 @@ self: super: with self; {
   basemap = callPackage ../development/python-modules/basemap { };
 
   basemap-data = callPackage ../development/python-modules/basemap-data { };
+
+  bases = callPackage ../development/python-modules/bases { };
 
   bash-kernel = callPackage ../development/python-modules/bash-kernel { };
 
@@ -6768,13 +6772,27 @@ self: super: with self; {
 
   llama-index-embeddings-google = callPackage ../development/python-modules/llama-index-embeddings-google { };
 
+  llama-index-embeddings-huggingface = callPackage ../development/python-modules/llama-index-embeddings-huggingface { };
+
+  llama-index-embeddings-ollama = callPackage ../development/python-modules/llama-index-embeddings-ollama { };
+
   llama-index-embeddings-openai = callPackage ../development/python-modules/llama-index-embeddings-openai { };
+
+  llama-index-graph-stores-nebula = callPackage ../development/python-modules/llama-index-graph-stores-nebula { };
+
+  llama-index-graph-stores-neo4j = callPackage ../development/python-modules/llama-index-graph-stores-neo4j { };
+
+  llama-index-graph-stores-neptune = callPackage ../development/python-modules/llama-index-graph-stores-neptune { };
 
   llama-index-indices-managed-llama-cloud = callPackage ../development/python-modules/llama-index-indices-managed-llama-cloud { };
 
   llama-index-legacy = callPackage ../development/python-modules/llama-index-legacy { };
 
+  llama-index-llms-ollama = callPackage ../development/python-modules/llama-index-llms-ollama { };
+
   llama-index-llms-openai = callPackage ../development/python-modules/llama-index-llms-openai { };
+
+  llama-index-llms-openai-like = callPackage ../development/python-modules/llama-index-llms-openai-like { };
 
   llama-index-multi-modal-llms-openai = callPackage ../development/python-modules/llama-index-multi-modal-llms-openai { };
 
@@ -6799,6 +6817,12 @@ self: super: with self; {
   llama-index-readers-weather = callPackage ../development/python-modules/llama-index-readers-weather { };
 
   llama-index-vector-stores-chroma = callPackage ../development/python-modules/llama-index-vector-stores-chroma { };
+
+  llama-index-vector-stores-google = callPackage ../development/python-modules/llama-index-vector-stores-google { };
+
+  llama-index-vector-stores-postgres = callPackage ../development/python-modules/llama-index-vector-stores-postgres { };
+
+  llama-index-vector-stores-qdrant = callPackage ../development/python-modules/llama-index-vector-stores-qdrant { };
 
   llama-parse = callPackage ../development/python-modules/llama-parse { };
 
@@ -7356,6 +7380,7 @@ self: super: with self; {
   mizani = callPackage ../development/python-modules/mizani { };
 
   mkdocs = callPackage ../development/python-modules/mkdocs { };
+  mkdocs-autolinks-plugin = callPackage ../development/python-modules/mkdocs-autolinks-plugin { };
   mkdocs-autorefs = callPackage ../development/python-modules/mkdocs-autorefs { };
   mkdocs-drawio-exporter = callPackage ../development/python-modules/mkdocs-drawio-exporter { };
   mkdocs-exclude = callPackage ../development/python-modules/mkdocs-exclude { };
@@ -8507,6 +8532,8 @@ self: super: with self; {
 
   ndtypes = callPackage ../development/python-modules/ndtypes { };
 
+  nebula3-python = callPackage ../development/python-modules/nebula3-python { };
+
   nengo = callPackage ../development/python-modules/nengo { };
 
   neo = callPackage ../development/python-modules/neo { };
@@ -9076,7 +9103,7 @@ self: super: with self; {
 
   openvino = callPackage ../development/python-modules/openvino {
     openvino-native = pkgs.openvino.override {
-      inherit python;
+      python3Packages = self;
     };
   };
 
@@ -14203,6 +14230,8 @@ self: super: with self; {
 
   sseclient-py = callPackage ../development/python-modules/sseclient-py { };
 
+  sse-starlette = callPackage ../development/python-modules/sse-starlette { };
+
   sshfs = callPackage ../development/python-modules/sshfs { };
 
   sshpubkeys = callPackage ../development/python-modules/sshpubkeys { };
@@ -14218,6 +14247,8 @@ self: super: with self; {
   stanza = callPackage ../development/python-modules/stanza { };
 
   starlette = callPackage ../development/python-modules/starlette { };
+
+  starlette-context = callPackage ../development/python-modules/starlette-context { };
 
   starlette-wtf = callPackage ../development/python-modules/starlette-wtf { };
 
@@ -14555,6 +14586,8 @@ self: super: with self; {
   tenacity = callPackage ../development/python-modules/tenacity { };
 
   tencentcloud-sdk-python = callPackage ../development/python-modules/tencentcloud-sdk-python { };
+
+  tendo = callPackage ../development/python-modules/tendo { };
 
   tensorboard-data-server = callPackage ../development/python-modules/tensorboard-data-server { };
 
@@ -16030,6 +16063,8 @@ self: super: with self; {
   typing-extensions = callPackage ../development/python-modules/typing-extensions { };
 
   typing-inspect = callPackage ../development/python-modules/typing-inspect { };
+
+  typing-validation = callPackage ../development/python-modules/typing-validation { };
 
   typish = callPackage ../development/python-modules/typish { };
 
