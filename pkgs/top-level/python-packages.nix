@@ -9856,6 +9856,8 @@ self: super: with self; {
 
   pysiaalarm = callPackage ../development/python-modules/pysiaalarm { };
 
+  pysilero-vad = callPackage ../development/python-modules/pysilero-vad { };
+
   pysimplesoap = callPackage ../development/python-modules/pysimplesoap { };
 
   pyskyqhub = callPackage ../development/python-modules/pyskyqhub { };
@@ -10296,6 +10298,8 @@ self: super: with self; {
   pulsar-client = callPackage ../development/python-modules/pulsar-client { };
 
   pulsectl-asyncio = callPackage ../development/python-modules/pulsectl-asyncio { };
+
+  pulsar = callPackage ../development/python-modules/pulsar { };
 
   pulsectl = callPackage ../development/python-modules/pulsectl { };
 
@@ -11511,6 +11515,8 @@ self: super: with self; {
   pyregion = callPackage ../development/python-modules/pyregion { };
 
   pyric = callPackage ../development/python-modules/pyric { };
+
+  pyring-buffer = callPackage ../development/python-modules/pyring-buffer { };
 
   pyrisco = callPackage ../development/python-modules/pyrisco { };
 
@@ -13150,6 +13156,8 @@ self: super: with self; {
 
   roman = callPackage ../development/python-modules/roman { };
 
+  romy = callPackage ../development/python-modules/romy { };
+
   roombapy = callPackage ../development/python-modules/roombapy { };
 
   roonapi = callPackage ../development/python-modules/roonapi { };
@@ -13332,6 +13340,8 @@ self: super: with self; {
 
   sasmodels = callPackage ../development/python-modules/sasmodels { };
 
+  scalene = callPackage ../development/python-modules/scalene { };
+
   scales = callPackage ../development/python-modules/scales { };
 
   scancode-toolkit = callPackage ../development/python-modules/scancode-toolkit { };
@@ -13459,6 +13469,8 @@ self: super: with self; {
   securesystemslib = callPackage ../development/python-modules/securesystemslib { };
 
   securetar = callPackage ../development/python-modules/securetar { };
+
+  securityreporter = callPackage ../development/python-modules/securityreporter { };
 
   sectools = callPackage ../development/python-modules/sectools { };
 
@@ -13837,6 +13849,8 @@ self: super: with self; {
   snakemake-interface-common = callPackage ../development/python-modules/snakemake-interface-common { };
 
   snakemake-interface-executor-plugins = callPackage ../development/python-modules/snakemake-interface-executor-plugins { };
+
+  snakemake-interface-report-plugins = callPackage ../development/python-modules/snakemake-interface-report-plugins { };
 
   snakemake-interface-storage-plugins = callPackage ../development/python-modules/snakemake-interface-storage-plugins { };
 

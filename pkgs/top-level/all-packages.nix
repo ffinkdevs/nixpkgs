@@ -2738,6 +2738,7 @@ with pkgs;
     # Dependency twain requires an older version of http2, and we cannot mix
     # versions of transitive dependencies.
     http2 = final.http2_3_0_3;
+    warp = final.warp_3_3_30;
   });
 
   mame = libsForQt5.callPackage ../applications/emulators/mame { };
@@ -3678,9 +3679,7 @@ with pkgs;
 
   cudd = callPackage ../development/libraries/cudd { };
 
-  cue = callPackage ../development/tools/cue { };
-
-  writeCueValidator = callPackage ../development/tools/cue/validator.nix { };
+  inherit (cue) writeCueValidator;
 
   cuelsp = callPackage ../development/tools/cuelsp { };
 
@@ -4708,8 +4707,6 @@ with pkgs;
   compactor = callPackage ../applications/networking/compactor {
     protobuf = protobuf_21;
   };
-
-  consul = callPackage ../servers/consul { };
 
   consul-alerts = callPackage ../servers/monitoring/consul-alerts { };
 
@@ -8078,8 +8075,6 @@ with pkgs;
 
   flux = callPackage ../development/compilers/flux { };
 
-  fido2luks = callPackage ../tools/security/fido2luks { };
-
   fierce = callPackage ../tools/security/fierce { };
 
   figlet = callPackage ../tools/misc/figlet { };
@@ -8774,8 +8769,6 @@ with pkgs;
   gyb = callPackage ../tools/backup/gyb { };
 
   halftone = callPackage ../applications/graphics/halftone { };
-
-  halloy = callPackage ../applications/networking/irc/halloy { };
 
   harminv = callPackage ../development/libraries/science/chemistry/harminv { };
 
@@ -11380,8 +11373,6 @@ with pkgs;
   onetun = callPackage ../tools/networking/onetun {
     inherit (darwin.apple_sdk.frameworks) Security;
   };
-
-  onthespot = libsForQt5.callPackage ../applications/misc/onthespot { };
 
   opencorsairlink = callPackage ../tools/misc/opencorsairlink { };
 
@@ -14103,8 +14094,6 @@ with pkgs;
   typesense = callPackage ../servers/search/typesense { };
 
   typos = callPackage ../development/tools/typos { };
-
-  typst-live = callPackage ../tools/typesetting/typst-live { };
 
   tz = callPackage ../tools/misc/tz { };
 
@@ -17175,8 +17164,6 @@ with pkgs;
   vcard = python3Packages.toPythonApplication python3Packages.vcard;
 
   inherit (callPackage ../development/compilers/vala { })
-    vala_0_48
-    vala_0_54
     vala_0_56
     vala;
 
@@ -20086,7 +20073,9 @@ with pkgs;
 
   vtable-dumper = callPackage ../development/tools/misc/vtable-dumper { };
 
-  wails = callPackage ../development/tools/wails { };
+  wails = callPackage ../development/tools/wails {
+    stdenv = gccStdenv;
+  };
 
   wasmer-pack = callPackage ../development/tools/misc/wasmer-pack { };
 
@@ -25056,9 +25045,7 @@ with pkgs;
 
   vcg = callPackage ../development/libraries/vcg { };
 
-  vencord = callPackage ../misc/vencord { };
-
-  vencord-web-extension = callPackage ../misc/vencord { buildWebExtension = true; };
+  vencord-web-extension = callPackage ../by-name/ve/vencord/package.nix { buildWebExtension = true; };
 
   vid-stab = callPackage ../development/libraries/vid-stab {
     inherit (llvmPackages) openmp;
@@ -26856,6 +26843,8 @@ with pkgs;
   sambaFull = samba4Full;
 
   sampler = callPackage ../applications/misc/sampler { };
+
+  scalene = with python3Packages; toPythonApplication scalene;
 
   scalr-cli = callPackage ../tools/admin/scalr-cli { };
 
@@ -29846,8 +29835,6 @@ with pkgs;
 
   anilibria-winmaclinux = libsForQt5.callPackage ../applications/video/anilibria-winmaclinux { };
 
-  masterpdfeditor = libsForQt5.callPackage ../applications/misc/masterpdfeditor { };
-
   masterpdfeditor4 = libsForQt5.callPackage ../applications/misc/masterpdfeditor4 { };
 
   master_me = callPackage ../applications/audio/master_me {
@@ -30550,7 +30537,7 @@ with pkgs;
   daktilo = callPackage ../tools/misc/daktilo { };
 
   darcs = haskell.lib.compose.disableCabalFlag "library"
-    (haskell.lib.compose.justStaticExecutables haskell.packages.ghc94.darcs);
+    (haskell.lib.compose.justStaticExecutables haskellPackages.darcs);
 
   darkman = callPackage ../applications/misc/darkman { };
 
@@ -30987,7 +30974,7 @@ with pkgs;
 
   faircamp = callPackage ../applications/misc/faircamp { };
 
-  famistudio = callPackage ../applications/audio/famistudio { };
+  famistudio = darwin.apple_sdk_11_0.callPackage ../applications/audio/famistudio { };
 
   fasttext = callPackage ../applications/science/machine-learning/fasttext { };
 
@@ -34166,8 +34153,6 @@ with pkgs;
 
   pop-launcher = callPackage ../applications/misc/pop-launcher { };
 
-  pot = callPackage ../applications/misc/pot { };
-
   pothos = libsForQt5.callPackage ../applications/radio/pothos { };
 
   potrace = callPackage ../applications/graphics/potrace { };
@@ -37194,9 +37179,7 @@ with pkgs;
 
   hase = callPackage ../games/hase { };
 
-  hedgewars = libsForQt5.callPackage ../games/hedgewars {
-    inherit (haskellPackages) ghcWithPackages;
-  };
+  hedgewars = libsForQt5.callPackage ../games/hedgewars { };
 
   hikounomizu = callPackage ../games/hikounomizu { };
 
