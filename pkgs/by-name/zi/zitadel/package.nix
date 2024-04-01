@@ -20,7 +20,7 @@
     rev = "v${version}";
     hash = "sha256-2KzX7o049hARLaJNqnPeuFA03MHLCcUw+pEuD26r7U8=";
   };
-  goModulesHash = "sha256-NC/26lc5KoQf9lPNwwLTUPLvssJ/nXQOmqZdMSgFauk=";
+  goModulesHash = "sha256-EPcxeOs9Q/K5zdIHWobdnQeOBs32/Wq4hDBbZPdX40k=";
 
   buildZitadelProtocGen = name:
     buildGoModule {
