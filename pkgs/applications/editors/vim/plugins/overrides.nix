@@ -962,7 +962,7 @@
   };
 
   neotest = super.neotest.overrideAttrs {
-    dependencies = with self; [ plenary-nvim ];
+    dependencies = with self; [ nvim-nio plenary-nvim ];
   };
 
   neotest-gradle = super.neotest-gradle.overrideAttrs {
@@ -995,6 +995,13 @@
 
   nvim-dap-python = super.nvim-dap-python.overrideAttrs {
     dependencies = with self; [ nvim-dap ];
+  };
+
+  nvim-dap-ui = super.nvim-dap-ui.overrideAttrs {
+    dependencies = with self; [ nvim-dap nvim-nio ];
+
+    doInstallCheck = true;
+    nvimRequireCheck = "dapui";
   };
 
   nvim-lsputils = super.nvim-lsputils.overrideAttrs {

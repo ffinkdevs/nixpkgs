@@ -857,6 +857,22 @@ let
         };
       };
 
+      cameron.vscode-pytest = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "vscode-pytest";
+          publisher = "Cameron";
+          version = "0.1.1";
+          sha256 = "sha256-YU37a0Q+IXusXgwf9doxXLlYiyzkizbPjjdCZFxeDaA=";
+        };
+        meta = {
+          changelog = "https://github.com/cameronmaske/pytest-vscode/blob/master/CHANGELOG.md";
+          description = "A Visual Studio Code extension that adds IntelliSense support for pytest fixtures";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=Cameron.vscode-pytest";
+          license = lib.licenses.unlicense;
+          maintainers = [ lib.maintainers.rhoriguchi ];
+        };
+      };
+
       christian-kohler.npm-intellisense = buildVscodeMarketplaceExtension {
         mktplcRef = {
           name = "npm-intellisense";
@@ -2468,6 +2484,22 @@ let
         };
       };
 
+      julialang.language-julia = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "language-julia";
+          publisher = "julialang";
+          version = "1.75.2";
+          sha256 = "sha256-wGguwyTy3jj89ud/nQw2vbtNxYuWkfi0qG6QGUyvuz4=";
+        };
+        meta = {
+          changelog = "https://marketplace.visualstudio.com/items/julialang.language-julia/changelog";
+          description = "A Visual Studio Code extension for Julia programming language";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=julialang.language-julia";
+          homepage = "https://github.com/julia-vscode/julia-vscode";
+          license = lib.licenses.mit;
+        };
+      };
+
       justusadam.language-haskell = buildVscodeMarketplaceExtension {
         mktplcRef = {
           name = "language-haskell";
@@ -3126,6 +3158,21 @@ let
           homepage = "https://github.com/PowerShell/vscode-powershell";
           license = lib.licenses.mit;
           maintainers = [ lib.maintainers.rhoriguchi ];
+        };
+      };
+
+      ms-vscode.test-adapter-converter = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "test-adapter-converter";
+          publisher = "ms-vscode";
+          version = "0.1.9";
+          sha256 = "sha256-M53jhAVawk2yCeSrLkWrUit3xbDc0zgCK2snbK+BaSs=";
+        };
+        meta = {
+          description = "A Visual Studio Code extension that converts from the Test Explorer UI API into native VS Code testing";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=ms-vscode.test-adapter-converter";
+          homepage = "https://github.com/microsoft/vscode-test-adapter-converter";
+          license = lib.licenses.mit;
         };
       };
 
@@ -4245,8 +4292,8 @@ let
         mktplcRef = {
           name = "shellcheck";
           publisher = "timonwong";
-          version = "0.26.3";
-          sha256 = "GlyOLc2VrRnA50MkaG83qa0yLUyJYwueqEO+ZeAStYs=";
+          version = "0.37.0";
+          sha256 = "1d0blynn6c2hz4y9fk7b5wsa3x168gxyycr5d05zqp0rx520m5wc";
         };
         nativeBuildInputs = [ jq moreutils ];
         postInstall = ''
@@ -4254,7 +4301,11 @@ let
           jq '.contributes.configuration.properties."shellcheck.executablePath".default = "${shellcheck}/bin/shellcheck"' package.json | sponge package.json
         '';
         meta = {
+          description = "Integrates ShellCheck into VS Code, a linter for Shell scripts";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck";
+          homepage = "https://github.com/vscode-shellcheck/vscode-shellcheck";
           license = lib.licenses.mit;
+          maintainers = [ lib.maintainers.raroh73 ];
         };
       };
 
@@ -4358,8 +4409,8 @@ let
         mktplcRef = {
           name = "uiua-vscode";
           publisher = "uiua-lang";
-          version = "0.0.39";
-          sha256 = "sha256-B+p5bIwVhzWAdKQPCGPlImQihYCeTtYFTlkZIkgWayk=";
+          version = "0.0.42";
+          sha256 = "sha256-cgLWgMej1Nv8kNK2MfgO3Z/xJPXdcmYs8LXrFNfc3jQ=";
         };
         meta = {
           description = "VSCode language extension for Uiua";
@@ -4809,6 +4860,22 @@ let
           homepage = "https://github.com/yzhang-gh/vscode-markdown";
           license = lib.licenses.mit;
           maintainers = [ lib.maintainers.raroh73 ];
+        };
+      };
+
+      zainchen.json = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "json";
+          publisher = "ZainChen";
+          version = "2.0.2";
+          sha256 = "sha256-nC3Q8KuCtn/jg1j/NaAxWGvnKe/ykrPm2PUjfsJz8aI=";
+        };
+        meta = {
+          changelog = "https://marketplace.visualstudio.com/items/ZainChen.json/changelog";
+          description = "A Visual Studio Code extension for JSON support";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=ZainChen.json";
+          license = lib.licenses.mit;
+          maintainers = [ lib.maintainers.rhoriguchi ];
         };
       };
 

@@ -4709,6 +4709,12 @@ self: super: with self; {
 
   gevent-websocket = callPackage ../development/python-modules/gevent-websocket { };
 
+  gfal2-python = callPackage ../development/python-modules/gfal2-python { };
+
+  gfal2-util = callPackage ../development/python-modules/gfal2-util {
+    inherit (pkgs) xrootd;
+  };
+
   gflags = callPackage ../development/python-modules/gflags { };
 
   gflanguages = callPackage ../development/python-modules/gflanguages { };
@@ -5644,6 +5650,8 @@ self: super: with self; {
   imbalanced-learn = callPackage ../development/python-modules/imbalanced-learn { };
 
   img2pdf = callPackage ../development/python-modules/img2pdf { };
+
+  imgcat = callPackage ../development/python-modules/imgcat { };
 
   imgdiff = callPackage ../development/python-modules/imgdiff { };
 
@@ -7315,7 +7323,11 @@ self: super: with self; {
 
   microsoft-kiota-http = callPackage ../development/python-modules/microsoft-kiota-http { };
 
+  microsoft-kiota-serialization-form = callPackage ../development/python-modules/microsoft-kiota-serialization-form { };
+
   microsoft-kiota-serialization-json = callPackage ../development/python-modules/microsoft-kiota-serialization-json { };
+
+  microsoft-kiota-serialization-multipart = callPackage ../development/python-modules/microsoft-kiota-serialization-multipart { };
 
   microsoft-kiota-serialization-text = callPackage ../development/python-modules/microsoft-kiota-serialization-text { };
 

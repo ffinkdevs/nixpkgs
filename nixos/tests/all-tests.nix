@@ -522,6 +522,8 @@ in {
   matrix-conduit = handleTest ./matrix/conduit.nix {};
   matrix-synapse = handleTest ./matrix/synapse.nix {};
   matrix-synapse-workers = handleTest ./matrix/synapse-workers.nix {};
+  mautrix-meta-postgres = handleTest ./matrix/mautrix-meta-postgres.nix {};
+  mautrix-meta-sqlite = handleTest ./matrix/mautrix-meta-sqlite.nix {};
   mattermost = handleTest ./mattermost.nix {};
   mealie = handleTest ./mealie.nix {};
   mediamtx = handleTest ./mediamtx.nix {};
@@ -809,6 +811,7 @@ in {
   shattered-pixel-dungeon = handleTest ./shattered-pixel-dungeon.nix {};
   shiori = handleTest ./shiori.nix {};
   signal-desktop = handleTest ./signal-desktop.nix {};
+  silverbullet = handleTest ./silverbullet.nix {};
   simple = handleTest ./simple.nix {};
   sing-box = handleTest ./sing-box.nix {};
   slimserver = handleTest ./slimserver.nix {};
@@ -916,6 +919,7 @@ in {
   tang = handleTest ./tang.nix {};
   taskserver = handleTest ./taskserver.nix {};
   tayga = handleTest ./tayga.nix {};
+  technitium-dns-server = handleTest ./technitium-dns-server.nix {};
   teeworlds = handleTest ./teeworlds.nix {};
   telegraf = handleTest ./telegraf.nix {};
   teleport = handleTest ./teleport.nix {};
