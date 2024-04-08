@@ -16558,10 +16558,10 @@ with pkgs;
     mlton20130715
     mlton20180207Binary
     mlton20180207
-    mlton20210107
+    mlton20210117
     mltonHEAD;
 
-  mlton = mlton20210107;
+  mlton = mlton20210117;
 
   mono = mono6;
 
@@ -19087,7 +19087,7 @@ with pkgs;
   img = callPackage ../development/tools/img { };
 
   include-what-you-use = callPackage ../development/tools/analysis/include-what-you-use {
-    llvmPackages = llvmPackages_17;
+    llvmPackages = llvmPackages_18;
   };
 
   indent = callPackage ../development/tools/misc/indent { };
@@ -32491,7 +32491,7 @@ with pkgs;
 
   krane = callPackage ../applications/networking/cluster/krane { };
 
-  krita = libsForQt5.callPackage ../applications/graphics/krita { };
+  krita = callPackage ../applications/graphics/krita/wrapper.nix { };
 
   ksuperkey = callPackage ../tools/X11/ksuperkey { };
 
@@ -37797,7 +37797,7 @@ with pkgs;
 
   voxelands = callPackage ../games/voxelands { };
 
-  vvvvvv = callPackage ../games/vvvvvv {
+  vvvvvv = callPackage ../by-name/vv/vvvvvv/package.nix {
     inherit (darwin.apple_sdk.frameworks) Foundation IOKit;
   };
 
