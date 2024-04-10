@@ -546,6 +546,7 @@ let
     bayesWatch = [ pkgs.boost.dev ];
     clustermq = [  pkgs.pkg-config ];
     coga = [ pkgs.gsl.dev ];
+    deepSNV = with pkgs; [ xz.dev bzip2.dev zlib.dev ];
     gpg = [ pkgs.gpgme ];
     webp = [ pkgs.libwebp ];
     RMark = [ pkgs.which ];
@@ -578,6 +579,7 @@ let
     odbc = [ pkgs.pkg-config ];
     openssl = [ pkgs.pkg-config ];
     pdftools = [ pkgs.pkg-config ];
+    RQuantLib = with pkgs; [ quantlib.dev boost.dev ];
     sf = with pkgs; [ pkg-config sqlite.dev proj.dev ];
     terra = with pkgs; [ pkg-config sqlite.dev proj.dev ];
     showtext = [ pkgs.pkg-config ];
@@ -605,6 +607,7 @@ let
     s2 = [ pkgs.openssl.dev ];
     ArrayExpressHTS = with pkgs; [ zlib.dev curl.dev which ];
     bbl = with pkgs; [ gsl ];
+    diffHic = with pkgs; [ xz.dev bzip2.dev ];
     writexl = with pkgs; [ zlib.dev ];
     xslt = with pkgs; [ libxslt libxml2 ];
     qpdf = with pkgs; [ libjpeg.dev zlib.dev ];
@@ -624,7 +627,9 @@ let
     HiCDCPlus = [ pkgs.zlib.dev ];
     PopGenome = [ pkgs.zlib.dev ];
     QuasR = with pkgs; [ zlib.dev xz.dev bzip2.dev ];
+    Rarr = [ pkgs.zlib.dev ];
     Rbowtie2 = [ pkgs.zlib.dev ];
+    Rfastp = with pkgs; [ xz.dev bzip2.dev zlib.dev ];
     maftools = with pkgs; [ zlib.dev bzip2 xz.dev ];
     Rmmquant = [ pkgs.zlib.dev ];
     SICtools = with pkgs; [ zlib.dev ncurses.dev ];
@@ -647,7 +652,7 @@ let
     rhdf5filters = with pkgs; [ zlib.dev bzip2.dev ];
     symengine = with pkgs; [ mpfr symengine flint ];
     rtk = [ pkgs.zlib.dev ];
-    scPipe = [ pkgs.zlib.dev ];
+    scPipe = with pkgs; [ bzip2.dev xz.dev zlib.dev ];
     seqTools = [ pkgs.zlib.dev ];
     seqbias = [ pkgs.zlib.dev ];
     sparkwarc = [ pkgs.zlib.dev ];
@@ -946,8 +951,10 @@ let
 
   packagesToSkipCheck = [
     "Rmpi"     # tries to run MPI processes
+    "ReactomeContentService4R" # tries to connect to Reactome
     "pbdMPI"   # tries to run MPI processes
     "data_table" # fails to rename shared library before check
+    "multiMiR" # tries to connect to DB
   ];
 
   # Packages which cannot be installed due to lack of dependencies or other reasons.

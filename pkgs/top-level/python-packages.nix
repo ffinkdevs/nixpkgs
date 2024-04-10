@@ -1887,6 +1887,9 @@ self: super: with self; {
   capstone = callPackage ../development/python-modules/capstone {
     inherit (pkgs) capstone;
   };
+  capstone_4 = callPackage ../development/python-modules/capstone/4.nix {
+    inherit (pkgs) capstone_4;
+  };
 
   captcha = callPackage ../development/python-modules/captcha { };
 
@@ -2935,6 +2938,8 @@ self: super: with self; {
   devpi-common = callPackage ../development/python-modules/devpi-common { };
 
   devtools = callPackage ../development/python-modules/devtools { };
+
+  dfdiskcache = callPackage ../development/python-modules/dfdiskcache { };
 
   diagrams = callPackage ../development/python-modules/diagrams { };
 
@@ -4611,6 +4616,8 @@ self: super: with self; {
 
   gdata = callPackage ../development/python-modules/gdata { };
 
+  gdb-pt-dump = callPackage ../development/python-modules/gdb-pt-dump { };
+
   gdcm = toPythonModule (pkgs.gdcm.override {
     inherit (self) python;
     enablePython = true;
@@ -5327,6 +5334,8 @@ self: super: with self; {
   hieroglyph = callPackage ../development/python-modules/hieroglyph { };
 
   hijri-converter = callPackage ../development/python-modules/hijri-converter { };
+
+  hikari = callPackage ../development/python-modules/hikari { };
 
   hikvision = callPackage ../development/python-modules/hikvision { };
 
@@ -10390,6 +10399,8 @@ self: super: with self; {
 
   pwlf = callPackage ../development/python-modules/pwlf { };
 
+  pwndbg = callPackage ../development/python-modules/pwndbg { };
+
   pwntools = callPackage ../development/python-modules/pwntools {
     debugger = pkgs.gdb;
   };
@@ -13755,6 +13766,8 @@ self: super: with self; {
 
   simplesat = callPackage ../development/python-modules/simplesat { };
 
+  simplesqlite = callPackage ../development/python-modules/simplesqlite { };
+
   simple-dftd3 = callPackage ../development/libraries/science/chemistry/simple-dftd3/python.nix {
     inherit (pkgs) simple-dftd3;
   };
@@ -14268,6 +14281,8 @@ self: super: with self; {
   sqlite-fts4 = callPackage ../development/python-modules/sqlite-fts4 { };
 
   sqlite-utils = callPackage ../development/python-modules/sqlite-utils { };
+
+  sqliteschema = callPackage ../development/python-modules/sqliteschema { };
 
   sqlmap = callPackage ../development/python-modules/sqlmap { };
 
