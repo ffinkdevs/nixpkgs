@@ -1730,6 +1730,8 @@ self: super: with self; {
 
   brian2 = callPackage ../development/python-modules/brian2 { };
 
+  bring-api = callPackage ../development/python-modules/bring-api { };
+
   broadbean = callPackage ../development/python-modules/broadbean { };
 
   broadlink = callPackage ../development/python-modules/broadlink { };
@@ -2970,8 +2972,6 @@ self: super: with self; {
   diffsync = callPackage ../development/python-modules/diffsync { };
 
   diffusers = callPackage ../development/python-modules/diffusers { };
-
-  digital-ocean = callPackage ../development/python-modules/digitalocean { };
 
   digi-xbee = callPackage ../development/python-modules/digi-xbee { };
 
@@ -5378,8 +5378,6 @@ self: super: with self; {
   holoviews = callPackage ../development/python-modules/holoviews { };
 
   home-assistant-bluetooth = callPackage ../development/python-modules/home-assistant-bluetooth { };
-
-  homeassistant-bring-api = callPackage ../development/python-modules/homeassistant-bring-api { };
 
   home-assistant-chip-clusters = callPackage ../development/python-modules/home-assistant-chip-clusters { };
 
@@ -9844,6 +9842,8 @@ self: super: with self; {
 
   pyhumps = callPackage ../development/python-modules/pyhumps { };
 
+  pyindego = callPackage ../development/python-modules/pyindego { };
+
   pyinstaller-versionfile = callPackage ../development/python-modules/pyinstaller-versionfile { };
 
   pyisemail = callPackage ../development/python-modules/pyisemail { };
@@ -12195,6 +12195,8 @@ self: super: with self; {
 
   python-didl-lite = callPackage ../development/python-modules/python-didl-lite { };
 
+  python-digitalocean = callPackage ../development/python-modules/python-digitalocean { };
+
   python-docx = callPackage ../development/python-modules/python-docx { };
 
   python-doi = callPackage ../development/python-modules/python-doi { };
@@ -13648,6 +13650,8 @@ self: super: with self; {
 
   seventeentrack = callPackage ../development/python-modules/seventeentrack { };
 
+  sev-snp-measure = callPackage ../development/python-modules/sev-snp-measure { };
+
   sexpdata = callPackage ../development/python-modules/sexpdata { };
 
   sfepy = callPackage ../development/python-modules/sfepy { };
@@ -13914,6 +13918,10 @@ self: super: with self; {
     inherit (self) python;
   });
 
+  snakemake = toPythonModule (pkgs.snakemake.override {
+    python3 = python;
+  });
+
   snakemake-executor-plugin-cluster-generic = callPackage ../development/python-modules/snakemake-executor-plugin-cluster-generic { };
 
   snakemake-interface-common = callPackage ../development/python-modules/snakemake-interface-common { };
@@ -13923,6 +13931,10 @@ self: super: with self; {
   snakemake-interface-report-plugins = callPackage ../development/python-modules/snakemake-interface-report-plugins { };
 
   snakemake-interface-storage-plugins = callPackage ../development/python-modules/snakemake-interface-storage-plugins { };
+
+  snakemake-storage-plugin-s3 = callPackage ../development/python-modules/snakemake-storage-plugin-s3 { };
+
+  snakemake-storage-plugin-xrootd = callPackage ../development/python-modules/snakemake-storage-plugin-xrootd { };
 
   snakebite = callPackage ../development/python-modules/snakebite { };
 
@@ -16079,6 +16091,8 @@ self: super: with self; {
   types-click = callPackage ../development/python-modules/types-click { };
 
   types-colorama = callPackage ../development/python-modules/types-colorama { };
+
+  types-dataclasses = callPackage ../development/python-modules/types-dataclasses { };
 
   types-dateutil = callPackage ../development/python-modules/types-dateutil { };
 

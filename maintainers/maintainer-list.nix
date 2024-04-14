@@ -2621,6 +2621,12 @@
     githubId = 30630233;
     name = "Timo Triebensky";
   };
+  birkb = {
+    email = "birk@batchworks.de";
+    github = "birkb";
+    githubId = 10164833;
+    name = "Birk Bohne";
+  };
   bjornfor = {
     email = "bjorn.forsman@gmail.com";
     github = "bjornfor";
@@ -5294,6 +5300,12 @@
     keys = [{
       fingerprint = "D245 D484 F357 8CB1 7FD6  DA6B 67DB 29BF F3C9 6757";
     }];
+  };
+  dragonginger = {
+    email = "dragonginger10@gmail.com";
+    github = "dragonginger10";
+    githubId = 20759788;
+    name = "JP Lippold";
   };
   dramaturg = {
     email = "seb@ds.ag";
@@ -11778,12 +11790,6 @@
     githubId = 5767106;
     name = "Lukas Schmidt";
   };
-  luis = {
-    email = "luis.nixos@gmail.com";
-    github = "Luis-Hebendanz";
-    githubId = 22085373;
-    name = "Luis Hebendanz";
-  };
   luisdaranda = {
     email = "luisdomingoaranda@gmail.com";
     github = "propet";
@@ -13972,6 +13978,10 @@
     github = "natto1784";
     githubId = 56316606;
     name = "Amneesh Singh";
+  };
+  nayala = {
+    name = "Nia";
+    matrix = "@fly:asra.gr";
   };
   nazarewk = {
     name = "Krzysztof Nazarewski";
@@ -16341,6 +16351,12 @@
     matrix = "@quantenzitrone:matrix.org";
     name = "quantenzitrone";
   };
+  qubasa = {
+    email = "consulting@qube.email";
+    github = "Qubasa";
+    githubId = 22085373;
+    name = "Luis Hebendanz";
+  };
   queezle = {
     email = "git@queezle.net";
     github = "queezle42";
@@ -17655,7 +17671,7 @@
     name = "Sanskar Gurdasani";
   };
   sarahec = {
-    email = "sarahec@nextquestion.net";
+    email = "seclark@nextquestion.net";
     github = "sarahec";
     githubId = 11277967;
     name = "Sarah Clark";
@@ -19236,6 +19252,12 @@
     githubId = 1939855;
     name = "Kimmo Suominen";
   };
+  supa = {
+    email = "supa.codes@gmail.com";
+    github = "0Supa";
+    githubId = 36031171;
+    name = "Supa";
+  };
   superbo = {
     email = "supernbo@gmail.com";
     github = "SuperBo";
@@ -19607,6 +19629,12 @@
     github = "tckmn";
     githubId = 2389333;
     name = "Andy Tockman";
+  };
+  tcmal = {
+    email = "me@aria.rip";
+    github = "tcmal";
+    githubId = 4183876;
+    name = "Aria Shrimpton";
   };
   teatwig = {
     email = "nix@teatwig.net";
@@ -20618,6 +20646,12 @@
     github = "umlx5h";
     githubId = 20206121;
     name = "umlx5h";
+  };
+  uncenter = {
+    name = "uncenter";
+    email = "uncenter@uncenter.dev";
+    github = "uncenter";
+    githubId = 47499684;
   };
   unclamped = {
     name = "Maru";
