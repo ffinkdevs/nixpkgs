@@ -5062,6 +5062,18 @@ final: prev:
     meta.homepage = "https://github.com/neoclide/jsonc.vim/";
   };
 
+  jsonfly-nvim = buildVimPlugin {
+    pname = "jsonfly.nvim";
+    version = "2024-04-12";
+    src = fetchFromGitHub {
+      owner = "Myzel394";
+      repo = "jsonfly.nvim";
+      rev = "539a0b79a5ea75d201e1e90cebfe9367154d04fc";
+      sha256 = "1v1i4x2px0zs65rxkf2yhnxn6clx33vdr54r9gaqq713qj5ddlfm";
+    };
+    meta.homepage = "https://github.com/Myzel394/jsonfly.nvim/";
+  };
+
   julia-vim = buildVimPlugin {
     pname = "julia-vim";
     version = "2023-12-15";
@@ -11109,6 +11121,18 @@ final: prev:
       sha256 = "1jq607an49n1lhclqjdbmaqa0609vmdsr2pvq9w2vwmxci6v3rks";
     };
     meta.homepage = "https://github.com/Pocco81/true-zen.nvim/";
+  };
+
+  trust-vim = buildVimPlugin {
+    pname = "trust.vim";
+    version = "2022-04-14";
+    src = fetchFromGitHub {
+      owner = "tesaguri";
+      repo = "trust.vim";
+      rev = "3e17b29ff13f862eeda269d7ce0260571dab6cb7";
+      sha256 = "1zvxjgyzzhnza2gv528dvyp7m1nvsz5gjn0qp65jn0k7y4gh3nnl";
+    };
+    meta.homepage = "https://github.com/tesaguri/trust.vim/";
   };
 
   tslime-vim = buildVimPlugin {

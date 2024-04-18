@@ -236,6 +236,7 @@ in {
   darling = handleTest ./darling.nix {};
   dae = handleTest ./dae.nix {};
   davis = handleTest ./davis.nix {};
+  db-rest = handleTest ./db-rest.nix {};
   dconf = handleTest ./dconf.nix {};
   deconz = handleTest ./deconz.nix {};
   deepin = handleTest ./deepin.nix {};
@@ -329,6 +330,7 @@ in {
   freshrss-sqlite = handleTest ./freshrss-sqlite.nix {};
   freshrss-pgsql = handleTest ./freshrss-pgsql.nix {};
   freshrss-http-auth = handleTest ./freshrss-http-auth.nix {};
+  freshrss-none-auth = handleTest ./freshrss-none-auth.nix {};
   frigate = handleTest ./frigate.nix {};
   frp = handleTest ./frp.nix {};
   frr = handleTest ./frr.nix {};
@@ -597,6 +599,7 @@ in {
   netdata = handleTest ./netdata.nix {};
   networking.scripted = handleTest ./networking/networkd-and-scripted.nix { networkd = false; };
   networking.networkd = handleTest ./networking/networkd-and-scripted.nix { networkd = true; };
+  networking.networkmanager = handleTest ./networking/networkmanager.nix {};
   netbox_3_6 = handleTest ./web-apps/netbox.nix { netbox = pkgs.netbox_3_6; };
   netbox_3_7 = handleTest ./web-apps/netbox.nix { netbox = pkgs.netbox_3_7; };
   netbox-upgrade = handleTest ./web-apps/netbox-upgrade.nix {};

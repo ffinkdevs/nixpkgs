@@ -1022,6 +1022,7 @@ with pkgs;
   fetchpijul = callPackage ../build-support/fetchpijul { };
 
   inherit (callPackages ../build-support/node/fetch-yarn-deps { })
+    fixup-yarn-lock
     prefetch-yarn-deps
     fetchYarnDeps;
 
@@ -2529,10 +2530,6 @@ with pkgs;
   gitty = callPackage ../applications/version-management/gitty { };
 
   gittyup = libsForQt5.callPackage ../applications/version-management/gittyup { };
-
-  gitui = callPackage ../applications/version-management/gitui {
-    inherit (darwin.apple_sdk.frameworks) Security AppKit;
-  };
 
   gitweb = callPackage ../applications/version-management/gitweb { };
 
@@ -11616,10 +11613,7 @@ with pkgs;
   osl = libsForQt5.callPackage ../development/compilers/osl {
     boost = boost179;
     libclang = llvmPackages_15.libclang;
-    clang =
-      if stdenv.cc.libcxx != null
-      then (overrideLibcxx llvmPackages_15.stdenv).cc
-      else clang_15;
+    clang = clang_15;
     llvm = llvm_15;
     openexr = openexr_3;
   };
@@ -13295,8 +13289,6 @@ with pkgs;
 
   stm32loader = with python3Packages; toPythonApplication stm32loader;
 
-  storcli = callPackage ../tools/misc/storcli { };
-
   stremio = qt5.callPackage ../applications/video/stremio { };
 
   sunwait = callPackage ../applications/misc/sunwait { };
@@ -13634,16 +13626,9 @@ with pkgs;
 
   telegraf = callPackage ../servers/monitoring/telegraf { };
 
-  teleport_12 = callPackage ../servers/teleport/12 {
+  inherit (callPackages ../servers/teleport {
     inherit (darwin.apple_sdk.frameworks) CoreFoundation Security AppKit;
-  };
-  teleport_13 = callPackage ../servers/teleport/13 {
-    inherit (darwin.apple_sdk.frameworks) CoreFoundation Security AppKit;
-  };
-  teleport_14 = callPackage ../servers/teleport/14 {
-    inherit (darwin.apple_sdk.frameworks) CoreFoundation Security AppKit;
-  };
-  teleport = teleport_14;
+  }) teleport_13 teleport_14 teleport_15 teleport;
 
   telepresence = callPackage ../tools/networking/telepresence {
     pythonPackages = python3Packages;
@@ -14388,7 +14373,8 @@ with pkgs;
 
   wasm-tools = callPackage ../tools/misc/wasm-tools { };
 
-  wasmedge = darwin.apple_sdk_11_0.callPackage ../development/tools/wasmedge {
+  wasmedge = callPackage ../development/tools/wasmedge {
+    stdenv = if stdenv.isDarwin then overrideSDK stdenv "11.0" else llvmPackages.stdenv;
     inherit (darwin.apple_sdk_11_0.frameworks) Foundation;
   };
 
@@ -20342,6 +20328,7 @@ with pkgs;
     boost182
     boost183
     boost184
+    boost185
   ;
 
   boost = boost181;
@@ -30770,7 +30757,7 @@ with pkgs;
   espeakup = callPackage ../applications/accessibility/espeakup { };
 
   espflash = callPackage ../by-name/es/espflash/package.nix {
-    inherit (darwin.apple_sdk.frameworks) Security SystemConfiguration;
+    inherit (darwin.apple_sdk.frameworks) CoreServices Security SystemConfiguration;
   };
 
   etebase-server = with python3Packages; toPythonApplication etebase-server;
@@ -31738,10 +31725,6 @@ with pkgs;
   hexdino = callPackage ../applications/editors/hexdino { };
 
   hexedit = callPackage ../applications/editors/hexedit { };
-
-  himalaya = callPackage ../applications/networking/mailreaders/himalaya {
-    inherit (darwin.apple_sdk.frameworks) AppKit Cocoa Security;
-  };
 
   hydrogen-web-unwrapped = callPackage ../applications/networking/instant-messengers/hydrogen-web/unwrapped.nix { };
 
@@ -34420,7 +34403,12 @@ with pkgs;
 
   rtl-ais = callPackage ../applications/radio/rtl-ais { };
 
-  rtl-sdr = callPackage ../applications/radio/rtl-sdr { };
+  inherit (callPackages ../applications/radio/rtl-sdr { })
+    rtl-sdr-librtlsdr
+    rtl-sdr-osmocom
+    rtl-sdr-blog;
+
+  rtl-sdr = rtl-sdr-blog;
 
   rubyripper = callPackage ../applications/audio/rubyripper { };
 
@@ -34695,7 +34683,7 @@ with pkgs;
   printrun = callPackage ../applications/misc/printrun { };
 
   prusa-slicer = darwin.apple_sdk_11_0.callPackage ../applications/misc/prusa-slicer {
-    stdenv = if stdenv.isDarwin then overrideLibcxx darwin.apple_sdk_11_0.llvmPackages_14.stdenv else stdenv;
+    stdenv = if stdenv.isDarwin then overrideSDK llvmPackages_14.stdenv "11.0" else stdenv;
   };
 
   super-slicer = darwin.apple_sdk_11_0.callPackage ../applications/misc/prusa-slicer/super-slicer.nix { };
@@ -35854,15 +35842,18 @@ with pkgs;
   kodiPackages = recurseIntoAttrs (kodi.packages);
 
   kodi = callPackage ../applications/video/kodi {
+    ffmpeg = ffmpeg_6;
     jre_headless = jdk11_headless;
   };
 
   kodi-wayland = callPackage ../applications/video/kodi {
+    ffmpeg = ffmpeg_6;
     jre_headless = jdk11_headless;
     waylandSupport = true;
   };
 
   kodi-gbm = callPackage ../applications/video/kodi {
+    ffmpeg = ffmpeg_6;
     jre_headless = jdk11_headless;
     gbmSupport = true;
   };
@@ -38925,9 +38916,7 @@ with pkgs;
 
   btor2tools = callPackage ../applications/science/logic/btor2tools { };
 
-  boolector = callPackage ../applications/science/logic/boolector {
-    stdenv = if stdenv.cc.isClang then overrideLibcxx llvmPackages_14.stdenv else stdenv;
-  };
+  boolector = callPackage ../applications/science/logic/boolector { };
 
   bitwuzla = callPackage ../applications/science/logic/bitwuzla { };
 
@@ -40620,8 +40609,6 @@ with pkgs;
   websocketd = callPackage ../applications/networking/websocketd { };
 
   wibo = pkgsi686Linux.callPackage ../applications/emulators/wibo { };
-
-  wike = callPackage ../applications/misc/wike { };
 
   wikicurses = callPackage ../applications/misc/wikicurses {
     pythonPackages = python3Packages;

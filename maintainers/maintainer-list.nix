@@ -58,6 +58,10 @@
          nix-build lib/tests/maintainers.nix
 
     See `./scripts/check-maintainer-github-handles.sh` for an example on how to work with this data.
+
+    When adding a new maintainer, be aware of the current commit conventions
+    documented at [CONTRIBUTING.md](https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md#commit-conventions)
+    file located in the root of the Nixpkgs repo.
 */
 {
   _0b11stan = {
@@ -2721,6 +2725,12 @@
     email = "oss@walters.app";
     github = "bmwalters";
     githubId = 4380777;
+  };
+  bnlrnz = {
+    github = "bnlrnz";
+    githubId = 11310385;
+    name = "Ben Lorenz";
+    email = "bnlrnz@gmail.com";
   };
   bobakker = {
     email = "bobakk3r@gmail.com";
@@ -8428,6 +8438,12 @@
     github = "Icy-Thought";
     githubId = 53710398;
   };
+  id3v1669 = {
+    name = "id3v1669";
+    email = "id3v1669@gmail.com";
+    github = "id3v1669";
+    githubId = 57532211;
+  };
   idlip = {
     name = "Dilip";
     email = "igoldlip@gmail.com";
@@ -10202,6 +10218,11 @@
     github = "KaiHa";
     githubId = 6544084;
     name = "Kai Harries";
+  };
+  kai-tub = {
+    name = "Kai Norman Clasen";
+    github = "kai-tub";
+    githubId = 46302524;
   };
   kalbasit = {
     email = "wael.nasreddine@gmail.com";
@@ -14746,6 +14767,12 @@
     githubId = 16027994;
     name = "Nathan Viets";
   };
+  nyadiia = {
+    email = "nyadiia@pm.me";
+    github = "nyadiia";
+    githubId = 43252360;
+    name = "Nadia";
+  };
   nyanbinary = {
     email = "nyanbinary@keemail.me";
     matrix = "@niko:conduit.rs";
@@ -17327,6 +17354,11 @@
     githubId = 19433256;
     name = "Radoslaw Sniezek";
   };
+  rster2002 = {
+    name = "Bjørn";
+    github = "rster2002";
+    githubId = 26026518;
+  };
   rsynnest = {
     email = "contact@rsynnest.com";
     github = "rsynnest";
@@ -19033,12 +19065,6 @@
     githubId = 2798728;
     name = "Filip Czaplicki";
   };
-  star-szr = {
-    email = "nixpkgs@szr.fastmail.com";
-    github = "star-szr";
-    githubId = 327943;
-    name = "Scott Zhu Reeves";
-  };
   starzation = {
     email = "nixpkgs@starzation.net";
     github = "starzation";
@@ -19402,6 +19428,12 @@
     github = "sweenu";
     githubId = 7051978;
   };
+  swendel = {
+    name = "Sebastian Wendel";
+    email = "nixpkgs.aiX5ph@srx.digital";
+    github = "SebastianWendel";
+    githubId = 919570;
+  };
   swesterfeld = {
     email = "stefan@space.twc.de";
     github = "swesterfeld";
@@ -19484,6 +19516,12 @@
     keys = [{
       fingerprint = "6866 981C 4992 4D64 D154  E1AC 19E5 A2D8 B1E4 3F19";
     }];
+  };
+  t4sm5n = {
+    email = "t4sm5n@gmail.com";
+    github = "t4sm5n";
+    githubId = 28858039;
+    name = "Tuomas Mäkinen";
   };
   tadeokondrak = {
     email = "me@tadeo.ca";
@@ -20258,6 +20296,11 @@
     github = "tnias";
     githubId = 9853194;
     name = "Philipp Bartsch";
+  };
+  toast = {
+    name = "Toast";
+    github = "toast003";
+    githubId = 39011842;
   };
   toastal = {
     email = "toastal+nix@posteo.net";
