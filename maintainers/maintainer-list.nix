@@ -18163,6 +18163,11 @@
     githubId = 863807;
     name = "Serge Guelton";
   };
+  sergioribera = {
+    github = "SergioRibera";
+    githubId = 56278796;
+    name = "Sergio Ribera";
+  };
   sersorrel = {
     email = "ash@sorrel.sh";
     github = "sersorrel";
@@ -21892,12 +21897,6 @@
     github = "xeji";
     githubId = 36407913;
     name = "Uli Baum";
-  };
-  xfix = {
-    email = "kamila@borowska.pw";
-    github = "KamilaBorowska";
-    githubId = 1297598;
-    name = "Kamila Borowska";
   };
   xfnw = {
     email = "xfnw+nixos@riseup.net";
