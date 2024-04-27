@@ -2264,6 +2264,8 @@ self: super: with self; {
 
   clldutils = callPackage ../development/python-modules/clldutils { };
 
+  cloudevents = callPackage ../development/python-modules/cloudevents { };
+
   cloudflare = callPackage ../development/python-modules/cloudflare { };
 
   cloudpathlib = callPackage ../development/python-modules/cloudpathlib { };
@@ -2397,6 +2399,12 @@ self: super: with self; {
   concurrent-log-handler = callPackage ../development/python-modules/concurrent-log-handler { };
 
   conda = callPackage ../development/python-modules/conda { };
+
+  conda-libmamba-solver = callPackage ../development/python-modules/conda-libmamba-solver { };
+
+  conda-package-handling = callPackage ../development/python-modules/conda-package-handling { };
+
+  conda-package-streaming = callPackage ../development/python-modules/conda-package-streaming { };
 
   confection = callPackage ../development/python-modules/confection { };
 
@@ -6407,6 +6415,8 @@ self: super: with self; {
 
   krfzf-py = callPackage ../development/python-modules/krfzf-py { };
 
+  kserve = callPackage ../development/python-modules/kserve { };
+
   kubernetes = callPackage ../development/python-modules/kubernetes { };
 
   kurbopy = callPackage ../development/python-modules/kurbopy { };
@@ -6616,6 +6626,8 @@ self: super: with self; {
   liblzfse = callPackage ../development/python-modules/liblzfse {
     inherit (pkgs) lzfse;
   };
+
+  libmambapy = callPackage ../development/python-modules/libmambapy { };
 
   libmodulemd = lib.pipe pkgs.libmodulemd [
     toPythonModule
@@ -8534,6 +8546,8 @@ self: super: with self; {
 
   nampa = callPackage ../development/python-modules/nampa { };
 
+  nanobind = callPackage ../development/python-modules/nanobind { };
+
   nanoid = callPackage ../development/python-modules/nanoid { };
 
   nanoleaf = callPackage ../development/python-modules/nanoleaf { };
@@ -9371,6 +9385,8 @@ self: super: with self; {
 
   panflute = callPackage ../development/python-modules/panflute { };
 
+  panphon = callPackage ../development/python-modules/panphon { };
+
   papermill = callPackage ../development/python-modules/papermill { };
 
   openpaperwork-core = callPackage ../applications/office/paperwork/openpaperwork-core.nix { };
@@ -9770,6 +9786,8 @@ self: super: with self; {
 
   pipdeptree = callPackage ../development/python-modules/pipdeptree { };
 
+  pipe = callPackage ../development/python-modules/pipe { };
+
   pipenv-poetry-migrate = callPackage ../development/python-modules/pipenv-poetry-migrate { };
 
   piper-phonemize = callPackage ../development/python-modules/piper-phonemize {
@@ -9917,6 +9935,8 @@ self: super: with self; {
   pynobo = callPackage ../development/python-modules/pynobo { };
 
   pynose = callPackage ../development/python-modules/pynose { };
+
+  pynotifier = callPackage ../development/python-modules/pynotifier { };
 
   pynuki = callPackage ../development/python-modules/pynuki { };
 
@@ -12670,6 +12690,8 @@ self: super: with self; {
 
   pywaterkotte = callPackage ../development/python-modules/pywaterkotte { };
 
+  pywavefront = callPackage ../development/python-modules/pywavefront { };
+
   pywavelets = callPackage ../development/python-modules/pywavelets { };
 
   pywayland = callPackage ../development/python-modules/pywayland { };
@@ -15052,6 +15074,8 @@ self: super: with self; {
   timetagger = callPackage ../development/python-modules/timetagger { };
 
   timezonefinder = callPackage ../development/python-modules/timezonefinder { };
+
+  timing-asgi = callPackage ../development/python-modules/timing-asgi { };
 
   timm = callPackage ../development/python-modules/timm { };
 
