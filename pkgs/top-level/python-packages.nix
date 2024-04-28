@@ -3849,6 +3849,8 @@ self: super: with self; {
 
   epion = callPackage ../development/python-modules/epion { };
 
+  epitran = callPackage ../development/python-modules/epitran { };
+
   epson-projector = callPackage ../development/python-modules/epson-projector { };
 
   equinox = callPackage ../development/python-modules/equinox { };
@@ -5512,6 +5514,8 @@ self: super: with self; {
   httpx-ntlm = callPackage ../development/python-modules/httpx-ntlm { };
 
   httpx-socks = callPackage ../development/python-modules/httpx-socks { };
+
+  httpx-sse = callPackage ../development/python-modules/httpx-sse { };
 
   huawei-lte-api = callPackage ../development/python-modules/huawei-lte-api { };
 
