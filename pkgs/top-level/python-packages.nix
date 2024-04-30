@@ -6415,6 +6415,8 @@ self: super: with self; {
 
   kornia = callPackage ../development/python-modules/kornia { };
 
+  kornia-rs = callPackage ../development/python-modules/kornia-rs { };
+
   krakenex = callPackage ../development/python-modules/krakenex { };
 
   krfzf-py = callPackage ../development/python-modules/krfzf-py { };
@@ -7505,8 +7507,6 @@ self: super: with self; {
   mkdocs-redoc-tag = callPackage ../development/python-modules/mkdocs-redoc-tag { };
 
   mkdocs-rss-plugin = callPackage ../development/python-modules/mkdocs-rss-plugin { };
-
-  mkdocs-simple-hooks = callPackage ../development/python-modules/mkdocs-simple-hooks { };
 
   mkdocs-swagger-ui-tag = callPackage ../development/python-modules/mkdocs-swagger-ui-tag { };
 
@@ -12869,6 +12869,8 @@ self: super: with self; {
 
   quandl = callPackage ../development/python-modules/quandl { };
 
+  quantile-forest = callPackage ../development/python-modules/quantile-forest { };
+
   quantities = callPackage ../development/python-modules/quantities { };
 
   quantiphy = callPackage ../development/python-modules/quantiphy { };
@@ -12896,6 +12898,8 @@ self: super: with self; {
   queuelib = callPackage ../development/python-modules/queuelib { };
 
   quil = callPackage ../development/python-modules/quil { };
+
+  quixote = callPackage ../development/python-modules/quixote { };
 
   qutip = callPackage ../development/python-modules/qutip { };
 
@@ -14342,6 +14346,8 @@ self: super: with self; {
 
   spyder-kernels = callPackage ../development/python-modules/spyder-kernels { };
 
+  spylls = callPackage ../development/python-modules/spylls { };
+
   spyse-python = callPackage ../development/python-modules/spyse-python { };
 
   spython = callPackage ../development/python-modules/spython { };
@@ -14431,6 +14437,8 @@ self: super: with self; {
   sshtunnel = callPackage ../development/python-modules/sshtunnel { };
 
   sslib = callPackage ../development/python-modules/sslib { };
+
+  ssg = callPackage ../development/python-modules/ssg { };
 
   stack-data = callPackage ../development/python-modules/stack-data { };
 
