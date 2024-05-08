@@ -5527,6 +5527,8 @@ self: super: with self; {
 
   httpx-sse = callPackage ../development/python-modules/httpx-sse { };
 
+  httpx-ws = callPackage ../development/python-modules/httpx-ws { };
+
   huawei-lte-api = callPackage ../development/python-modules/huawei-lte-api { };
 
   huey = callPackage ../development/python-modules/huey { };
@@ -7427,6 +7429,8 @@ self: super: with self; {
 
   millheater = callPackage ../development/python-modules/millheater { };
 
+  minari = callPackage ../development/python-modules/minari { };
+
   mindsdb-evaluator = callPackage ../development/python-modules/mindsdb-evaluator { };
 
   minexr = callPackage ../development/python-modules/minexr { };
@@ -8630,6 +8634,8 @@ self: super: with self; {
 
   nbformat = callPackage ../development/python-modules/nbformat { };
 
+  nbmake = callPackage ../development/python-modules/nbmake { };
+
   nbmerge = callPackage ../development/python-modules/nbmerge { };
 
   nbsmoke = callPackage ../development/python-modules/nbsmoke { };
@@ -9582,6 +9588,8 @@ self: super: with self; {
 
   peco = callPackage ../development/python-modules/peco { };
 
+  pettingzoo = callPackage ../development/python-modules/pettingzoo { };
+
   peewee = callPackage ../development/python-modules/peewee { };
 
   peewee-migrate = callPackage ../development/python-modules/peewee-migrate { };
@@ -10244,6 +10252,8 @@ self: super: with self; {
 
   portend = callPackage ../development/python-modules/portend { };
 
+  portion = callPackage ../development/python-modules/portion { };
+
   port-for = callPackage ../development/python-modules/port-for { };
 
   portpicker = callPackage ../development/python-modules/portpicker { };
@@ -10303,6 +10313,8 @@ self: super: with self; {
   preshed = callPackage ../development/python-modules/preshed { };
 
   pretend = callPackage ../development/python-modules/pretend { };
+
+  pretty-errors = callPackage ../development/python-modules/pretty-errors { };
 
   prettytable = callPackage ../development/python-modules/prettytable { };
 
@@ -11135,6 +11147,8 @@ self: super: with self; {
   pyjks = callPackage ../development/python-modules/pyjks { };
 
   pyjnius = callPackage ../development/python-modules/pyjnius { };
+
+  pyjson5 = callPackage ../development/python-modules/pyjson5 { };
 
   pyjsparser = callPackage ../development/python-modules/pyjsparser { };
 
@@ -12117,6 +12131,8 @@ self: super: with self; {
   pytest-localserver = callPackage ../development/python-modules/pytest-localserver { };
 
   pytest-logdog = callPackage ../development/python-modules/pytest-logdog { };
+
+  pytest-markdown-docs = callPackage ../development/python-modules/pytest-markdown-docs { };
 
   pytest-md-report = callPackage ../development/python-modules/pytest-md-report { };
 
@@ -13283,6 +13299,8 @@ self: super: with self; {
 
   rlax = callPackage ../development/python-modules/rlax { };
 
+  rlcard = callPackage ../development/python-modules/rlcard { };
+
   rlp = callPackage ../development/python-modules/rlp { };
 
   rmcl = callPackage ../development/python-modules/rmcl { };
@@ -14409,6 +14427,8 @@ self: super: with self; {
 
   sqlglot = callPackage ../development/python-modules/sqlglot { };
 
+  sqlite-anyio = callPackage ../development/python-modules/sqlite-anyio { };
+
   sqlitedict = callPackage ../development/python-modules/sqlitedict { };
 
   sqlite-migrate = callPackage ../development/python-modules/sqlite-migrate { };
@@ -15214,6 +15234,8 @@ self: super: with self; {
   torch-bin = callPackage ../development/python-modules/torch/bin.nix {
     openai-triton = self.openai-triton-bin;
   };
+
+  torchsnapshot = callPackage ../development/python-modules/torchsnapshot { };
 
   torchWithCuda = self.torch.override {
     openai-triton = self.openai-triton-cuda;

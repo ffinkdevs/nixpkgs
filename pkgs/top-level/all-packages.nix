@@ -420,8 +420,6 @@ with pkgs;
 
   castget = callPackage ../applications/networking/feedreaders/castget { };
 
-  castxml = callPackage ../development/tools/castxml { };
-
   catatonit = callPackage ../applications/virtualization/catatonit { };
 
   catppuccin-catwalk = callPackage ../development/tools/misc/catppuccin-catwalk { };
@@ -31401,6 +31399,8 @@ with pkgs;
 
   manuskript = libsForQt5.callPackage ../applications/editors/manuskript { };
 
+  minari = python3Packages.toPythonApplication python3Packages.minari;
+
   mindforger = libsForQt5.callPackage ../applications/editors/mindforger { };
 
   mi2ly = callPackage ../applications/audio/mi2ly { };
@@ -35538,7 +35538,7 @@ with pkgs;
 
   webcamoid = libsForQt5.callPackage ../applications/video/webcamoid { };
 
-  webcord = callPackage ../by-name/we/webcord/package.nix { electron = electron_29; };
+  webcord = callPackage ../by-name/we/webcord/package.nix { electron = electron_30; };
 
   webex = callPackage ../applications/networking/instant-messengers/webex { };
 
@@ -37473,8 +37473,8 @@ with pkgs;
 
   tcl2048 = callPackage ../games/tcl2048 { };
 
-  the-powder-toy = callPackage ../games/the-powder-toy {
-    lua = lua5_1;
+  the-powder-toy = callPackage ../by-name/th/the-powder-toy/package.nix {
+    lua = lua5_2;
     inherit (darwin.apple_sdk.frameworks) Cocoa;
   };
 
