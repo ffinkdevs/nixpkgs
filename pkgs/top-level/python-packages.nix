@@ -2636,6 +2636,8 @@ self: super: with self; {
 
   curlify = callPackage ../development/python-modules/curlify { };
 
+  curl-cffi = callPackage ../development/python-modules/curl-cffi { };
+
   curtsies = callPackage ../development/python-modules/curtsies { };
 
   curve25519-donna = callPackage ../development/python-modules/curve25519-donna { };
@@ -3034,6 +3036,8 @@ self: super: with self; {
 
   dissect = callPackage ../development/python-modules/dissect { };
 
+  dissect-archive = callPackage ../development/python-modules/dissect-archive { };
+
   dissect-btrfs = callPackage ../development/python-modules/dissect-btrfs { };
 
   dissect-cim = callPackage ../development/python-modules/dissect-cim { };
@@ -3417,6 +3421,8 @@ self: super: with self; {
   dlx = callPackage ../development/python-modules/dlx { };
 
   dmenu-python = callPackage ../development/python-modules/dmenu { };
+
+  dm-control = callPackage ../development/python-modules/dm-control { };
 
   dm-env = callPackage ../development/python-modules/dm-env { };
 
@@ -5913,7 +5919,9 @@ self: super: with self; {
 
   isbnlib = callPackage ../development/python-modules/isbnlib { };
 
-  islpy = callPackage ../development/python-modules/islpy { };
+  islpy = callPackage ../development/python-modules/islpy {
+    isl = pkgs.isl_0_24;
+  };
 
   iso3166 = callPackage ../development/python-modules/iso3166 { };
 
@@ -6636,6 +6644,8 @@ self: super: with self; {
     inherit (pkgs.config) cudaSupport;
   };
 
+  libgravatar = callPackage ../development/python-modules/libgravatar { };
+
   libiio = (toPythonModule (pkgs.libiio.override {
     pythonSupport = true;
     inherit python;
@@ -7249,7 +7259,8 @@ self: super: with self; {
   maya = callPackage ../development/python-modules/maya { };
 
   mayavi = pkgs.libsForQt5.callPackage ../development/python-modules/mayavi {
-    inherit (self) buildPythonPackage pythonOlder pythonAtLeast pyface pygments numpy packaging vtk traitsui envisage apptools pyqt5;
+    inherit buildPythonPackage pythonOlder pythonAtLeast;
+    inherit (self) pyface pygments numpy packaging vtk traitsui envisage apptools pyqt5;
   };
 
   mayim = callPackage ../development/python-modules/mayim { };
@@ -8857,6 +8868,8 @@ self: super: with self; {
   nose-randomly = callPackage ../development/python-modules/nose-randomly { };
 
   nose-warnings-filters = callPackage ../development/python-modules/nose-warnings-filters { };
+
+  nose-xunitmp = callPackage ../development/python-modules/nose-xunitmp { };
 
   nosexcover = callPackage ../development/python-modules/nosexcover { };
 
@@ -13139,6 +13152,8 @@ self: super: with self; {
 
   reportlab = callPackage ../development/python-modules/reportlab { };
 
+  reportlab-qrcode = callPackage ../development/python-modules/reportlab-qrcode { };
+
   repoze-lru = callPackage ../development/python-modules/repoze-lru { };
 
   repoze-sphinx-autointerface = callPackage ../development/python-modules/repoze-sphinx-autointerface { };
@@ -13834,6 +13849,8 @@ self: super: with self; {
   shiboken6 = toPythonModule (callPackage ../development/python-modules/shiboken6 {
     inherit (pkgs) cmake llvmPackages;
   });
+
+  shimmy = callPackage ../development/python-modules/shimmy { };
 
   shippai = callPackage ../development/python-modules/shippai { };
 
