@@ -1338,6 +1338,8 @@ self: super: with self; {
 
   paddlepaddle = callPackage ../development/python-modules/paddlepaddle { };
 
+  pcffont = callPackage ../development/python-modules/pcffont { };
+
   pueblo = callPackage ../development/python-modules/pueblo { };
 
   pulumi = callPackage ../development/python-modules/pulumi { inherit (pkgs) pulumi; };
@@ -1514,6 +1516,8 @@ self: super: with self; {
   billiard = callPackage ../development/python-modules/billiard { };
 
   bimmer-connected = callPackage ../development/python-modules/bimmer-connected { };
+
+  binance-connector = callPackage ../development/python-modules/binance-connector { };
 
   binary = callPackage ../development/python-modules/binary { };
 
@@ -2001,8 +2005,6 @@ self: super: with self; {
   correctionlib = callPackage ../development/python-modules/correctionlib { };
 
   coqpit = callPackage ../development/python-modules/coqpit { };
-
-  cepa = callPackage ../development/python-modules/cepa { };
 
   cerberus = callPackage ../development/python-modules/cerberus { };
 
@@ -2576,7 +2578,6 @@ self: super: with self; {
   cryptodatahub = callPackage ../development/python-modules/cryptodatahub { };
 
   cryptography = callPackage ../development/python-modules/cryptography {
-    inherit (pkgs.darwin) libiconv;
     inherit (pkgs.darwin.apple_sdk.frameworks) Security;
   };
 
@@ -2601,7 +2602,6 @@ self: super: with self; {
   css-html-js-minify = callPackage ../development/python-modules/css-html-js-minify { };
 
   css-inline = callPackage ../development/python-modules/css-inline {
-    inherit (pkgs.darwin) libiconv;
     inherit (pkgs.darwin.apple_sdk.frameworks) Security SystemConfiguration;
   };
 
@@ -2624,6 +2624,8 @@ self: super: with self; {
   };
 
   cu2qu = callPackage ../development/python-modules/cu2qu { };
+
+  customtkinter = callPackage ../development/python-modules/customtkinter { };
 
   cucumber-tag-expressions = callPackage ../development/python-modules/cucumber-tag-expressions { };
 
@@ -5376,6 +5378,8 @@ self: super: with self; {
 
   hikari = callPackage ../development/python-modules/hikari { };
 
+  hikari-lightbulb = callPackage ../development/python-modules/hikari-lightbulb { };
+
   hikvision = callPackage ../development/python-modules/hikvision { };
 
   hiredis = callPackage ../development/python-modules/hiredis { };
@@ -6962,6 +6966,8 @@ self: super: with self; {
 
   lnkparse3 = callPackage ../development/python-modules/lnkparse3 { };
 
+  loadcredential = callPackage ../development/python-modules/loadcredential { };
+
   loca = callPackage ../development/python-modules/loca { };
 
   localimport = callPackage ../development/python-modules/localimport { };
@@ -7200,8 +7206,6 @@ self: super: with self; {
 
   marshmallow-dataclass = callPackage ../development/python-modules/marshmallow-dataclass { };
 
-  marshmallow-enum = callPackage ../development/python-modules/marshmallow-enum { };
-
   marshmallow-oneofschema = callPackage ../development/python-modules/marshmallow-oneofschema { };
 
   marshmallow-polyfield = callPackage ../development/python-modules/marshmallow-polyfield { };
@@ -7401,6 +7405,8 @@ self: super: with self; {
   mhcflurry = callPackage ../development/python-modules/mhcflurry { };
 
   mhcgnomes = callPackage ../development/python-modules/mhcgnomes { };
+
+  miasm = callPackage ../development/python-modules/miasm { };
 
   miauth = callPackage ../development/python-modules/miauth { };
 
@@ -7690,6 +7696,8 @@ self: super: with self; {
   mox3 = callPackage ../development/python-modules/mox3 { };
 
   mpd2 = callPackage ../development/python-modules/mpd2 { };
+
+  mpegdash = callPackage ../development/python-modules/mpegdash { };
 
   mpi4py = callPackage ../development/python-modules/mpi4py { };
 
@@ -9275,6 +9283,8 @@ self: super: with self; {
 
   optimum = callPackage ../development/python-modules/optimum { };
 
+  optree = callPackage ../development/python-modules/optree { };
+
   optuna = callPackage ../development/python-modules/optuna { };
 
   opuslib = callPackage ../development/python-modules/opuslib { };
@@ -9885,6 +9895,8 @@ self: super: with self; {
 
   ppdeep = callPackage ../development/python-modules/ppdeep { };
 
+  private-gpt = callPackage ../development/python-modules/private-gpt { };
+
   prodict = callPackage ../development/python-modules/prodict { };
 
   prometheus-pandas = callPackage ../development/python-modules/prometheus-pandas { };
@@ -9910,6 +9922,8 @@ self: super: with self; {
   pyatome = callPackage ../development/python-modules/pyatome { };
 
   pycketcasts = callPackage ../development/python-modules/pycketcasts { };
+
+  pycomm3 = callPackage ../development/python-modules/pycomm3 { };
 
   pycomposefile = callPackage ../development/python-modules/pycomposefile { };
   pycontrol4 = callPackage ../development/python-modules/pycontrol4 { };
@@ -11155,8 +11169,6 @@ self: super: with self; {
 
   pyisbn = callPackage ../development/python-modules/pyisbn { };
 
-  pyjet = callPackage ../development/python-modules/pyjet { };
-
   pyjks = callPackage ../development/python-modules/pyjks { };
 
   pyjnius = callPackage ../development/python-modules/pyjnius { };
@@ -11688,9 +11700,7 @@ self: super: with self; {
 
   pyreaderwriterlock = callPackage ../development/python-modules/pyreaderwriterlock { };
 
-  pyreadstat = callPackage ../development/python-modules/pyreadstat {
-    inherit (pkgs.darwin) libiconv;
-  };
+  pyreadstat = callPackage ../development/python-modules/pyreadstat { };
 
   pyrealsense2 = toPythonModule (pkgs.librealsense.override {
     enablePython = true;
@@ -13560,6 +13570,8 @@ self: super: with self; {
 
   sarif-om = callPackage ../development/python-modules/sarif-om { };
 
+  sarif-tools = callPackage ../development/python-modules/sarif-tools { };
+
   sarge = callPackage ../development/python-modules/sarge { };
 
   sasmodels = callPackage ../development/python-modules/sasmodels { };
@@ -15180,6 +15192,8 @@ self: super: with self; {
   tinyrecord = callPackage ../development/python-modules/tinyrecord { };
 
   tinysegmenter = callPackage ../development/python-modules/tinysegmenter { };
+
+  tinytuya = callPackage ../development/python-modules/tinytuya { };
 
   tissue = callPackage ../development/python-modules/tissue { };
 
