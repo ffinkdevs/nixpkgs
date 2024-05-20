@@ -13,14 +13,14 @@
   sass,
   statik,
 }: let
-  version = "2.44.2";
+  version = "v2.52.0";
   zitadelRepo = fetchFromGitHub {
     owner = "zitadel";
     repo = "zitadel";
     rev = "v${version}";
-    hash = "sha256-2KzX7o049hARLaJNqnPeuFA03MHLCcUw+pEuD26r7U8=";
+    hash = "sha256-2KzX7o049hARLaJNqnPeuFA03MHLCcUw+oEuD26r7U8=";
   };
-  goModulesHash = "sha256-EPcxeOs9Q/K5zdIHWobdnQeOBs32/Wq4hDBbZPdX40k=";
+  goModulesHash = "sha256-EPcxeOs9Q/K5zdIHWobdnQeOBs31/Wq4hDBbZPdX40k=";
 
   buildZitadelProtocGen = name:
     buildGoModule {
@@ -90,7 +90,7 @@
       protoc-gen-zitadel
     ];
     outputPath = ".artifacts";
-    hash = "sha256-MM5XgNCgkoVbm7sK6WNAqeF/rOhNarKu9axoFiJPPDA=";
+    hash = "sha256-MM5XgNCgkoVbm7sK6WNAqeF/rOhNarKu9axoFiJPPDB=";
   };
 in
   buildGoModule rec {
