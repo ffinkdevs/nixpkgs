@@ -184,6 +184,7 @@ mapAliases ({
   foundationdb60 = throw "foundationdb60 is no longer maintained, use foundationdb71 instead"; # added 2023-06-06
   foundationdb61 = throw "foundationdb61 is no longer maintained, use foundationdb71 instead"; # added 2023-06-06
   functorch = throw "functorch is now part of the torch package and has therefore been removed. See https://github.com/pytorch/functorch/releases/tag/v1.13.0 for more info."; # added 2022-12-01
+  functools32 = throw "functool32 was removed from nixpkgs, because python 2.7 has reach end of life in early 2020"; # added 2024-05-16
   fritzprofiles = throw "fritzprofiles was removed from nixpkgs, because it was removed as dependency of home-assistant for which it was pacakged."; # added 2024-01-05
   garages-amsterdam = throw "garages-amsterdam has been renamed odp-amsterdam."; # added 2023-01-04
   garminconnect-ha = garminconnect; # added 2022-02-05
@@ -515,6 +516,7 @@ mapAliases ({
   TheanoWithCuda = theanoWithCuda; # added 2023-02-19
   TheanoWithoutCuda = theanoWithoutCuda; # added 2023-02-19
   thumborPexif = throw "thumborPexif has been removed, because it was unused."; # added 2024-01-07
+  torchgpipe = throw "torchgpipe has been removed, because it appears unmaintained and Pytorch now includes pipeline parallelism support"; # added 2024-05-18
   torrent_parser = torrent-parser; # added 2023-11-04
   transip = throw "transip has been removed because it is no longer maintained. TransIP SOAP V5 API was marked as deprecated"; # added 2023-02-27
   py-tree-sitter = throw "Was merged with tree-sitter."; # added 2024-03-20
