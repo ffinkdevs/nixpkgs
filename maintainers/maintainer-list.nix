@@ -577,6 +577,15 @@
       fingerprint = "51E4 F5AB 1B82 BE45 B422  9CC2 43A5 E25A A5A2 7849";
     }];
   };
+  aduh95 = {
+    email = "duhamelantoine1995@gmail.com";
+    github = "aduh95";
+    githubId = 14309773;
+    name = "Antoine du Hamel";
+    keys = [{
+      fingerprint = "C0D6 2484 39F1 D560 4AAF  FB40 21D9 00FF DB23 3756";
+    }];
+  };
   aerialx = {
     email = "aaron+nixos@aaronlindsay.com";
     github = "AerialX";
@@ -3758,6 +3767,15 @@
     email = "ciferkey@gmail.com";
     github = "ciferkey";
     githubId = 101422;
+  };
+  cig0 = {
+    name = "Martín Cigorraga";
+    email = "cig0.github@gmail.com";
+    github = "cig0";
+    githubId = 394089;
+    keys = [{
+      fingerprint = "1828 B459 DB9A 7EE2 03F4 7E6E AFBE ACC5 5D93 84A0";
+    }];
   };
   cigrainger = {
     name = "Christopher Grainger";
@@ -16046,6 +16064,12 @@
     github = "philiptaron";
     githubId = 43863;
     name = "Philip Taron";
+  };
+  philtaken = {
+    email = "philipp.herzog@protonmail.com";
+    github = "philtaken";
+    githubId = 13309623;
+    name = "Philipp Herzog";
   };
   phip1611 = {
     email = "phip1611@gmail.com";

@@ -463,6 +463,8 @@ self: super: with self; {
 
   aiozeroconf = callPackage ../development/python-modules/aiozeroconf { };
 
+  aiozoneinfo = callPackage ../development/python-modules/aiozoneinfo { };
+
   airium = callPackage ../development/python-modules/airium { };
 
   airly = callPackage ../development/python-modules/airly { };
@@ -4877,6 +4879,8 @@ self: super: with self; {
   goocalendar = callPackage ../development/python-modules/goocalendar { };
 
   goodwe = callPackage ../development/python-modules/goodwe { };
+
+  gophish = callPackage ../development/python-modules/gophish { };
 
   google = callPackage ../development/python-modules/google { };
 
@@ -17378,8 +17382,6 @@ self: super: with self; {
   zipfile2 = callPackage ../development/python-modules/zipfile2 { };
 
   zipp = callPackage ../development/python-modules/zipp { };
-
-  zipstream = callPackage ../development/python-modules/zipstream { };
 
   zipstream-ng = callPackage ../development/python-modules/zipstream-ng { };
 
