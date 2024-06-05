@@ -704,7 +704,7 @@ with pkgs;
 
   buildcatrust = with python3.pkgs; toPythonApplication buildcatrust;
 
-  probe-rs = callPackage ../development/tools/rust/probe-rs {
+  probe-rs-tools = callPackage ../by-name/pr/probe-rs-tools/package.nix {
     inherit (darwin.apple_sdk.frameworks) AppKit;
     inherit (darwin) DarwinTools;
   };
@@ -24239,6 +24239,8 @@ with pkgs;
 
   sdrplay = callPackage ../applications/radio/sdrplay { };
 
+  sdr-j-fm = libsForQt5.callPackage ../applications/radio/sdr-j-fm { };
+
   sdrpp = callPackage ../applications/radio/sdrpp {
     inherit (darwin.apple_sdk.frameworks) AppKit;
   };
@@ -28202,8 +28204,6 @@ with pkgs;
   anarchism = callPackage ../data/documentation/anarchism { };
 
   ananicy = callPackage ../misc/ananicy { };
-
-  ananicy-cpp = callPackage ../misc/ananicy-cpp { };
 
   andagii = callPackage ../data/fonts/andagii { };
 
