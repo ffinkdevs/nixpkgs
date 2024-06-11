@@ -9,13 +9,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gambit-project";
-  version = "16.1.1";
+  version = "16.2.0";
 
   src = fetchFromGitHub {
     owner = "gambitproject";
     repo = "gambit";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-ElPzJDQ1q+i1OyliychSUA9pT6yGSwjn/sKV0JX5wrQ=";
+    hash = "sha256-OuI2DA/5CLgHqcHwOGUE9IdrnyjlGKy8B7tWueUfUtg=";
   };
 
   nativeBuildInputs =
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   meta = {
-    description = "An open-source collection of tools for doing computation in game theory";
+    description = "Open-source collection of tools for doing computation in game theory";
     homepage = "http://www.gambit-project.org";
     license = lib.licenses.gpl2Only;
     maintainers = with lib.maintainers; [ t4ccer ];

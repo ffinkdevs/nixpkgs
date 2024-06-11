@@ -17394,5 +17394,28 @@ final: prev:
     meta.homepage = "https://github.com/pteroctopus/faster.nvim";
   };
 
+  cinnamon-nvim = buildVimPlugin {
+    pname = "cinnamon-nvim";
+    version = "2024-04-25";
+    src = fetchFromGitHub {
+      owner = "declancm";
+      repo = "cinnamon.nvim";
+      rev = "a011e84b624cd7b609ea928237505d31b987748a";
+      sha256 = "sha256-cMP9WRZzevxaWgpILyDh1JwNukm3Jl3JKJYPT2HnFns=";
+    };
+    meta.homepage = "https://github.com/declancm/cinnamon.nvim";
+  };
+
+  cmp-ai = buildVimPlugin {
+    pname = "cmp-ai";
+    version = "2024-06-02";
+    src = fetchFromGitHub {
+      owner = "tzachar";
+      repo = "cmp-ai";
+      rev = "2b787129314c5fb8bfd41a6919d4889210e6b265";
+      sha256 = "sha256-ul2X6kIdreJ9dCQERw7C3l2dss7Mtcwtm7CGhAxjjvY=";
+    };
+    meta.homepage = "https://github.com/tzachar/cmp-ai/";
+  };
 
 }

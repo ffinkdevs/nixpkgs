@@ -249,10 +249,10 @@ let
 
     meta = with lib; {
       homepage    = "https://www.postgresql.org";
-      description = "A powerful, open source object-relational database system";
+      description = "Powerful, open source object-relational database system";
       license     = licenses.postgresql;
       changelog   = "https://www.postgresql.org/docs/release/${finalAttrs.version}/";
-      maintainers = with maintainers; [ thoughtpolice danbst globin ivan ma27 ];
+      maintainers = with maintainers; [ thoughtpolice danbst globin ivan ma27 wolfgangwalther ];
       pkgConfigModules = [ "libecpg" "libecpg_compat" "libpgtypes" "libpq" ];
       platforms   = platforms.unix;
 

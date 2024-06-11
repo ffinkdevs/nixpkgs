@@ -153,8 +153,6 @@ self: super: with self; {
 
   aioairq = callPackage ../development/python-modules/aioairq { };
 
-  aioaladdinconnect = callPackage ../development/python-modules/aioaladdinconnect { };
-
   aioambient = callPackage ../development/python-modules/aioambient { };
 
   aioapcaccess = callPackage ../development/python-modules/aioapcaccess { };
@@ -248,6 +246,8 @@ self: super: with self; {
   aiohttp-cors = callPackage ../development/python-modules/aiohttp-cors { };
 
   aiohttp-fast-url-dispatcher = callPackage ../development/python-modules/aiohttp-fast-url-dispatcher { };
+
+  aiohttp-fast-zlib = callPackage ../development/python-modules/aiohttp-fast-zlib { };
 
   aiohttp-isal = callPackage ../development/python-modules/aiohttp-isal { };
 
@@ -540,8 +540,6 @@ self: super: with self; {
   ambee = callPackage ../development/python-modules/ambee { };
 
   amberelectric = callPackage ../development/python-modules/amberelectric { };
-
-  ambiclimate = callPackage ../development/python-modules/ambiclimate { };
 
   amcrest = callPackage ../development/python-modules/amcrest { };
 
@@ -1947,6 +1945,8 @@ self: super: with self; {
 
   cashaddress = callPackage ../development/python-modules/cashaddress { };
 
+  cashews = callPackage ../development/python-modules/cashews {  };
+
   cassandra-driver = callPackage ../development/python-modules/cassandra-driver { };
 
   castepxbin = callPackage ../development/python-modules/castepxbin { };
@@ -2656,6 +2656,8 @@ self: super: with self; {
 
   curve25519-donna = callPackage ../development/python-modules/curve25519-donna { };
 
+  curvefitgui = callPackage ../development/python-modules/curvefitgui { };
+
   cvelib = callPackage ../development/python-modules/cvelib { };
 
   cvss = callPackage ../development/python-modules/cvss { };
@@ -2681,6 +2683,8 @@ self: super: with self; {
   cycler = callPackage ../development/python-modules/cycler { };
 
   cyclonedx-python-lib = callPackage ../development/python-modules/cyclonedx-python-lib { };
+
+  cyclopts = callPackage ../development/python-modules/cyclopts { };
 
   cymem = callPackage ../development/python-modules/cymem { };
 
@@ -5298,6 +5302,8 @@ self: super: with self; {
 
   hahomematic = callPackage ../development/python-modules/hahomematic { };
 
+  hakuin = callPackage ../development/python-modules/hakuin { };
+
   halo = callPackage ../development/python-modules/halo { };
 
   halohome = callPackage ../development/python-modules/halohome { };
@@ -5782,6 +5788,8 @@ self: super: with self; {
   indexed-gzip = callPackage ../development/python-modules/indexed-gzip { inherit (pkgs) zlib; };
 
   indexed-zstd = callPackage ../development/python-modules/indexed-zstd { inherit (pkgs) zstd; };
+
+  inequality = callPackage ../development/python-modules/inequality { };
 
   infinity = callPackage ../development/python-modules/infinity { };
 
@@ -6491,6 +6499,8 @@ self: super: with self; {
 
   langchain = callPackage ../development/python-modules/langchain { };
 
+  langchain-chroma = callPackage ../development/python-modules/langchain-chroma { };
+
   langchain-community = callPackage ../development/python-modules/langchain-community { };
 
   langchain-core = callPackage ../development/python-modules/langchain-core { };
@@ -6500,6 +6510,8 @@ self: super: with self; {
   langcodes = callPackage ../development/python-modules/langcodes { };
 
   langdetect = callPackage ../development/python-modules/langdetect { };
+
+  langfuse = callPackage ../development/python-modules/langfuse { };
 
   langid = callPackage ../development/python-modules/langid { };
 
@@ -7269,6 +7281,8 @@ self: super: with self; {
 
   matplotlib-sixel = callPackage ../development/python-modules/matplotlib-sixel { };
 
+  matplotlib-venn = callPackage ../development/python-modules/matplotlib-venn { };
+
   matplotx = callPackage ../development/python-modules/matplotx { };
 
   matrix-api-async = callPackage ../development/python-modules/matrix-api-async { };
@@ -7666,6 +7680,8 @@ self: super: with self; {
   molecule = callPackage ../development/python-modules/molecule { };
 
   molecule-plugins = callPackage ../development/python-modules/molecule/plugins.nix { };
+
+  momepy = callPackage ../development/python-modules/momepy { };
 
   monai = callPackage ../development/python-modules/monai { };
 
@@ -8641,6 +8657,8 @@ self: super: with self; {
   natasha = callPackage ../development/python-modules/natasha { };
 
   nomadnet = callPackage ../development/python-modules/nomadnet { };
+
+  noneprompt = callPackage ../development/python-modules/noneprompt {  };
 
   nox = callPackage ../development/python-modules/nox { };
 
@@ -9968,6 +9986,8 @@ self: super: with self; {
   pycrdt = callPackage ../development/python-modules/pycrdt { };
 
   pycrdt-websocket = callPackage ../development/python-modules/pycrdt-websocket { };
+
+  pycycling = callPackage ../development/python-modules/pycycling { };
 
   pyfibaro = callPackage ../development/python-modules/pyfibaro { };
 
@@ -13194,6 +13214,8 @@ self: super: with self; {
 
   repeated-test = callPackage ../development/python-modules/repeated-test { };
 
+  repl-python-wakatime = callPackage ../development/python-modules/repl-python-wakatime { };
+
   repocheck = callPackage ../development/python-modules/repocheck { };
 
   reportengine = callPackage ../development/python-modules/reportengine { };
@@ -15033,6 +15055,8 @@ self: super: with self; {
 
   terminaltables = callPackage ../development/python-modules/terminaltables { };
 
+  terminaltexteffects = callPackage ../development/python-modules/terminaltexteffects { };
+
   termplotlib = callPackage ../development/python-modules/termplotlib { };
 
   termstyle = callPackage ../development/python-modules/termstyle { };
@@ -15200,6 +15224,8 @@ self: super: with self; {
   timing-asgi = callPackage ../development/python-modules/timing-asgi { };
 
   timm = callPackage ../development/python-modules/timm { };
+
+  timy = callPackage ../development/python-modules/timy { };
 
   tiny-cuda-nn = toPythonModule (pkgs.tiny-cuda-nn.override {
     cudaPackages = self.torch.cudaPackages;
@@ -16757,6 +16783,8 @@ self: super: with self; {
   volkszaehler = callPackage ../development/python-modules/volkszaehler { };
 
   voluptuous = callPackage ../development/python-modules/voluptuous { };
+
+  voluptuous-openapi = callPackage ../development/python-modules/voluptuous-openapi { };
 
   voluptuous-serialize = callPackage ../development/python-modules/voluptuous-serialize { };
 

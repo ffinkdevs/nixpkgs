@@ -12,8 +12,8 @@
   lm_sensors,
   hddtemp,
   netcat-gnu,
-  nvidiaSupport ? true,
   libXNVCtrl,
+  nvidiaSupport ? lib.meta.availableOn stdenv.hostPlatform libXNVCtrl,
   gitUpdater,
 }:
 
@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     homepage = "https://docs.xfce.org/panel-plugins/xfce4-sensors-plugin";
-    description = "A panel plug-in for different sensors using acpi, lm_sensors and hddtemp";
+    description = "Panel plug-in for different sensors using acpi, lm_sensors and hddtemp";
     mainProgram = "xfce4-sensors";
     license = licenses.gpl2Plus;
     platforms = platforms.unix;

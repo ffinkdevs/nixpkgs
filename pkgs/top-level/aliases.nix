@@ -493,6 +493,8 @@ mapAliases ({
   godot-headless = throw "godot-headless has been renamed to godot3-headless to distinguish from version 4"; # Added 2023-07-16
   godot-server = throw "godot-server has been renamed to godot3-server to distinguish from version 4"; # Added 2023-07-16
 
+  gdtoolkit = throw "gdtoolkit has been renamed to gdtoolkit_3 to distinguish from version 4"; # Added 2024-02-17
+
   google-chrome-beta = throw "'google-chrome-beta' has been removed due to the lack of maintenance in nixpkgs. Consider using 'google-chrome' instead."; # Added 2023-10-18
   google-chrome-dev = throw "'google-chrome-dev' has been removed due to the lack of maintenance in nixpkgs. Consider using 'google-chrome' instead."; # Added 2023-10-18
   google-gflags = throw "'google-gflags' has been renamed to/replaced by 'gflags'"; # Converted to throw 2023-09-10
@@ -602,6 +604,7 @@ mapAliases ({
   k3s_1_24 = throw "'k3s_1_24' has been removed from nixpkgs as it has reached end of life"; # Added 2024-03-14
   k3s_1_25 = throw "'k3s_1_25' has been removed from nixpkgs as it has reached end of life"; # Added 2024-03-14
   k3s_1_26 = throw "'k3s_1_26' has been removed from nixpkgs as it has reached end of life"; # Added 2024-05-20
+  k3s_1_27 = throw "'k3s_1_27' has been removed from nixpkgs as it has reached end of life on 2024-06-28"; # Added 2024-06-01
   # k3d was a 3d editing software k-3d - "k3d has been removed because it was broken and has seen no release since 2016" Added 2022-01-04
   # now kube3d/k3d will take it's place
   kube3d = k3d; # Added 2022-0705
@@ -659,6 +662,7 @@ mapAliases ({
   libmongo-client = throw "'libmongo-client' has been removed, upstream gone"; # Added 2023-06-22
   libpulseaudio-vanilla = libpulseaudio; # Added 2022-04-20
   libquotient = libsForQt5.libquotient; # Added 2023-11-11
+  librarian-puppet-go = throw "'librarian-puppet-go' has been removed, as it's upstream is unmaintained"; # Added 2024-06-10
   libraw_unstable = throw "'libraw_unstable' has been removed, please use libraw"; # Added 2023-01-30
   librdf = lrdf; # Added 2020-03-22
   libressl_3_5 = throw "'libressl_3_5' has reached end-of-life "; # Added 2023-05-07
@@ -945,6 +949,7 @@ mapAliases ({
   octorpki = throw "octorpki has been removed, upstream says to use rpki-client instead"; # Added 2024-03-19
   ogre1_9 = throw "ogre1_9 has been removed, use ogre instead"; # Added 2023-03-22
   ogre1_10 = throw "ogre1_10 has been removed, use ogre instead"; # Added 2023-07-20
+  onevpl-intel-gpu = lib.warn "onevpl-intel-gpu has been renamed to vpl-gpu-rt" vpl-gpu-rt; # Added 2024-06-04
   opa = throw "opa has been removed from nixpkgs as upstream has abandoned the project"; # Added 2023-03-21
   opam_1_2 = throw "'opam_1_2' has been renamed to/replaced by 'opam'"; # Added 2023-03-08
   openafs_1_8 = openafs; # Added 2022-08-22
@@ -1394,7 +1399,7 @@ mapAliases ({
   xineLib = xine-lib; # Added 2021-04-27
   xineUI = xine-ui; # Added 2021-04-27
   xmlada = gnatPackages.xmlada; # Added 2024-02-25
-  xonsh-unwrapped = throw "'xonsh-unwrapped' was incorporated into xonsh code; call xonsh directly instead."; # Added 2024-01-20
+  xonsh-unwrapped = xonsh.passthru.unwrapped;
   xtrt = throw "xtrt has been removed due to being abandoned"; # Added 2023-05-25
   xulrunner = firefox-unwrapped; # Added 2023-11-03
   xvfb_run = xvfb-run; # Added 2021-05-07
