@@ -3482,8 +3482,6 @@ self: super: with self; {
 
   docker-pycreds = callPackage ../development/python-modules/docker-pycreds { };
 
-  docker-py = callPackage ../development/python-modules/docker-py { };
-
   dockerspawner = callPackage ../development/python-modules/dockerspawner { };
 
   docloud = callPackage ../development/python-modules/docloud { };
@@ -3591,6 +3589,8 @@ self: super: with self; {
   dropbox = callPackage ../development/python-modules/dropbox { };
 
   dropmqttapi = callPackage ../development/python-modules/dropmqttapi { };
+
+  dscribe  = callPackage ../development/python-modules/dscribe { };
 
   ds-store = callPackage ../development/python-modules/ds-store { };
 
@@ -7677,6 +7677,8 @@ self: super: with self; {
 
   mohawk = callPackage ../development/python-modules/mohawk { };
 
+  molbar = callPackage ../development/python-modules/molbar { };
+
   molecule = callPackage ../development/python-modules/molecule { };
 
   molecule-plugins = callPackage ../development/python-modules/molecule/plugins.nix { };
@@ -11557,6 +11559,8 @@ self: super: with self; {
   pyopenssl = callPackage ../development/python-modules/pyopenssl { };
 
   pyopenuv = callPackage ../development/python-modules/pyopenuv { };
+
+  pyopenweathermap = callPackage ../development/python-modules/pyopenweathermap { };
 
   pyopnsense = callPackage ../development/python-modules/pyopnsense { };
 
@@ -16469,6 +16473,8 @@ self: super: with self; {
   };
 
   uhi = callPackage ../development/python-modules/uhi { };
+
+  uiprotect = callPackage ../development/python-modules/uiprotect { };
 
   ujson = callPackage ../development/python-modules/ujson { };
 

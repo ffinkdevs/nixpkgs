@@ -3308,6 +3308,16 @@
     github = "CaptainJawZ";
     githubId = 43111068;
   };
+  caralice = {
+    name = "Alice Carroll";
+    email = "nix@alice-carroll.pet";
+    github = "thecaralice";
+    githubId = 43097806;
+    keys = [
+      { fingerprint = "C7EA B182 2AB1 246C 0FB8  DD72 0514 0B67 902C D3AF"; }
+      { fingerprint = "DA77 EDDB 4AF5 244C 665E  9176 A05E A86A 5834 1AA8"; }
+    ];
+  };
   CardboardTurkey = {
     name = "Kiran Ostrolenk";
     email = "kiran@ostrolenk.co.uk";
@@ -7074,6 +7084,12 @@
     githubId = 46672819;
     name = "Frido Friedemann";
   };
+  friedow = {
+    email = "christian@friedow.com";
+    github = "friedow";
+    githubId = 17351844;
+    name = "Christian Friedow";
+  };
   friedrichaltheide = {
     github = "friedrichaltheide";
     githubId = 11352905;
@@ -8201,6 +8217,12 @@
     githubId = 28564678;
     matrix = "@heisfer:matrix.org";
     name = "Heisfer";
+  };
+  HeitorAugustoLN = {
+    email = "IAm.HeitorALN@proton.me";
+    github = "HeitorAugustoLN";
+    githubId = 44377258;
+    name = "Heitor Augusto";
   };
   helium = {
     email = "helium.dev@tuta.io";
@@ -9872,6 +9894,11 @@
     github = "joamaki";
     githubId = 1102396;
     name = "Jussi Maki";
+  };
+  joanmassachs = {
+    github = "joanmassachs";
+    githubId = 22916782;
+    name = "Joan Massachs";
   };
   joaquintrinanes = {
     email = "hi@joaquint.io";
@@ -20807,6 +20834,12 @@
     githubId = 14172;
     name = "Tim Cuthbertson";
   };
+  timhae = {
+    email = "tim.haering@posteo.net";
+    githubId = 6264882;
+    github = "timhae";
+    name = "Tim Häring";
+  };
   timma = {
     email = "kunduru.it.iitb@gmail.com";
     github = "ktrsoft";
@@ -21602,6 +21635,12 @@
     github = "varunpatro";
     githubId = 6943308;
     name = "Varun Patro";
+  };
+  vasissualiyp = {
+    email = "vaspust@gmail.com";
+    github = "vasissualiyp";
+    githubId = 110242808;
+    name = "Vasilii Pustovoit";
   };
   vbgl = {
     email = "Vincent.Laporte@gmail.com";
@@ -23059,6 +23098,16 @@
     githubId = 19512674;
     keys = [{
       fingerprint = "1127 F188 280A E312 3619  3329 87E1 7EEF 9B18 B6C9";
+    }];
+  };
+  zeorin = {
+    name = "Xandor Schiefer";
+    email = "me@xandor.co.za";
+    matrix = "@zeorin:matrix.org";
+    github = "zeorin";
+    githubId = 1187078;
+    keys = [{
+      fingerprint = "863F 093A CF82 D2C8 6FD7  FB74 5E1C 0971 FE4F 665A";
     }];
   };
   zeratax = {
