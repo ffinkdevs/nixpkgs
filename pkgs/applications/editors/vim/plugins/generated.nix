@@ -5327,6 +5327,18 @@ final: prev:
     meta.homepage = "https://github.com/folke/lazy.nvim/";
   };
 
+  lazydev-nvim = buildVimPlugin {
+    pname = "lazydev-nvim";
+    version = "2024-06-09";
+    src = fetchFromGitHub {
+      owner = "folke";
+      repo = "lazydev.nvim";
+      rev = "7cbb524c85f87017df9c1ea2377a1d840ad8ed51";
+      sha256 = "034abfj3rskgqqcynw6mz61bhjmq8x8qn6f4lq6wvyhzhkfplaqb";
+    };
+    meta.homepage = "https://github.com/folke/lazydev.nvim/";
+  };
+
   lazygit-nvim = buildVimPlugin {
     pname = "lazygit.nvim";
     version = "2024-05-13";
@@ -5901,6 +5913,18 @@ final: prev:
       sha256 = "03saw1w5pybj6yywzi8hinciv18znimm7k0h34k4pqp5gi1jfaql";
     };
     meta.homepage = "https://github.com/mkasa/lushtags/";
+  };
+
+  lz-n = buildNeovimPlugin {
+    pname = "lz.n";
+    version = "2024-06-16";
+    src = fetchFromGitHub {
+      owner = "nvim-neorocks";
+      repo = "lz.n";
+      rev = "ffd6633cbe2145177bd522fa340104fa44afbc1c";
+      sha256 = "sha256-aV+m4+8oWwIPTQhilXfHOUyYqQGl4NRnk7HvEQYMp0Y=";
+    };
+    meta.homepage = "https://github.com/nvim-neorocks/lz.n/";
   };
 
   magma-nvim-goose = buildVimPlugin {
