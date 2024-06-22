@@ -3362,6 +3362,23 @@ let
         };
       };
 
+      ms-vscode-remote.remote-wsl = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "remote-wsl";
+          publisher = "ms-vscode-remote";
+          version = "0.88.2";
+          hash = "sha256-fl7fLNd3EHA9eMiPUIL/23SUiA81gveqZLFkqaHTX+Q=";
+        };
+        meta = {
+          changelog = "https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/changelog";
+          description = "Windows Subsystem for Linux support for Visual Studio Code";
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl";
+          homepage = "https://code.visualstudio.com/docs/remote/wsl";
+          license = lib.licenses.unfree;
+          maintainers = [ lib.maintainers.uncenter ];
+        };
+      };
+
       ms-vsliveshare.vsliveshare = callPackage ./ms-vsliveshare.vsliveshare { };
 
       mshr-h.veriloghdl = buildVscodeMarketplaceExtension {
@@ -3942,6 +3959,31 @@ let
         };
         meta = {
           license = lib.licenses.asl20;
+        };
+      };
+
+      sdras.night-owl = buildVscodeMarketplaceExtension rec {
+        mktplcRef = {
+          name = "night-owl";
+          publisher = "sdras";
+          version = "2.0.1";
+          hash = "sha256-AqfcVV9GYZ+GLgusXfij9z4WzrU9cCHp3sdZb0i6HzE=";
+        };
+        meta = {
+          changelog = "https://github.com/sdras/night-owl-vscode-theme/blob/main/CHANGELOG.md#${
+            builtins.replaceStrings [ "." ] [ "" ] mktplcRef.version
+          }";
+          description = "A Visual Studio Code theme named Light Owl for daytime usage";
+          longDescription = ''
+            A VS Code theme for the night owls out there. Now introducing
+            Light Owl theme for daytime usage. Decisions were based
+            on meaningful contrast for reading comprehension and for
+            optimal razzle dazzle.
+          '';
+          downloadPage = "https://marketplace.visualstudio.com/items?itemName=sdras.night-owl";
+          homepage = "https://github.com/sdras/night-owl-vscode-theme";
+          license = lib.licenses.mit;
+          maintainers = [ lib.maintainers.pladypus ];
         };
       };
 

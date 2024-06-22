@@ -362,6 +362,12 @@ in mkLicense lset) ({
     fullName = "Creative Commons Attribution Share Alike 4.0";
   };
 
+  cc-sa-10 = {
+    shortName = "CC-SA-1.0";
+    fullName = "Creative Commons Share Alike 1.0";
+    url = "https://creativecommons.org/licenses/sa/1.0";
+  };
+
   cddl = {
     spdxId = "CDDL-1.0";
     fullName = "Common Development and Distribution License 1.0";
@@ -1272,9 +1278,19 @@ in mkLicense lset) ({
     fullName = "xinetd License";
   };
 
+  xskat = {
+    spdxId = "XSkat";
+    fullName = "XSkat License";
+  };
+
   zlib = {
     spdxId = "Zlib";
     fullName = "zlib License";
+  };
+
+  zsh = {
+    url = "https://github.com/zsh-users/zsh/blob/master/LICENCE";
+    fulllName = "Zsh License";
   };
 
   zpl20 = {
@@ -1287,10 +1303,6 @@ in mkLicense lset) ({
     fullName = "Zope Public License 2.1";
   };
 
-  xskat = {
-    spdxId = "XSkat";
-    fullName = "XSkat License";
-  };
 } // {
   # TODO: remove legacy aliases
   apsl10 = {
