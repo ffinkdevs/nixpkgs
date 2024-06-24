@@ -4070,10 +4070,12 @@ with pkgs;
 
   androidenv = callPackage ../development/mobile/androidenv { };
 
-  androidndkPkgs = androidndkPkgs_21;
+  androidndkPkgs = androidndkPkgs_26;
   androidndkPkgs_21 = (callPackage ../development/androidndk-pkgs {})."21";
   androidndkPkgs_23b = (callPackage ../development/androidndk-pkgs {})."23b";
   androidndkPkgs_24 = (callPackage ../development/androidndk-pkgs {})."24";
+  androidndkPkgs_25 = (callPackage ../development/androidndk-pkgs {})."25";
+  androidndkPkgs_26 = (callPackage ../development/androidndk-pkgs {})."26";
 
   androidsdk = androidenv.androidPkgs.androidsdk;
 
@@ -7377,7 +7379,7 @@ with pkgs;
 
   dropbear = callPackage ../tools/networking/dropbear { };
 
-  dsview = qt6Packages.callPackage ../applications/science/electronics/dsview { };
+  dsview = libsForQt5.callPackage ../applications/science/electronics/dsview { };
 
   dtach = callPackage ../tools/misc/dtach { };
 
@@ -7878,8 +7880,6 @@ with pkgs;
 
   flashbench = callPackage ../os-specific/linux/flashbench { };
 
-  flatpak = callPackage ../development/libraries/flatpak { };
-
   flatpak-builder = callPackage ../development/tools/flatpak-builder {
     binutils = binutils-unwrapped;
   };
@@ -8330,8 +8330,6 @@ with pkgs;
   gnome-epub-thumbnailer = callPackage ../applications/misc/gnome-epub-thumbnailer { };
 
   gnome-extension-manager = callPackage ../applications/misc/gnome-extension-manager { };
-
-  gnome-feeds = callPackage ../applications/networking/feedreaders/gnome-feeds { };
 
   gnome-frog = callPackage ../applications/misc/gnome-frog { };
 
@@ -12065,8 +12063,6 @@ with pkgs;
 
   raysession = python3Packages.callPackage ../applications/audio/raysession {};
 
-  revolt-desktop = callPackage ../applications/networking/instant-messengers/revolt-desktop { };
-
   rbw = callPackage ../tools/security/rbw { };
 
   remarshal = with python3Packages; toPythonApplication remarshal;
@@ -15181,31 +15177,7 @@ with pkgs;
   clang_16 = llvmPackages_16.clang;
   clang_17 = llvmPackages_17.clang;
 
-  clang-tools = callPackage ../development/tools/clang-tools { };
-
-  clang-tools_12 = callPackage ../development/tools/clang-tools {
-    llvmPackages = llvmPackages_12;
-  };
-
-  clang-tools_13 = callPackage ../development/tools/clang-tools {
-    llvmPackages = llvmPackages_13;
-  };
-
-  clang-tools_14 = callPackage ../development/tools/clang-tools {
-    llvmPackages = llvmPackages_14;
-  };
-
-  clang-tools_15 = callPackage ../development/tools/clang-tools {
-    llvmPackages = llvmPackages_15;
-  };
-
-  clang-tools_16 = callPackage ../development/tools/clang-tools {
-    llvmPackages = llvmPackages_16;
-  };
-
-  clang-tools_17 = callPackage ../development/tools/clang-tools {
-    llvmPackages = llvmPackages_17;
-  };
+  clang-tools = llvmPackages.clang-tools;
 
   clang-analyzer = callPackage ../development/tools/analysis/clang-analyzer {
     llvmPackages = llvmPackages_14;
@@ -15957,8 +15929,6 @@ with pkgs;
 
   gwt240 = callPackage ../development/compilers/gwt/2.4.0.nix { };
 
-  hvm = darwin.apple_sdk_11_0.callPackage ../development/compilers/hvm { };
-
   iay = callPackage ../tools/misc/iay {
     inherit (darwin.apple_sdk.frameworks) AppKit Security Foundation Cocoa;
   };
@@ -16280,17 +16250,12 @@ with pkgs;
       lld_18 = llvmPackages_18.lld;
       lldb_18 = llvmPackages_18.lldb;
       llvm_18 = llvmPackages_18.llvm;
-
-      clang-tools_18 = callPackage ../development/tools/clang-tools {
-        llvmPackages = llvmPackages_18;
-      };
     })
       llvmPackages_18
       clang_18
       lld_18
       lldb_18
-      llvm_18
-      clang-tools_18;
+      llvm_18;
 
   lorri = callPackage ../tools/misc/lorri {
     inherit (darwin.apple_sdk.frameworks) CoreServices Security;
@@ -28006,8 +27971,6 @@ with pkgs;
 
   vendir = callPackage ../development/tools/vendir { };
 
-  vndr = callPackage ../development/tools/vndr { };
-
   vdo = callPackage ../os-specific/linux/vdo { };
 
   windows = callPackages ../os-specific/windows {};
@@ -31526,7 +31489,7 @@ with pkgs;
 
   pixeluvo = callPackage ../applications/graphics/pixeluvo { };
 
-  pixinsight = libsForQt5.callPackage ../applications/graphics/pixinsight { };
+  pixinsight = qt6Packages.callPackage ../applications/graphics/pixinsight { };
 
   planner = callPackage ../applications/office/planner { };
 
@@ -34761,15 +34724,14 @@ with pkgs;
 
   transcribe = callPackage ../applications/audio/transcribe { };
 
-  transmission = callPackage ../applications/networking/p2p/transmission { };
-  libtransmission = transmission.override {
+  libtransmission_3 = transmission_3.override {
     installLib = true;
     enableDaemon = false;
     enableCli = false;
   };
-  transmission-gtk = transmission.override { enableGTK3 = true; };
-  transmission-qt = transmission.override { enableQt = true; };
-  transmission_noSystemd = transmission.override { enableSystemd = false; };
+  transmission_3-gtk = transmission_3.override { enableGTK3 = true; };
+  transmission_3-qt = transmission_3.override { enableQt = true; };
+  transmission_3_noSystemd = transmission_3.override { enableSystemd = false; };
 
   # Needs macOS >= 10.14.6
   transmission_4 = darwin.apple_sdk_11_0.callPackage ../applications/networking/p2p/transmission/4.nix {
@@ -39667,8 +39629,6 @@ with pkgs;
   sam-ba = callPackage ../tools/misc/sam-ba { };
 
   sndio = callPackage ../misc/sndio { };
-
-  SP800-90B_EntropyAssessment = callPackage ../tools/misc/SP800-90B_EntropyAssessment { };
 
   sticky = callPackage ../applications/misc/sticky { };
 

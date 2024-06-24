@@ -775,7 +775,7 @@ in {
   printing-service = handleTest ./printing.nix { socket = false; };
   private-gpt = handleTest ./private-gpt.nix {};
   privoxy = handleTest ./privoxy.nix {};
-  prometheus = handleTest ./prometheus.nix {};
+  prometheus = handleTest ./prometheus {};
   prometheus-exporters = handleTest ./prometheus-exporters.nix {};
   prosody = handleTest ./xmpp/prosody.nix {};
   prosody-mysql = handleTest ./xmpp/prosody-mysql.nix {};
@@ -958,6 +958,7 @@ in {
   systemd-homed = handleTest ./systemd-homed.nix {};
   systemtap = handleTest ./systemtap.nix {};
   tandoor-recipes = handleTest ./tandoor-recipes.nix {};
+  tandoor-recipes-script-name = handleTest ./tandoor-recipes-script-name.nix {};
   tang = handleTest ./tang.nix {};
   taskserver = handleTest ./taskserver.nix {};
   tayga = handleTest ./tayga.nix {};
@@ -967,6 +968,7 @@ in {
   teleport = handleTest ./teleport.nix {};
   thelounge = handleTest ./thelounge.nix {};
   terminal-emulators = handleTest ./terminal-emulators.nix {};
+  thanos = handleTest ./thanos.nix {};
   tiddlywiki = handleTest ./tiddlywiki.nix {};
   tigervnc = handleTest ./tigervnc.nix {};
   timescaledb = handleTest ./timescaledb.nix {};
@@ -981,7 +983,7 @@ in {
   traefik = handleTestOn ["aarch64-linux" "x86_64-linux"] ./traefik.nix {};
   trafficserver = handleTest ./trafficserver.nix {};
   transfer-sh = handleTest ./transfer-sh.nix {};
-  transmission = handleTest ./transmission.nix { transmission = pkgs.transmission; };
+  transmission_3 = handleTest ./transmission.nix { transmission = pkgs.transmission_3; };
   transmission_4 = handleTest ./transmission.nix { transmission = pkgs.transmission_4; };
   # tracee requires bpf
   tracee = handleTestOn ["x86_64-linux"] ./tracee.nix {};

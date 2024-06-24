@@ -1977,6 +1977,12 @@
     githubId = 12958979;
     name = "Mika Naylor";
   };
+  autra = {
+    email = "augustin.trancart@gmail.com";
+    github = "autra";
+    githubId = 1576598;
+    name = "Augustin Trancart";
+  };
   autrimpo = {
     email = "michal@koutensky.net";
     github = "autrimpo";
@@ -3955,6 +3961,12 @@
     github = "CompEng0001";
     githubId = 40290417;
     name = "Seb Blair";
+  };
+  CompileTime = {
+    email = "socialcoms@posteo.de";
+    github = "Compile-Time";
+    githubId = 18414241;
+    name = "Andreas Erdes";
   };
   confus = {
     email = "con-f-use@gmx.net";
@@ -9836,6 +9848,11 @@
     githubId = 1918771;
     name = "Joe Doyle";
   };
+  jpds = {
+    github = "jpds";
+    githubId = 29158971;
+    name = "Jonathan Davies";
+  };
   jpentland = {
     email = "joe.pentland@gmail.com";
     github = "jpentland";
@@ -9970,6 +9987,12 @@
     github = "jtrees";
     githubId = 5802758;
     name = "Joshua Trees";
+  };
+  jtszalay = {
+    email = "jamestszalay@gmail.com";
+    github = "jtszalay";
+    githubId = 589502;
+    name = "James Szalay";
   };
   juancmuller = {
     email = "nix@juancmuller.com";
@@ -10599,6 +10622,11 @@
     email = "kkharji@protonmail.com";
     github = "kkharji";
     githubId = 65782666;
+  };
+  kkoniuszy = {
+    name = "Kacper Koniuszy";
+    github = "kkoniuszy";
+    githubId = 120419423;
   };
   klden = {
     name = "Kenzyme Le";
@@ -11635,6 +11663,13 @@
     github = "lowfatcomputing";
     githubId = 10626;
     name = "Andreas Wagner";
+  };
+  lpchaim = {
+    email = "lpchaim@gmail.comm";
+    matrix = "@lpchaim:matrix.org";
+    github = "lpchaim";
+    githubId = 4030336;
+    name = "Lucas Chaim";
   };
   lpostula = {
     email = "lois@postu.la";
@@ -21544,12 +21579,6 @@
     github = "andreisergiu98";
     githubId = 11740700;
     name = "Andrei Pampu";
-  };
-  wolfangaukang = {
-    email = "clone.gleeful135+nixpkgs@anonaddy.me";
-    github = "WolfangAukang";
-    githubId = 8378365;
-    name = "P. R. d. O.";
   };
   wolfgangwalther = {
     name = "Wolfgang Walther";

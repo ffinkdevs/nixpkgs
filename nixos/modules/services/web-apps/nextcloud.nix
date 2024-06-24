@@ -80,6 +80,12 @@ let
     mkKeyValue = generators.mkKeyValueDefault {} " = ";
   };
 
+  phpCli = concatStringsSep " " ([
+    "${getExe phpPackage}"
+  ] ++ optionals (cfg.cli.memoryLimit != null) [
+    "-dmemory_limit=${cfg.cli.memoryLimit}"
+  ]);
+
   occ = pkgs.writeScriptBin "nextcloud-occ" ''
     #! ${pkgs.runtimeShell}
     cd ${webroot}
@@ -89,7 +95,7 @@ let
     fi
     export NEXTCLOUD_CONFIG_DIR="${datadir}/config"
     $sudo \
-      ${phpPackage}/bin/php \
+      ${phpCli} \
       occ "$@"
   '';
 
@@ -196,6 +202,9 @@ let
 in {
 
   imports = [
+    (mkRenamedOptionModule
+      [ "services" "nextcloud" "cron" "memoryLimit" ]
+      [ "services" "nextcloud" "cli" "memoryLimit" ])
     (mkRemovedOptionModule [ "services" "nextcloud" "enableBrokenCiphersForSSE" ] ''
       This option has no effect since there's no supported Nextcloud version packaged here
       using OpenSSL for RC4 SSE.
@@ -446,7 +455,13 @@ in {
       dbtableprefix = mkOption {
         type = types.nullOr types.str;
         default = null;
-        description = "Table prefix in Nextcloud's database.";
+        description = ''
+          Table prefix in Nextcloud's database.
+
+          __Note:__ since Nextcloud 20 it's not an option anymore to create a database
+          schema with a custom table prefix. This option only exists for backwards compatibility
+          with installations that were originally provisioned with Nextcloud <20.
+        '';
       };
       adminuser = mkOption {
         type = types.str;
@@ -642,7 +657,6 @@ in {
       type = types.package;
       default = occ;
       defaultText = literalMD "generated script";
-      internal = true;
       description = ''
         The nextcloud-occ program preconfigured to target this Nextcloud instance.
       '';
@@ -794,7 +808,7 @@ in {
       };
     };
 
-    cron.memoryLimit = mkOption {
+    cli.memoryLimit = mkOption {
       type = types.nullOr types.str;
       default = null;
       example = "1G";
@@ -825,6 +839,13 @@ in {
       in (optional (cfg.poolConfig != null) ''
           Using config.services.nextcloud.poolConfig is deprecated and will become unsupported in a future release.
           Please migrate your configuration to config.services.nextcloud.poolSettings.
+        '')
+        ++ (optional (cfg.config.dbtableprefix != null) ''
+          Using `services.nextcloud.config.dbtableprefix` is deprecated. Fresh installations with this
+          option set are not allowed anymore since v20.
+
+          If you have an existing installation with a custom table prefix, make sure it is
+          set correctly in `config.php` and remove the option from your NixOS config.
         '')
         ++ (optional (versionOlder cfg.package.version "25") (upgradeWarning 24 "22.11"))
         ++ (optional (versionOlder cfg.package.version "26") (upgradeWarning 25 "23.05"))
@@ -1010,14 +1031,8 @@ in {
           serviceConfig = {
             Type = "exec";
             User = "nextcloud";
-            ExecCondition = "${lib.getExe phpPackage} -f ${webroot}/occ status -e";
-            ExecStart = lib.concatStringsSep " " ([
-              (lib.getExe phpPackage)
-            ] ++ optional (cfg.cron.memoryLimit != null) "-dmemory_limit=${cfg.cron.memoryLimit}"
-              ++ [
-              "-f"
-              "${webroot}/cron.php"
-            ]);
+            ExecCondition = "${phpCli} -f ${webroot}/occ status -e";
+            ExecStart = "${phpCli} -f ${webroot}/cron.php";
             KillMode = "process";
           };
         };
@@ -1041,7 +1056,7 @@ in {
           serviceConfig = {
             Type = "exec";
             User = "nextcloud";
-            ExecCondition = "${lib.getExe phpPackage} -f ${webroot}/occ status -e";
+            ExecCondition = "${phpCli} -f ${webroot}/occ status -e";
           };
         };
       };
