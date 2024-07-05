@@ -59,7 +59,6 @@
   ./hardware/cpu/intel-microcode.nix
   ./hardware/cpu/intel-sgx.nix
   ./hardware/cpu/x86-msr.nix
-  ./hardware/decklink.nix
   ./hardware/device-tree.nix
   ./hardware/digitalbitbox.nix
   ./hardware/flipperzero.nix
@@ -181,6 +180,7 @@
   ./programs/dublin-traceroute.nix
   ./programs/ecryptfs.nix
   ./programs/environment.nix
+  ./programs/envision.nix
   ./programs/evince.nix
   ./programs/extra-container.nix
   ./programs/fcast-receiver.nix

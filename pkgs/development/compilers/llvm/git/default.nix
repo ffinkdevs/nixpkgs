@@ -20,9 +20,9 @@
 # LLVM release information; specify one of these but not both:
 , gitRelease ? {
     version = "19.0.0-git";
-    rev = "a9ac31910db3975d5e92a6265ab29dafd6a4691d";
-    rev-version = "19.0.0-unstable-2024-06-23";
-    sha256 = "sha256-MTt2FU84rgu6FqB9aCO6M54VZexoogkdx5RKS1NzSkk=";
+    rev = "9b9405621bcc55b74d2177c960c21f62cc95e6fd";
+    rev-version = "19.0.0-unstable-2024-06-30";
+    sha256 = "sha256-Tlk+caav7e7H6bha8YQyOl+x2iNk9iH7xKpHQkWQyJ4=";
 }
   # i.e.:
   # {
@@ -268,7 +268,7 @@ in let
       bintools = bintools';
       extraPackages = [
         targetLlvmLibraries.compiler-rt
-      ] ++ lib.optionals (!stdenv.targetPlatform.isWasm) [
+      ] ++ lib.optionals (!stdenv.targetPlatform.isWasm && !stdenv.targetPlatform.isFreeBSD) [
         targetLlvmLibraries.libunwind
       ];
       extraBuildCommands = mkExtraBuildCommands cc;
@@ -277,12 +277,12 @@ in let
           "-Wno-unused-command-line-argument"
           "-B${targetLlvmLibraries.compiler-rt}/lib"
         ]
-        ++ lib.optional (!stdenv.targetPlatform.isWasm) "--unwindlib=libunwind"
+        ++ lib.optional (!stdenv.targetPlatform.isWasm && !stdenv.targetPlatform.isFreeBSD) "--unwindlib=libunwind"
         ++ lib.optional
-          (!stdenv.targetPlatform.isWasm && stdenv.targetPlatform.useLLVM or false)
+          (!stdenv.targetPlatform.isWasm && !stdenv.targetPlatform.isFreeBSD && stdenv.targetPlatform.useLLVM or false)
           "-lunwind"
         ++ lib.optional stdenv.targetPlatform.isWasm "-fno-exceptions";
-      nixSupport.cc-ldflags = lib.optionals (!stdenv.targetPlatform.isWasm) [ "-L${targetLlvmLibraries.libunwind}/lib" ];
+      nixSupport.cc-ldflags = lib.optionals (!stdenv.targetPlatform.isWasm && !stdenv.targetPlatform.isFreeBSD) [ "-L${targetLlvmLibraries.libunwind}/lib" ];
     };
 
     clangNoLibcxx = wrapCCWith rec {

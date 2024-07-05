@@ -1262,8 +1262,8 @@ let
         mktplcRef = {
           name = "vscode-eslint";
           publisher = "dbaeumer";
-          version = "2.4.4";
-          hash = "sha256-NJGsMme/+4bvED/93SGojYTH03EZbtKe5LyvocywILA=";
+          version = "3.0.10";
+          hash = "sha256-EVmexnTIQQDmj25/rql3eCfJd47zRui3TpHol6l0Vgs=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint/changelog";
@@ -3397,8 +3397,8 @@ let
         mktplcRef = {
           name = "remote-containers";
           publisher = "ms-vscode-remote";
-          version = "0.347.0";
-          hash = "sha256-E9H1nPWG5JuzBxbYc/yWd8Y3azEWrd9whGirl0GK7kU=";
+          version = "0.376.0";
+          hash = "sha256-fJ8ZcwGFWXzJZ8UgnzTxR+842vjiU0qCjV/zWzbq/KQ=";
         };
         meta = {
           description = "Open any folder or repository inside a Docker container";
