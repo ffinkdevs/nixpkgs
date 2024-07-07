@@ -10610,8 +10610,8 @@ final: prev:
     src = fetchFromGitHub {
       owner = "godlygeek";
       repo = "tabular";
-      rev = "29a6b21dd991477a9e137fe8891947e2f2e8bb45";
-      sha256 = "0q76w0xj443fn5a22wksp14f3s55ll2xq0rbdaj37xdd8kddlg8s";
+      rev = "12437cd1b53488e24936ec4b091c9324cafee311";
+      sha256 = "1cnh21yhcn2f4fajdr2b6hrclnhf1sz4abra4nw7b5yk1mvfjq5a";
     };
     meta.homepage = "https://github.com/godlygeek/tabular/";
   };
@@ -17165,6 +17165,18 @@ final: prev:
       fetchSubmodules = true;
     };
     meta.homepage = "https://github.com/HerringtonDarkholme/yats.vim/";
+  };
+
+  yazi-nvim = buildVimPlugin {
+    pname = "yazi.nvim";
+    version = "2024-06-29";
+    src = fetchFromGitHub {
+      owner = "mikavilpas";
+      repo = "yazi.nvim";
+      rev = "05849f390175f2ba8fd277b224d4fd9e35455895";
+      sha256 = "zj+lmxsOEW+YaCk5hb7u454gACUmqYPA/IeW6av4D7k=";
+    };
+    meta.homepage = "https://github.com/DreamMaoMao/yazi.nvim";
   };
 
   yescapsquit-vim = buildVimPlugin {

@@ -2420,14 +2420,6 @@
     githubId = 7118777;
     keys = [ { fingerprint = "E9A3 7864 2165 28CE 507C  CA82 72EA BF75 C331 CD25"; } ];
   };
-  Benjamin-L = {
-    name = "Benjamin Lee";
-    email = "benjamin@computer.surgery";
-    matrix = "@benjamin:computer.surgery";
-    github = "Benjamin-L";
-    githubId = 6504174;
-    keys = [ { fingerprint = "9D84 09A0 44FC 1EEB AE2D  FA30 FB96 24E2 885D 55A4"; } ];
-  };
   benkuhn = {
     email = "ben@ben-kuhn.com";
     github = "ben-kuhn";
@@ -7544,7 +7536,8 @@
     name = "Yacine Hmito";
   };
   gracicot = {
-    email = "gracicot42@gmail.com";
+    email = "dev@gracicot.com";
+    matrix = "@gracicot-59e8f173d73408ce4f7ac803:gitter.im";
     github = "gracicot";
     githubId = 2906673;
     name = "Guillaume Racicot";
@@ -9117,6 +9110,12 @@
     email = "jceb@e-jc.de";
     github = "jceb";
     githubId = 101593;
+  };
+  jcelerier = {
+    name = "Jean-Michaël Celerier";
+    email = "jeanmichael.celerier@gmail.com";
+    github = "jcelerier";
+    githubId = 2772730;
   };
   jchw = {
     email = "johnwchadwick@gmail.com";
@@ -12269,6 +12268,12 @@
     githubId = 30078229;
     name = "marble";
   };
+  marcel = {
+    email = "me@m4rc3l.de";
+    github = "MarcelCoding";
+    githubId = 34819524;
+    name = "Marcel";
+  };
   marcovergueira = {
     email = "vergueira.marco@gmail.com";
     github = "marcovergueira";
@@ -14719,12 +14724,6 @@
     github = "nullishamy";
     githubId = 99221043;
   };
-  nullx76 = {
-    email = "nix@xirion.net";
-    github = "NULLx76";
-    githubId = 1809198;
-    name = "Victor Roest";
-  };
   numinit = {
     email = "me@numin.it";
     github = "numinit";
@@ -15380,7 +15379,7 @@
     githubId = 53442728;
   };
   paveloom = {
-    email = "paveloom@riseup.net";
+    email = "contact@paveloom.dev";
     github = "paveloom";
     githubId = 49961859;
     name = "Pavel Sobolev";
@@ -21034,13 +21033,6 @@
     github = "victormeriqui";
     githubId = 1396008;
   };
-  victormignot = {
-    email = "root@victormignot.fr";
-    github = "victormignot";
-    githubId = 58660971;
-    name = "Victor Mignot";
-    keys = [ { fingerprint = "CA5D F91A D672 683A 1F65  BBC9 0317 096D 20E0 067B"; } ];
-  };
   vidbina = {
     email = "vid@bina.me";
     github = "vidbina";
@@ -22320,6 +22312,12 @@
     github = "elmarx";
     githubId = 250877;
     name = "Elmar Athmer";
+  };
+  zazedd = {
+    name = "Leonardo Santos";
+    email = "leomendesantos@gmail.com";
+    github = "zazedd";
+    githubId = 93401987;
   };
   zbioe = {
     name = "Iury Fukuda";
