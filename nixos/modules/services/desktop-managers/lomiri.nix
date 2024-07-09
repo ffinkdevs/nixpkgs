@@ -21,6 +21,8 @@ in {
         history-service
         libusermetrics
         lomiri
+        lomiri-calculator-app
+        lomiri-clock-app
         lomiri-download-manager
         lomiri-filemanager-app
         lomiri-polkit-agent
