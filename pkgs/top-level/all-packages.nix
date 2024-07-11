@@ -697,11 +697,6 @@ with pkgs;
     inherit (darwin) DarwinTools;
   };
 
-  probe-run = callPackage ../development/tools/rust/probe-run {
-    inherit (darwin.apple_sdk.frameworks) AppKit IOKit;
-    inherit (darwin) DarwinTools;
-  };
-
   mix2nix = callPackage ../development/tools/mix2nix { };
 
   n98-magerun = callPackage ../development/tools/misc/n98-magerun { };
@@ -3314,8 +3309,6 @@ with pkgs;
 
   azeret-mono = callPackage ../data/fonts/azeret-mono { };
 
-  azure-cli = callPackage ../tools/admin/azure-cli { };
-
   azure-cli-extensions = recurseIntoAttrs azure-cli.extensions;
 
   azure-functions-core-tools = callPackage ../development/tools/azure-functions-core-tools { };
@@ -4256,9 +4249,7 @@ with pkgs;
 
   libtensorflow = python3.pkgs.tensorflow.libtensorflow;
 
-  libtorch-bin = callPackage ../development/libraries/science/math/libtorch/bin.nix {
-    inherit (config) cudaSupport;
-  };
+  libtorch-bin = callPackage ../development/libraries/science/math/libtorch/bin.nix { };
 
   tensorflow-lite = callPackage ../development/libraries/science/math/tensorflow-lite { };
 
@@ -5734,6 +5725,8 @@ with pkgs;
   massren = callPackage ../tools/misc/massren { };
 
   mat2 = with python3.pkgs; toPythonApplication mat2;
+
+  materialx = with python3Packages; toPythonApplication materialx;
 
   maxcso = callPackage ../tools/archivers/maxcso { };
 
@@ -8952,6 +8945,8 @@ with pkgs;
   };
 
   hyphen = callPackage ../development/libraries/hyphen { };
+
+  hyphenDicts = recurseIntoAttrs (callPackages ../development/libraries/hyphen/dictionaries.nix {});
 
   i2c-tools = callPackage ../os-specific/linux/i2c-tools { };
 
@@ -13391,8 +13386,6 @@ with pkgs;
     plugins = recurseIntoAttrs (getPackagesWithPrefix "plugin");
     themes = recurseIntoAttrs (getPackagesWithPrefix "theme");
   };
-
-  thefuck = python3Packages.callPackage ../tools/misc/thefuck { };
 
   theme-sh = callPackage ../tools/misc/theme-sh { };
 
@@ -23480,11 +23473,12 @@ with pkgs;
 
   openslp = callPackage ../development/libraries/openslp { };
 
-  openstackclient = with python3Packages; toPythonApplication python-openstackclient;
-  glanceclient = with python3Packages; toPythonApplication python-glanceclient;
-  heatclient = with python3Packages; toPythonApplication python-heatclient;
-  ironicclient = with python3Packages; toPythonApplication python-ironicclient;
-  manilaclient = with python3Packages; toPythonApplication python-manilaclient;
+  openstackclient = with python311Packages; toPythonApplication python-openstackclient;
+  glanceclient = with python311Packages; toPythonApplication python-glanceclient;
+  heatclient = with python311Packages; toPythonApplication python-heatclient;
+  ironicclient = with python311Packages; toPythonApplication python-ironicclient;
+  manilaclient = with python311Packages; toPythonApplication python-manilaclient;
+  swiftclient = with python311Packages; toPythonApplication python-swiftclient;
 
   openvdb = callPackage ../development/libraries/openvdb { };
 
@@ -24341,8 +24335,6 @@ with pkgs;
   svrcore = callPackage ../development/libraries/svrcore { };
 
   svxlink = libsForQt5.callPackage ../applications/radio/svxlink { };
-
-  swiftclient = with python3Packages; toPythonApplication python-swiftclient;
 
   biblesync = callPackage ../development/libraries/biblesync { };
 
@@ -25889,11 +25881,6 @@ with pkgs;
   libpressureaudio = callPackage ../misc/apulse/pressureaudio.nix { };
 
   libcardiacarrest = callPackage ../misc/libcardiacarrest { };
-
-  easyeffects = callPackage ../applications/audio/easyeffects {
-    # Fix crashes with speexdsp effects
-    speexdsp = speexdsp.override { withFftw3 = false; };
-  };
 
   pulseeffects-legacy = callPackage ../applications/audio/pulseeffects-legacy { };
 
@@ -27590,6 +27577,8 @@ with pkgs;
 
   schedtool = callPackage ../os-specific/linux/schedtool { };
 
+  sddm-astronaut = qt6Packages.callPackage ../data/themes/sddm-astronaut { };
+
   sddm-chili-theme = libsForQt5.callPackage ../data/themes/chili-sddm { };
 
   sddm-sugar-dark = libsForQt5.callPackage ../data/themes/sddm-sugar-dark { };
@@ -28555,8 +28544,6 @@ with pkgs;
   };
 
   marwaita-pop_os = callPackage ../data/themes/marwaita-pop_os { };
-
-  marwaita-ubuntu = callPackage ../data/themes/marwaita-ubuntu { };
 
   matcha-gtk-theme = callPackage ../data/themes/matcha { };
 
@@ -29531,8 +29518,6 @@ with pkgs;
 
   bashSnippets = callPackage ../applications/misc/bashSnippets { };
 
-  batik = callPackage ../applications/graphics/batik { };
-
   batsignal = callPackage ../applications/misc/batsignal { };
 
   baudline = callPackage ../applications/audio/baudline { };
@@ -29694,8 +29679,6 @@ with pkgs;
   calibre = qt6Packages.callPackage ../applications/misc/calibre {
     podofo = podofo010;
   };
-
-  calibre-web = callPackage ../servers/calibre-web { };
 
   # calico-felix and calico-node have not been packaged due to libbpf, linking issues
   inherit (callPackage ../applications/networking/cluster/calico {})
@@ -31221,8 +31204,6 @@ with pkgs;
 
   hex-a-hop = callPackage ../games/hex-a-hop { };
 
-  hexchat = callPackage ../applications/networking/irc/hexchat { };
-
   hexcurse = callPackage ../applications/editors/hexcurse { };
 
   hexdino = callPackage ../applications/editors/hexdino { };
@@ -31339,10 +31320,6 @@ with pkgs;
   meerk40t = callPackage ../applications/misc/meerk40t { };
 
   meerk40t-camera = callPackage ../applications/misc/meerk40t/camera.nix { };
-
-  musikcube = callPackage ../applications/audio/musikcube {
-    inherit (darwin.apple_sdk.frameworks) Cocoa CoreAudio SystemConfiguration;
-  };
 
   libmt32emu = callPackage ../applications/audio/munt/libmt32emu.nix { };
 
@@ -32885,10 +32862,6 @@ with pkgs;
 
   polyphone = libsForQt5.callPackage ../applications/audio/polyphone { };
 
-  portfolio = callPackage ../applications/office/portfolio {
-    jre = openjdk17;
-  };
-
   psi-notify = callPackage ../applications/misc/psi-notify { };
 
   ptex = callPackage ../development/libraries/ptex { };
@@ -33695,10 +33668,12 @@ with pkgs;
 
   qutebrowser = callPackage ../applications/networking/browsers/qutebrowser {
     inherit (__splicedPackages.qt6Packages) qtbase qtwebengine wrapQtAppsHook qtwayland;
+    python3 = python311;
   };
 
   qutebrowser-qt5 = callPackage ../applications/networking/browsers/qutebrowser {
     inherit (__splicedPackages.libsForQt5) qtbase qtwebengine wrapQtAppsHook qtwayland;
+    python3 = python311;
   };
 
   qxw = callPackage ../applications/editors/qxw { };
@@ -33951,8 +33926,6 @@ with pkgs;
   sky = libsForQt5.callPackage ../applications/networking/instant-messengers/sky {
     libjpeg_turbo = libjpeg8;
   };
-
-  skypeforlinux = callPackage ../applications/networking/instant-messengers/skypeforlinux { };
 
   slingshot = callPackage ../tools/misc/slingshot { };
 
@@ -34532,10 +34505,6 @@ with pkgs;
   todoman = callPackage ../applications/office/todoman { };
 
   tofi = callPackage ../applications/misc/tofi { };
-
-  tokyonight-gtk-theme = tokyonight-gtk-theme-variants.full;
-
-  tokyonight-gtk-theme-variants = recurseIntoAttrs (callPackage ../data/themes/tokyonight-gtk-theme { });
 
   topydo = callPackage ../applications/misc/topydo { };
 
