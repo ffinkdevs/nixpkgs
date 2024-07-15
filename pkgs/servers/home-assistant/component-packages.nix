@@ -2,7 +2,7 @@
 # Do not edit!
 
 {
-  version = "2024.7.1";
+  version = "2024.7.2";
   components = {
     "3_day_blinds" = ps: with ps; [
     ];
@@ -209,13 +209,15 @@
       apprise
     ];
     "aprilaire" = ps: with ps; [
-    ]; # missing inputs: pyaprilaire
+      pyaprilaire
+    ];
     "aprs" = ps: with ps; [
       aprslib
       geopy
     ];
     "apsystems" = ps: with ps; [
-    ]; # missing inputs: apsystems-ez1
+      apsystems-ez1
+    ];
     "aquacell" = ps: with ps; [
       fnv-hash-fast
       ifaddr
@@ -269,7 +271,7 @@
     "arve" = ps: with ps; [
     ]; # missing inputs: asyncarve
     "arwn" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "aseko_pool_live" = ps: with ps; [
       aioaseko
@@ -335,7 +337,7 @@
     ];
     "axis" = ps: with ps; [
       axis
-      paho-mqtt
+      paho-mqtt_1
     ];
     "azure_data_explorer" = ps: with ps; [
     ]; # missing inputs: azure-kusto-data azure-kusto-ingest
@@ -947,13 +949,13 @@
     ];
     "drop_connect" = ps: with ps; [
       dropmqttapi
-      paho-mqtt
+      paho-mqtt_1
     ];
     "dsmr" = ps: with ps; [
       dsmr-parser
     ];
     "dsmr_reader" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "dte_energy_bridge" = ps: with ps; [
     ];
@@ -1140,6 +1142,7 @@
       bluetooth-auto-recovery
       bluetooth-data-tools
       dbus-fast
+      eq3btsmart
       esphome-dashboard-api
       fnv-hash-fast
       ha-ffmpeg
@@ -1154,7 +1157,7 @@
       sqlalchemy
       webrtc-noise-gain
       zeroconf
-    ]; # missing inputs: eq3btsmart
+    ];
     "escea" = ps: with ps; [
       pescea
     ];
@@ -1431,7 +1434,7 @@
     "fujitsu_anywair" = ps: with ps; [
     ];
     "fully_kiosk" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
       python-fullykiosk
     ];
     "futurenow" = ps: with ps; [
@@ -2149,7 +2152,8 @@
     "iss" = ps: with ps; [
     ]; # missing inputs: pyiss
     "ista_ecotrend" = ps: with ps; [
-    ]; # missing inputs: pyecotrend-ista
+      pyecotrend-ista
+    ];
     "isy994" = ps: with ps; [
       pyisy
     ];
@@ -2270,7 +2274,8 @@
       pykmtronic
     ];
     "knocki" = ps: with ps; [
-    ]; # missing inputs: knocki
+      knocki
+    ];
     "knx" = ps: with ps; [
       fnv-hash-fast
       home-assistant-frontend
@@ -2595,7 +2600,7 @@
     "manual" = ps: with ps; [
     ];
     "manual_mqtt" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "map" = ps: with ps; [
       fnv-hash-fast
@@ -2906,19 +2911,19 @@
       mpd2
     ];
     "mqtt" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "mqtt_eventstream" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "mqtt_json" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "mqtt_room" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "mqtt_statestream" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "msteams" = ps: with ps; [
       pymsteams
@@ -2942,7 +2947,7 @@
     "myq" = ps: with ps; [
     ];
     "mysensors" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
       pymysensors
     ];
     "mystrom" = ps: with ps; [
@@ -3295,7 +3300,7 @@
       hassil
       home-assistant-intents
       mutagen
-      paho-mqtt
+      paho-mqtt_1
       psutil-home-assistant
       pynacl
       python-matter-server
@@ -4144,7 +4149,7 @@
       snapcast
     ];
     "snips" = ps: with ps; [
-      paho-mqtt
+      paho-mqtt_1
     ];
     "snmp" = ps: with ps; [
       pysnmp-lextudio
@@ -4177,8 +4182,9 @@
       zeroconf
     ];
     "solaredge" = ps: with ps; [
+      aiosolaredge
       stringcase
-    ]; # missing inputs: aiosolaredge
+    ];
     "solaredge_local" = ps: with ps; [
     ]; # missing inputs: solaredge-local
     "solarlog" = ps: with ps; [
@@ -4431,7 +4437,7 @@
     ]; # missing inputs: tapsaff
     "tasmota" = ps: with ps; [
       hatasmota
-      paho-mqtt
+      paho-mqtt_1
     ];
     "tautulli" = ps: with ps; [
       pytautulli
@@ -5265,7 +5271,9 @@
     "apple_tv"
     "application_credentials"
     "apprise"
+    "aprilaire"
     "aprs"
+    "apsystems"
     "aranet"
     "arcam_fmj"
     "aseko_pool_live"
@@ -5400,6 +5408,7 @@
     "environment_canada"
     "epion"
     "epson"
+    "eq3btsmart"
     "escea"
     "esphome"
     "eufylife_ble"
@@ -5559,6 +5568,7 @@
     "ipp"
     "iqvia"
     "isal"
+    "ista_ecotrend"
     "isy994"
     "izone"
     "jellyfin"
@@ -5572,6 +5582,7 @@
     "kira"
     "kitchen_sink"
     "kmtronic"
+    "knocki"
     "knx"
     "kodi"
     "konnected"
@@ -5868,6 +5879,7 @@
     "snips"
     "snmp"
     "snooz"
+    "solaredge"
     "solax"
     "soma"
     "somfy_mylink"
