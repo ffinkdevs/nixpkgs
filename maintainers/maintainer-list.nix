@@ -11130,6 +11130,12 @@
     github = "kylehendricks";
     githubId = 981958;
   };
+  kylelovestoad = {
+    name = "kylelovestoad";
+    github = "kylelovestoad";
+    githubId = 20408518;
+    email = "kylelovestoad+nixpkgs@protonmail.com";
+  };
   kyleondy = {
     email = "kyle@ondy.org";
     github = "KyleOndy";
@@ -18158,6 +18164,12 @@
     githubId = 4983935;
     keys = [ { fingerprint = "30BB FF3F AB0B BB3E 0435  F83C 8E8F F66E 2AE8 D970"; } ];
   };
+  scientiac = {
+    email = "iac@scientiac.space";
+    name = "Spandan Guragain";
+    github = "scientiac";
+    githubId = 58177655;
+  };
   scm2342 = {
     name = "Sven Mattsen";
     email = "nix@sven.cc";
@@ -21258,6 +21270,12 @@
     github = "veprbl";
     githubId = 245573;
     name = "Dmitry Kalinkin";
+  };
+  vglfr = {
+    email = "vf.velt@gmail.com";
+    github = "vglfr";
+    githubId = 20283252;
+    name = "vglfr";
   };
   vgskye = {
     name = "Skye Green";
