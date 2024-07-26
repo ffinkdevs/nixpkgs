@@ -5975,18 +5975,6 @@ final: prev:
     meta.homepage = "https://github.com/mkasa/lushtags/";
   };
 
-  lz-n = buildNeovimPlugin {
-    pname = "lz.n";
-    version = "2024-07-10";
-    src = fetchFromGitHub {
-      owner = "nvim-neorocks";
-      repo = "lz.n";
-      rev = "3d36b6848fc67f6a13d2a52cf4f96fd3403c0c43";
-      sha256 = "11ic8hylck3dvlp6d9kzblingbi167j2kcid155x4hpc2hhqf2aj";
-    };
-    meta.homepage = "https://github.com/nvim-neorocks/lz.n/";
-  };
-
   magma-nvim-goose = buildVimPlugin {
     pname = "magma-nvim-goose";
     version = "2023-07-04";
@@ -6178,6 +6166,18 @@ final: prev:
       sha256 = "19xak308004015avjarqdrmwwwfkyam72kjav7g7v8pg27rqckzr";
     };
     meta.homepage = "https://github.com/savq/melange-nvim/";
+  };
+
+  messenger-nvim = buildVimPlugin {
+    pname = "messenger.nvim";
+    version = "2024-07-18";
+    src = fetchFromGitHub {
+      owner = "lsig";
+      repo = "messenger.nvim";
+      rev = "309fec2ddd3de55eba2781b676931b37ce8190af";
+      sha256 = "1ycvxxcp04hh134nazdrzd9g98mkdipc2p0amvcphpqr9p9s3pcm";
+    };
+    meta.homepage = "https://github.com/lsig/messenger.nvim/";
   };
 
   miasma-nvim = buildVimPlugin {
