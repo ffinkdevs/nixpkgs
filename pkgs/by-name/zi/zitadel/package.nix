@@ -1,28 +1,26 @@
-{ stdenv
-, buildGoModule
-, callPackage
-, fetchFromGitHub
-, lib
-
-, buf
-, cacert
-, grpc-gateway
-, protoc-gen-go
-, protoc-gen-go-grpc
-, protoc-gen-validate
-, sass
-, statik
-}:
-
-let
-  version = "2.42.10";
+{
+  stdenv,
+  buildGoModule,
+  callPackage,
+  fetchFromGitHub,
+  lib,
+  buf,
+  cacert,
+  grpc-gateway,
+  protoc-gen-go,
+  protoc-gen-go-grpc,
+  protoc-gen-validate,
+  sass,
+  statik,
+}: let
+  version = "2.58.0";
   zitadelRepo = fetchFromGitHub {
     owner = "zitadel";
     repo = "zitadel";
     rev = "v${version}";
-    hash = "sha256-Uv0iEIFkTdBAi0WDBQHf0ATs4L2FOU4NmiE9p1MHSa0=";
+    hash = "sha256-z4drDjr0p7tl7lPIr4zqJ7YnFA3a3RUC1MzEtuNuCvs=";
   };
-  goModulesHash = "sha256-thd1bhbPVedYd+Yq1IYYUJFr66AWRTzA3DceCXFTEQo=";
+  goModulesHash = "sha256-8Exsz1wU043tt6nXJsjVyhleb9UYHJEkoYvk4CtohC4=";
 
   buildZitadelProtocGen = name:
     buildGoModule {
@@ -50,21 +48,21 @@ let
   # really be any good way around it. We'll use a fixed-output derivation so it
   # can download what it needs, and output the relevant generated code for use
   # during the main build.
-  generateProtobufCode =
-    { pname
-    , nativeBuildInputs ? [ ]
-    , bufArgs ? ""
-    , workDir ? "."
-    , outputPath
-    , hash
-    }:
+  generateProtobufCode = {
+    pname,
+    nativeBuildInputs ? [],
+    bufArgs ? "",
+    workDir ? ".",
+    outputPath,
+    hash,
+  }:
     stdenv.mkDerivation {
       name = "${pname}-buf-generated";
 
       src = zitadelRepo;
-      patches = [ ./console-use-local-protobuf-plugins.patch ];
+      patches = [./console-use-local-protobuf-plugins.patch];
 
-      nativeBuildInputs = nativeBuildInputs ++ [ buf ];
+      nativeBuildInputs = nativeBuildInputs ++ [buf];
 
       buildPhase = ''
         cd ${workDir}
@@ -92,62 +90,63 @@ let
       protoc-gen-zitadel
     ];
     outputPath = ".artifacts";
-    hash = "sha256-ntIKudNFBs7kHjK7cfzbOfDCA6J8uvJRUbCTa6afK/I=";
+    hash = "sha256-zyIlae1FHlR0ePyIG01IvS69c+b8UIoWIXjw770EX0A=";
   };
 in
-buildGoModule rec {
-  name = "zitadel";
-  inherit version;
+  buildGoModule rec {
+    name = "zitadel";
+    inherit version;
 
-  src = zitadelRepo;
+    src = zitadelRepo;
 
-  nativeBuildInputs = [ sass statik ];
+    nativeBuildInputs = [sass statik];
 
-  proxyVendor = true;
-  vendorHash = goModulesHash;
-  ldflags = [ "-X 'github.com/zitadel/zitadel/cmd/build.version=${version}'" ];
+    proxyVendor = true;
+    vendorHash = goModulesHash;
+    ldflags = ["-X 'github.com/zitadel/zitadel/cmd/build.version=${version}'"];
 
-  # Adapted from Makefile in repo, with dependency fetching and protobuf codegen
-  # bits removed
-  preBuild = ''
-    mkdir -p pkg/grpc
-    cp -r ${protobufGenerated}/grpc/github.com/zitadel/zitadel/pkg/grpc/* pkg/grpc
-    mkdir -p openapi/v2/zitadel
-    cp -r ${protobufGenerated}/grpc/zitadel/ openapi/v2/zitadel
+    # Adapted from Makefile in repo, with dependency fetching and protobuf codegen
+    # bits removed
+    preBuild = ''
+      mkdir -p pkg/grpc
+      cp -r ${protobufGenerated}/grpc/github.com/zitadel/zitadel/pkg/grpc/* pkg/grpc
+      mkdir -p openapi/v2/zitadel
+      cp -r ${protobufGenerated}/grpc/zitadel/ openapi/v2/zitadel
 
-    go generate internal/api/ui/login/static/resources/generate.go
-    go generate internal/api/ui/login/statik/generate.go
-    go generate internal/notification/statik/generate.go
-    go generate internal/statik/generate.go
+      go generate internal/api/ui/login/static/resources/generate.go
+      go generate internal/api/ui/login/statik/generate.go
+      go generate internal/notification/statik/generate.go
+      go generate internal/statik/generate.go
 
-    mkdir -p docs/apis/assets
-    go run internal/api/assets/generator/asset_generator.go -directory=internal/api/assets/generator/ -assets=docs/apis/assets/assets.md
+      mkdir -p docs/apis/assets
+      go run internal/api/assets/generator/asset_generator.go -directory=internal/api/assets/generator/ -assets=docs/apis/assets/assets.md
 
-    cp -r ${passthru.console}/* internal/api/ui/console/static
-  '';
+      cp -r ${passthru.console}/* internal/api/ui/console/static
+    '';
 
-  doCheck = false;
+    doCheck = false;
 
-  installPhase = ''
-    mkdir -p $out/bin
-    install -Dm755 $GOPATH/bin/zitadel $out/bin/
-  '';
+    installPhase = ''
+      mkdir -p $out/bin
+      install -Dm755 $GOPATH/bin/zitadel $out/bin/
+    '';
 
-  passthru = {
-    console = callPackage
-      (import ./console.nix {
-        inherit generateProtobufCode version zitadelRepo;
-      })
-      { };
-  };
+    passthru = {
+      console =
+        callPackage
+        (import ./console.nix {
+          inherit generateProtobufCode version zitadelRepo;
+        })
+        {};
+    };
 
-  meta = with lib; {
-    description = "Identity and access management platform";
-    homepage = "https://zitadel.com/";
-    downloadPage = "https://github.com/zitadel/zitadel/releases";
-    platforms = platforms.linux ++ platforms.darwin;
-    license = licenses.asl20;
-    sourceProvenance = [ sourceTypes.fromSource ];
-    maintainers = with maintainers; [ Sorixelle ];
-  };
-}
+    meta = with lib; {
+      description = "Identity and access management platform";
+      homepage = "https://zitadel.com/";
+      downloadPage = "https://github.com/zitadel/zitadel/releases";
+      platforms = platforms.linux ++ platforms.darwin;
+      license = licenses.asl20;
+      sourceProvenance = [sourceTypes.fromSource];
+      maintainers = with maintainers; [Sorixelle];
+    };
+  }
