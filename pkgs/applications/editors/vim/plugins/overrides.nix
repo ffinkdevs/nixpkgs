@@ -15,7 +15,8 @@
 , python3
 , rustPlatform
 , # Misc dependencies
-  Cocoa
+  arrow-cpp
+, Cocoa
 , code-minimap
 , dasht
 , deno
@@ -563,7 +564,7 @@
         pname = "cord.nvim-rust";
         inherit version src;
 
-        cargoSha256 = "sha256-6FYf4pHEPxvhKHHPmkjQ40zPxaiypnpDxF8kNH+h+tg=";
+        cargoHash = "sha256-6FYf4pHEPxvhKHHPmkjQ40zPxaiypnpDxF8kNH+h+tg=";
 
         installPhase = let
           cargoTarget = stdenv.hostPlatform.rust.cargoShortTarget;
@@ -844,6 +845,8 @@
     dependencies = with self; [ nvim-treesitter ];
   };
 
+  haskell-tools-nvim = neovimUtils.buildNeovimPlugin { luaAttr = "haskell-tools-nvim"; };
+
   hex-nvim = super.hex-nvim.overrideAttrs {
     postPatch = ''
       substituteInPlace lua/hex.lua --replace xxd ${xxd}/bin/xxd
@@ -925,7 +928,7 @@
         inherit version;
         src = LanguageClient-neovim-src;
 
-        cargoSha256 = "H34UqJ6JOwuSABdOup5yKeIwFrGc83TUnw1ggJEx9o4=";
+        cargoHash = "sha256-H34UqJ6JOwuSABdOup5yKeIwFrGc83TUnw1ggJEx9o4=";
         buildInputs = lib.optionals stdenv.isDarwin [ CoreServices ];
 
         # FIXME: Use impure version of CoreFoundation because of missing symbols.
@@ -1198,8 +1201,11 @@
         dbee-go = buildGoModule {
           name = "nvim-dbee";
           src = "${oa.src}/dbee";
-          vendorHash = "sha256-AItvgOehVskGLARJWDnJLtWM5YHKN/zn/FnZQ0evAtI=";
-          buildInputs = [ duckdb ];
+          vendorHash = "sha256-U/3WZJ/+Bm0ghjeNUILsnlZnjIwk3ySaX3Rd4L9Z62A=";
+          buildInputs = [
+            arrow-cpp
+            duckdb
+          ];
         };
       in {
     dependencies = [ self.nui-nvim ];
@@ -1380,6 +1386,8 @@
     dependencies = with self; [ nvim-lspconfig ];
   };
 
+  rustaceanvim = neovimUtils.buildNeovimPlugin { luaAttr = "rustaceanvim"; };
+
   sg-nvim = super.sg-nvim.overrideAttrs (old:
     let
       sg-nvim-rust = rustPlatform.buildRustPackage {
@@ -1429,12 +1437,12 @@
 
   sniprun =
     let
-      version = "1.3.14";
+      version = "1.3.15";
       src = fetchFromGitHub {
         owner = "michaelb";
         repo = "sniprun";
         rev = "refs/tags/v${version}";
-        hash = "sha256-9vglmQ9sy0aCbj4H81ublHclpoSfOA7ss5CNdoX54sY=";
+        hash = "sha256-8N+KUawQ6RI6sG8m9wpvJTMQyJ5j/43PRkrTPrWAREQ=";
       };
       sniprun-bin = rustPlatform.buildRustPackage {
         pname = "sniprun-bin";
@@ -1444,7 +1452,7 @@
           darwin.apple_sdk.frameworks.Security
         ];
 
-        cargoHash = "sha256-p4rZBgB3xQC14hRRTjNZT1G1gbaKydlKu6MYNSLk6iA=";
+        cargoHash = "sha256-bLki+6uMKJtk/bu+LNf2E1m/HpEG8zmnM3JI89IjmNs=";
 
         nativeBuildInputs = [ makeWrapper ];
 
@@ -1893,7 +1901,7 @@
       vim-markdown-composer-bin = rustPlatform.buildRustPackage {
         pname = "vim-markdown-composer-bin";
         inherit (super.vim-markdown-composer) src version;
-        cargoSha256 = "sha256-Vie8vLTplhaVU4E9IohvxERfz3eBpd62m8/1Ukzk8e4=";
+        cargoHash = "sha256-Vie8vLTplhaVU4E9IohvxERfz3eBpd62m8/1Ukzk8e4=";
         # tests require network access
         doCheck = false;
       };
