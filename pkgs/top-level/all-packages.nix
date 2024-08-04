@@ -34235,8 +34235,6 @@ with pkgs;
     libjpeg_turbo = libjpeg8;
   };
 
-  skypeforlinux = callPackage ../applications/networking/instant-messengers/skypeforlinux { };
-
   SkypeExport = callPackage ../applications/networking/instant-messengers/SkypeExport { };
 
   slingshot = callPackage ../tools/misc/slingshot { };
@@ -34297,7 +34295,7 @@ with pkgs;
 
   viber = callPackage ../applications/networking/instant-messengers/viber { };
 
-  wavebox = libsForQt5.callPackage ../applications/networking/instant-messengers/wavebox { };
+  wavebox = callPackage ../applications/networking/instant-messengers/wavebox { };
 
   sonic-pi = libsForQt5.callPackage ../applications/audio/sonic-pi { };
 
