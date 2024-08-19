@@ -17,8 +17,11 @@
   libevdev,
   makeDesktopItem,
   fetchurl,
+  wine64Packages,
+  pkgsi686Linux,
+  glibc,
 }: let
-  version = "2022.3.0";
+  version = "2024.1.1";
 
   aruco = callPackage ./aruco.nix {};
 
@@ -36,18 +39,21 @@ in
       owner = "opentrack";
       repo = "opentrack";
       rev = "opentrack-${version}";
-      sha256 = "sha256-8gpNORTJclYUYp57Vw/0YO3XC9Idurt0a79fhqx0+mo=";
+      sha256 = "sha256-IMhPvOBeJoLE+vg0rsKGs8Vhbpse8bIh0DeOwBubOUw=";
     };
 
-    nativeBuildInputs = [cmake pkg-config ninja copyDesktopItems];
+    nativeBuildInputs = [cmake pkg-config ninja copyDesktopItems wine64Packages.base pkgsi686Linux.glibc];
     buildInputs = [qtbase qttools opencv4 procps eigen libXdmcp libevdev aruco];
 
-    env.NIX_CFLAGS_COMPILE = "-Wall -Wextra -Wpedantic -ffast-math -O3";
+    env.NIX_CFLAGS_COMPILE = " -Wextra -Wpedantic -ffast-math -O3";
     dontWrapQtApps = true;
 
     cmakeFlags = [
       "-DSDK_ARUCO_LIBPATH=${aruco}/lib/libaruco.a"
       "-DSDK_XPLANE=${xplaneSdk}"
+      "-DSDK_WINE=ON"
+      "-DCMAKE_BUILD_TYPE=Release"
+      "-DOPENTRACK_WINE_ARCH=-m64"
     ];
 
     postInstall = ''
