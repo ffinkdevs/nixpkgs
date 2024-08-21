@@ -1,19 +1,22 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) types;
 
   cfg = config.services.tabby;
-  format = pkgs.formats.toml { };
+  format = pkgs.formats.toml {};
   tabbyPackage = cfg.package.override {
     inherit (cfg) acceleration;
   };
-in
-{
+in {
   options = {
     services.tabby = {
       enable = lib.mkEnableOption "Self-hosted AI coding assistant using large language models";
 
-      package = lib.mkPackageOption pkgs "tabby" { };
+      package = lib.mkPackageOption pkgs "tabby" {};
 
       port = lib.mkOption {
         type = types.port;
@@ -55,7 +58,7 @@ in
       };
 
       acceleration = lib.mkOption {
-        type = types.nullOr (types.enum [ "cpu" "rocm" "cuda" "metal" ]);
+        type = types.nullOr (types.enum ["cpu" "rocm" "cuda" "metal" "vulkan"]);
         default = null;
         example = "rocm";
         description = ''
@@ -63,6 +66,7 @@ in
 
           -   `cpu`: no acceleration just use the CPU
           -  `rocm`: supported by modern AMD GPUs
+          -  `vulkan`: supported by modern GPUs
           -  `cuda`: supported by modern NVIDIA GPUs
           - `metal`: supported on darwin aarch64 machines
 
@@ -82,7 +86,7 @@ in
 
       settings = lib.mkOption {
         inherit (format) type;
-        default = { };
+        default = {};
         description = ''
           Tabby scheduler configuration
 
@@ -137,15 +141,14 @@ in
   config = lib.mkIf cfg.enable {
     environment = {
       etc."tabby/config.toml".source = format.generate "config.toml" cfg.settings;
-      systemPackages = [ tabbyPackage ];
+      systemPackages = [tabbyPackage];
     };
-
 
     systemd = let
       serviceUser = {
         WorkingDirectory = "/var/lib/tabby";
-        StateDirectory = [ "tabby" ];
-        ConfigurationDirectory = [ "tabby" ];
+        StateDirectory = ["tabby"];
+        ConfigurationDirectory = ["tabby"];
         DynamicUser = true;
         User = "tabby";
         Group = "tabby";
@@ -161,23 +164,22 @@ in
       ];
     in {
       services.tabby = {
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = ["multi-user.target"];
         description = "Self-hosted AI coding assistant using large language models";
-        after = [ "network.target" ];
+        after = ["network.target"];
         environment = serviceEnv;
         serviceConfig = lib.mkMerge [
           serviceUser
           {
-            ExecStart =
-              "${lib.getExe tabbyPackage} serve --model ${cfg.model} --port ${toString cfg.port} --device ${tabbyPackage.featureDevice}";
+            ExecStart = "${lib.getExe tabbyPackage} serve --model ${cfg.model} --port ${toString cfg.port} --device ${tabbyPackage.featureDevice}";
           }
         ];
       };
 
       services.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = ["multi-user.target"];
         description = "Tabby repository indexing service";
-        after = [ "network.target" ];
+        after = ["network.target"];
         environment = serviceEnv;
         preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
         serviceConfig = lib.mkMerge [
@@ -190,12 +192,12 @@ in
       };
       timers.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
         description = "Update timer for tabby-scheduler";
-        partOf = [ "tabby-scheduler.service" ];
-        wantedBy = [ "timers.target" ];
+        partOf = ["tabby-scheduler.service"];
+        wantedBy = ["timers.target"];
         timerConfig.OnUnitInactiveSec = cfg.indexInterval;
       };
     };
   };
 
-  meta.maintainers = with lib.maintainers; [ ghthor ];
+  meta.maintainers = with lib.maintainers; [ghthor];
 }
