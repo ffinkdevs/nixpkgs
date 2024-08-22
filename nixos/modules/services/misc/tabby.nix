@@ -176,26 +176,26 @@ in {
         ];
       };
 
-      services.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
-        wantedBy = ["multi-user.target"];
-        description = "Tabby repository indexing service";
-        after = ["network.target"];
-        environment = serviceEnv;
-        preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
-        serviceConfig = lib.mkMerge [
-          serviceUser
-          {
-            # Type = "oneshot";
-            ExecStart = "${lib.getExe tabbyPackage} scheduler --now";
-          }
-        ];
-      };
-      timers.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
-        description = "Update timer for tabby-scheduler";
-        partOf = ["tabby-scheduler.service"];
-        wantedBy = ["timers.target"];
-        timerConfig.OnUnitInactiveSec = cfg.indexInterval;
-      };
+      # services.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
+      #   wantedBy = ["multi-user.target"];
+      #   description = "Tabby repository indexing service";
+      #   after = ["network.target"];
+      #   environment = serviceEnv;
+      #   preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
+      #   serviceConfig = lib.mkMerge [
+      #     serviceUser
+      #     {
+      #       # Type = "oneshot";
+      #       ExecStart = "${lib.getExe tabbyPackage} scheduler --now";
+      #     }
+      #   ];
+      # };
+      # timers.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
+      #   description = "Update timer for tabby-scheduler";
+      #   partOf = ["tabby-scheduler.service"];
+      #   wantedBy = ["timers.target"];
+      #   timerConfig.OnUnitInactiveSec = cfg.indexInterval;
+      # };
     };
   };
 

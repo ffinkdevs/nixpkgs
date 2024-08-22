@@ -157,7 +157,7 @@ in
 
     postInstall = ''
       wrapProgram $out/bin/tabby \
-        --prefix PATH : ${lib.makeBinPath [llamacppPackage]}
+        --prefix PATH : ${lib.makeBinPath [llamacppPackage git]}
     '';
     # Fails with:
     # file cannot create directory: /var/empty/local/lib64/cmake/Llama
