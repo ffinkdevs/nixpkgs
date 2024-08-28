@@ -5062,7 +5062,7 @@ with pkgs;
 
   element-desktop = callPackage ../applications/networking/instant-messengers/element/element-desktop.nix {
     inherit (darwin.apple_sdk.frameworks) Security AppKit CoreServices;
-    electron = electron_30;
+    electron = electron_31;
   };
   element-desktop-wayland = writeScriptBin "element-desktop" ''
     #!/bin/sh
@@ -11891,6 +11891,10 @@ with pkgs;
 
   pngquant = callPackage ../tools/graphics/pngquant { };
 
+  inherit (callPackages ../development/tools/pnpm { })
+    pnpm_8 pnpm_9;
+  pnpm = pnpm_9;
+
   po4a = perlPackages.Po4a;
 
   poac = callPackage ../development/tools/poac {
@@ -17965,7 +17969,8 @@ with pkgs;
     electron_27-bin
     electron_28-bin
     electron_29-bin
-    electron_30-bin;
+    electron_30-bin
+    electron_31-bin;
 
   inherit (callPackages ../development/tools/electron/chromedriver { })
     electron-chromedriver_29
@@ -17977,8 +17982,9 @@ with pkgs;
   electron_28 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_28 then electron-source.electron_28 else electron_28-bin;
   electron_29 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_29 then electron-source.electron_29 else electron_29-bin;
   electron_30 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_30 then electron-source.electron_30 else electron_30-bin;
-  electron = electron_29;
-  electron-bin = electron_29-bin;
+  electron_31 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_31 then electron-source.electron_31 else electron_31-bin;
+  electron = electron_31;
+  electron-bin = electron_31-bin;
 
   autobuild = callPackage ../development/tools/misc/autobuild { };
 
@@ -20099,7 +20105,7 @@ with pkgs;
 
   # TODO(@Ericson2314): Build bionic libc from source
   bionic = if stdenv.hostPlatform.useAndroidPrebuilt
-    then pkgs."androidndkPkgs_${stdenv.hostPlatform.ndkVer}".libraries
+    then pkgs."androidndkPkgs_${stdenv.hostPlatform.androidNdkVer}".libraries
     else callPackage ../os-specific/linux/bionic-prebuilt { };
 
   boolstuff = callPackage ../development/libraries/boolstuff { };
@@ -35372,7 +35378,7 @@ with pkgs;
 
   webcord = callPackage ../by-name/we/webcord/package.nix { electron = electron_30; };
 
-  webcord-vencord = callPackage ../by-name/we/webcord-vencord/package.nix { electron = electron_29; };
+  webcord-vencord = callPackage ../by-name/we/webcord-vencord/package.nix { electron = electron_30; };
 
   webex = callPackage ../applications/networking/instant-messengers/webex { };
 
@@ -39170,10 +39176,6 @@ with pkgs;
   dbus-map = callPackage ../tools/misc/dbus-map { };
 
   dell-530cdn = callPackage ../misc/drivers/dell-530cdn { };
-
-  deploy-rs = callPackage ../tools/package-management/deploy-rs {
-    inherit (darwin.apple_sdk.frameworks) CoreServices SystemConfiguration;
-  };
 
   dockutil = callPackage ../os-specific/darwin/dockutil { };
 
