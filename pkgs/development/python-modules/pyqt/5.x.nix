@@ -13,6 +13,7 @@
   pyqt5-sip,
   pyqt-builder,
   libsForQt5,
+  mesa,
   enableVerbose ? true,
   withConnectivity ? false,
   withMultimedia ? false,
@@ -22,7 +23,6 @@
   withSerialPort ? false,
   withTools ? false,
   pkgsBuildTarget,
-  buildPackages,
   dbusSupport ? !stdenv.isDarwin,
 }:
 
@@ -202,7 +202,7 @@ buildPythonPackage rec {
     description = "Python bindings for Qt5";
     homepage = "https://riverbankcomputing.com/";
     license = licenses.gpl3Only;
-    platforms = platforms.mesaPlatforms;
+    inherit (mesa.meta) platforms;
     maintainers = with maintainers; [ sander ];
   };
 }

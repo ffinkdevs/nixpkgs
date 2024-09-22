@@ -13,7 +13,9 @@ stdenv.mkDerivation rec {
     url = "mirror://gnu/gss/gss-${version}.tar.gz";
     hash = "sha256-7M6r3vTK4/znIYsuy4PrQifbpEtTthuMKy6IrgJBnHM=";
   };
-  # This test crashes now.  Most likely triggered by expiration on 20240711.
+
+  # krb5context test uses certificates that expired on 2024-07-11.
+  # Reported to bug-gss@gnu.org with Message-ID: <87cyngavtt.fsf@alyssa.is>.
   postPatch = ''
     rm tests/krb5context.c
   '';
@@ -29,10 +31,6 @@ stdenv.mkDerivation rec {
     "--${if withShishi then "enable" else "disable"}-kerberos5"
   ];
 
-  # krb5context test uses certificates that expired on 2024-07-11.
-  # Reported to bug-gss@gnu.org with Message-ID: <87cyngavtt.fsf@alyssa.is>.
-  doCheck = !withShishi;
-
   # Fixup .la files
   postInstall = lib.optionalString withShishi ''
     sed -i 's,\(-lshishi\),-L${shishi}/lib \1,' $out/lib/libgss.la
@@ -43,7 +41,7 @@ stdenv.mkDerivation rec {
     description = "Generic Security Service";
     mainProgram = "gss";
     license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ ];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 }

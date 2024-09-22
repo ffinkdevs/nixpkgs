@@ -10,12 +10,16 @@
 , cmake
 , ninja
 , pkg-config
+, curl
 , libavif
+, libjxl
+, libwebp
 , libxcrypt
 , python3
 , qt6Packages
 , woff2
 , ffmpeg
+, simdutf
 , skia
 , nixosTests
 , AppKit
@@ -54,13 +58,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "ladybird";
-  version = "0-unstable-2024-07-11";
+  version = "0-unstable-2024-09-21";
 
   src = fetchFromGitHub {
     owner = "LadybirdWebBrowser";
     repo = "ladybird";
-    rev = "da8633b2d0ab3b9d8f1cdad39a8ad85ca2accf03";
-    hash = "sha256-NJSuhJWxeGPOVotK+s/mG2bfq19su08wBoxFDs/H9JU=";
+    rev = "44f672bacf6779f6bbe5972d84e210f953f14598";
+    hash = "sha256-Qku6W1kETOXQh8Kxn0wabe0Xc4gkpxrGbDFwIik34eY=";
   };
 
   postPatch = ''
@@ -70,6 +74,18 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace Meta/CMake/lagom_install_options.cmake \
       --replace-fail "\''${CMAKE_INSTALL_BINDIR}" "bin" \
       --replace-fail "\''${CMAKE_INSTALL_LIBDIR}" "lib"
+
+    # libwebp is not built with cmake support yet
+    # https://github.com/NixOS/nixpkgs/issues/334148
+    cat > Meta/CMake/FindWebP.cmake <<'EOF'
+    find_package(PkgConfig)
+    pkg_check_modules(WEBP libwebp REQUIRED)
+    include_directories(''${WEBP_INCLUDE_DIRS})
+    link_directories(''${WEBP_LIBRARY_DIRS})
+    EOF
+    substituteInPlace Userland/Libraries/LibGfx/CMakeLists.txt \
+      --replace-fail 'WebP::' "" \
+      --replace-fail libwebpmux webpmux
   '';
 
   preConfigure = ''
@@ -118,11 +134,15 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = with qt6Packages; [
+    curl
     ffmpeg
     libavif
+    libjxl
+    libwebp
     libxcrypt
     qtbase
     qtmultimedia
+    simdutf
     skia
     woff2
   ] ++ lib.optional stdenv.isLinux [

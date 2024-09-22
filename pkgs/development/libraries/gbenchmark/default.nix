@@ -8,13 +8,13 @@
 
 stdenv.mkDerivation rec {
   pname = "gbenchmark";
-  version = "1.8.4";
+  version = "1.8.5";
 
   src = fetchFromGitHub {
     owner = "google";
     repo = "benchmark";
     rev = "v${version}";
-    sha256 = "sha256-O+1ZHaNHSkKz3PlKDyI94LqiLtjyrKxjOIi8Q236/MI=";
+    hash = "sha256-c46Xna/t21WKaFa7n4ieIacsrxJ+15uGNYWCUVuUhsI=";
   };
 
   nativeBuildInputs = [ cmake ];
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
     description = "Microbenchmark support library";
     homepage = "https://github.com/google/benchmark";
     license = licenses.asl20;
-    platforms = platforms.linux ++ platforms.darwin;
+    platforms = platforms.linux ++ platforms.darwin ++ platforms.freebsd;
     maintainers = with maintainers; [ abbradar ];
   };
 }

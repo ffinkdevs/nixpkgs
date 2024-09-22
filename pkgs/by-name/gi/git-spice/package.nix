@@ -1,23 +1,23 @@
 {
   lib,
-  buildGoModule,
+  buildGo123Module,
   fetchFromGitHub,
   git,
   nix-update-script,
 }:
 
-buildGoModule rec {
+buildGo123Module rec {
   pname = "git-spice";
-  version = "0.3.0";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "abhinav";
     repo = "git-spice";
     rev = "refs/tags/v${version}";
-    hash = "sha256-BYIq+12piA0WgfwVSB6P6CKC81icAY/P4/pv2ZMj5N8=";
+    hash = "sha256-VODBN+3xDa+sGynhnWnnhPy0VEKPWOQeh2Ge75OTS0A=";
   };
 
-  vendorHash = "sha256-AIqy0OQsYRStbFLv2L8m4R0k1tr5fVM1FeMFn90yFoY=";
+  vendorHash = "sha256-irYXuh0KmCmeZ2fKNduu7zpVqDQmmR7H2bNTMa2zOjI=";
 
   subPackages = [ "." ];
 

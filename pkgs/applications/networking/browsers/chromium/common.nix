@@ -102,14 +102,12 @@ let
     "flac"
     "libjpeg"
     "libpng"
-  ] ++ lib.optionals (!chromiumVersionAtLeast "124") [
     # Use the vendored libwebp for M124+ until we figure out how to solve:
     # Running phase: configurePhase
     # ERROR Unresolved dependencies.
     # //third_party/libavif:libavif_enc(//build/toolchain/linux/unbundle:default)
     #   needs //third_party/libwebp:libwebp_sharpyuv(//build/toolchain/linux/unbundle:default)
-    "libwebp"
-  ] ++ [
+    # "libwebp"
     "libxslt"
     # "opus"
   ];
@@ -314,9 +312,12 @@ let
       # Partial revert of https://github.com/chromium/chromium/commit/3687976b0c6d36cf4157419a24a39f6770098d61
       # allowing us to use our rustc and our clang.
       ./patches/chromium-121-rust.patch
-    ] ++ lib.optionals (chromiumVersionAtLeast "126") [
+    ] ++ lib.optionals (versionRange "126" "129") [
       # Rebased variant of patch right above to build M126+ with our rust and our clang.
       ./patches/chromium-126-rust.patch
+    ] ++ lib.optionals (chromiumVersionAtLeast "129") [
+      # Rebased variant of patch right above to build M129+ with our rust and our clang.
+      ./patches/chromium-129-rust.patch
     ];
 
     postPatch = ''

@@ -41,7 +41,7 @@ rustPlatform.buildRustPackage rec {
     description = "Fast line-oriented regex search tool, similar to ag and ack";
     homepage = "https://github.com/BurntSushi/ripgrep";
     license = lib.licenses.unlicense;
-    maintainers = [];
+    maintainers = [ ];
   };
 }
 ```
@@ -567,8 +567,7 @@ buildPythonPackage rec {
   };
 
   cargoDeps = rustPlatform.fetchCargoTarball {
-    inherit src sourceRoot;
-    name = "${pname}-${version}";
+    inherit pname version src sourceRoot;
     hash = "sha256-miW//pnOmww2i6SOGbkrAIdc/JMDT4FJLqdMFojZeoY=";
   };
 
@@ -611,9 +610,8 @@ buildPythonPackage rec {
   };
 
   cargoDeps = rustPlatform.fetchCargoTarball {
-    inherit src;
+    inherit pname version src;
     sourceRoot = "${pname}-${version}/${cargoRoot}";
-    name = "${pname}-${version}";
     hash = "sha256-PS562W4L1NimqDV2H0jl5vYhL08H9est/pbIxSdYVfo=";
   };
 
@@ -642,6 +640,7 @@ builds the `retworkx` Python package. `fetchCargoTarball` and
 buildPythonPackage rec {
   pname = "retworkx";
   version = "0.6.0";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "Qiskit";
@@ -651,12 +650,9 @@ buildPythonPackage rec {
   };
 
   cargoDeps = rustPlatform.fetchCargoTarball {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-heOBK8qi2nuc/Ib+I/vLzZ1fUUD/G/KTw9d7M4Hz5O0=";
   };
-
-  format = "pyproject";
 
   nativeBuildInputs = with rustPlatform; [ cargoSetupHook maturinBuildHook ];
 
@@ -698,8 +694,7 @@ stdenv.mkDerivation rec {
   };
 
   cargoDeps = rustPlatform.fetchCargoTarball {
-    inherit src;
-    name = "${pname}-${version}";
+    inherit pname version src;
     hash = "sha256-8fa3fa+sFi5H+49B5sr2vYPkp9C9s6CcE0zv4xB8gww=";
   };
 

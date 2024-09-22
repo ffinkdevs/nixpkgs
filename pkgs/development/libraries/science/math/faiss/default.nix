@@ -49,8 +49,7 @@ stdenv.mkDerivation {
   outputs = [
     "out"
     "demos"
-    "dist"
-  ];
+  ] ++ lib.optionals pythonSupport [ "dist" ];
 
   src = fetchFromGitHub {
     owner = "facebookresearch";
@@ -137,15 +136,19 @@ stdenv.mkDerivation {
           ''
             demo_ivfpq_indexing && touch $out
           '';
-    } // lib.optionalAttrs pythonSupport { pytest = pythonPackages.callPackage ./tests.nix { }; };
+      pythonFaiss = pythonPackages.faiss;
+      pytest = pythonPackages.faiss.tests.pytest;
+    };
   };
 
-  meta = with lib; {
+  meta = {
     description = "Library for efficient similarity search and clustering of dense vectors by Facebook Research";
     mainProgram = "demo_ivfpq_indexing";
     homepage = "https://github.com/facebookresearch/faiss";
-    license = licenses.mit;
-    platforms = platforms.unix;
-    maintainers = with maintainers; [ SomeoneSerge ];
+    license = lib.licenses.mit;
+    platforms = lib.platforms.unix;
+    maintainers = with lib.maintainers; [ SomeoneSerge ];
+    # error: use of undeclared identifier 'SWIGTYPE_p_long'
+    broken = stdenv.isDarwin;
   };
 }

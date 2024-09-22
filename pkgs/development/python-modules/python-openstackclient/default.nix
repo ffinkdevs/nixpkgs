@@ -6,24 +6,37 @@
   openstackdocstheme,
   osc-lib,
   pbr,
+  python-barbicanclient,
   python-cinderclient,
+  python-designateclient,
+  python-heatclient,
+  python-ironicclient,
   python-keystoneclient,
-  python-novaclient,
+  python-magnumclient,
+  python-manilaclient,
+  python-mistralclient,
+  python-neutronclient,
+  python-openstackclient,
+  python-watcherclient,
+  python-zaqarclient,
+  python-zunclient,
   requests-mock,
+  requests,
   setuptools,
   sphinxHook,
   sphinxcontrib-apidoc,
   stestr,
+  testers,
 }:
 
 buildPythonPackage rec {
   pname = "python-openstackclient";
-  version = "6.6.0";
+  version = "7.1.0";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-u+8e00gpxBBSsuyiZIDinKH3K+BY0UMNpTQexExPKVw=";
+    hash = "sha256-nv/CmcVpQiC65Fd3jmzZsjrqG8O/zQTjoE+NhjhaBVQ=";
   };
 
   build-system = [
@@ -40,13 +53,13 @@ buildPythonPackage rec {
     pbr
     python-cinderclient
     python-keystoneclient
-    python-novaclient
+    requests
   ];
 
   nativeCheckInputs = [
     ddt
-    stestr
     requests-mock
+    stestr
   ];
 
   checkPhase = ''
@@ -56,6 +69,29 @@ buildPythonPackage rec {
   '';
 
   pythonImportsCheck = [ "openstackclient" ];
+
+  passthru = {
+    optional-dependencies = {
+      # See https://github.com/openstack/python-openstackclient/blob/master/doc/source/contributor/plugins.rst
+      cli-plugins = [
+        python-barbicanclient
+        python-designateclient
+        python-heatclient
+        python-ironicclient
+        python-magnumclient
+        python-manilaclient
+        python-mistralclient
+        python-neutronclient
+        python-watcherclient
+        python-zaqarclient
+        python-zunclient
+      ];
+    };
+    tests.version = testers.testVersion {
+      package = python-openstackclient;
+      command = "openstack --version";
+    };
+  };
 
   meta = with lib; {
     description = "OpenStack Command-line Client";
