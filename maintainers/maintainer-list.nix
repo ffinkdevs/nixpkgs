@@ -2733,6 +2733,13 @@
     githubId = 19915050;
     name = "binarycat";
   };
+  binary-eater = {
+    email = "sergeantsagara@protonmail.com";
+    github = "Binary-Eater";
+    githubId = 10691440;
+    name = "Rahul Rameshbabu";
+    keys = [ { fingerprint = "678A 8DF1 D9F2 B51B 7110  BE53 FF24 7B3E 5411 387B"; } ];
+  };
   binsky = {
     email = "timo@binsky.org";
     github = "binsky08";
@@ -2749,6 +2756,12 @@
     github = "birkb";
     githubId = 10164833;
     name = "Birk Bohne";
+  };
+  bjesus = {
+    email = "nixpkgs@yoavmoshe.com";
+    github = "bjesus";
+    githubId = 55081;
+    name = "Yo'av Moshe";
   };
   bjornfor = {
     email = "bjorn.forsman@gmail.com";
@@ -11841,6 +11854,12 @@
     github = "LEXUGE";
     githubId = 13804737;
     keys = [ { fingerprint = "7FE2 113A A08B 695A C8B8  DDE6 AE53 B4C2 E58E DD45"; } ];
+  };
+  lgbishop = {
+    email = "lachlan.bishop@hotmail.com";
+    github = "lgbishop";
+    githubId = 125634066;
+    name = "Lachlan Bishop";
   };
   lgcl = {
     email = "dev@lgcl.de";
