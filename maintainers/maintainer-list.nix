@@ -2661,6 +2661,13 @@
     githubId = 7346933;
     name = "betaboon";
   };
+  beviu = {
+    name = "beviu";
+    email = "nixpkgs@beviu.com";
+    github = "beviu";
+    githubId = 56923875;
+    keys = [ { fingerprint = "30D6 A755 E3C3 5797 CBBB  05B6 CD20 2E66 5CAD 7D06"; } ];
+  };
   bew = {
     email = "benoit.dechezelles@gmail.com";
     github = "bew";
@@ -12250,6 +12257,12 @@
     github = "ltavard";
     githubId = 8555953;
     name = "Laure Tavard";
+  };
+  ltrump = {
+    email = "ltrump@163.com";
+    github = "L-Trump";
+    githubId = 37738631;
+    name = "Luo Chen";
   };
   ltstf1re = {
     email = "ltstf1re@disroot.org";
