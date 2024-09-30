@@ -902,6 +902,8 @@ self: super: with self; {
 
   asyncarve = callPackage ../development/python-modules/asyncarve { };
 
+  async-cache = callPackage ../development/python-modules/async-cache { };
+
   async-dns = callPackage ../development/python-modules/async-dns { };
 
   async-generator = callPackage ../development/python-modules/async-generator { };
@@ -1047,8 +1049,6 @@ self: super: with self; {
   autopep8 = callPackage ../development/python-modules/autopep8 { };
 
   autoslot = callPackage ../development/python-modules/autoslot { };
-
-  autotrash = callPackage ../development/python-modules/autotrash { };
 
   avahi = toPythonModule (pkgs.avahi.override {
     inherit python;
@@ -2282,6 +2282,8 @@ self: super: with self; {
 
   cleanlab = callPackage ../development/python-modules/cleanlab { };
 
+  cleanvision = callPackage ../development/python-modules/cleanvision { };
+
   cleo = callPackage ../development/python-modules/cleo { };
 
   clevercsv = callPackage ../development/python-modules/clevercsv { };
@@ -2385,6 +2387,8 @@ self: super: with self; {
   cloudsplaining = callPackage ../development/python-modules/cloudsplaining { };
 
   cloup = callPackage ../development/python-modules/cloup { };
+
+  cltk = callPackage ../development/python-modules/cltk { };
 
   clustershell = callPackage ../development/python-modules/clustershell { };
 
@@ -5389,6 +5393,8 @@ self: super: with self; {
 
   greeclimate = callPackage ../development/python-modules/greeclimate { };
 
+  greek-accentuation = callPackage ../development/python-modules/greek-accentuation { };
+
   green = callPackage ../development/python-modules/green { };
 
   greeneye-monitor = callPackage ../development/python-modules/greeneye-monitor { };
@@ -7502,6 +7508,8 @@ self: super: with self; {
   macfsevents = callPackage ../development/python-modules/macfsevents {
     inherit (pkgs.darwin.apple_sdk.frameworks) CoreFoundation CoreServices;
   };
+
+  macholib = callPackage ../development/python-modules/macholib { };
 
   macropy = callPackage ../development/python-modules/macropy { };
 
@@ -10674,6 +10682,10 @@ self: super: with self; {
 
   proton-vpn-network-manager = callPackage ../development/python-modules/proton-vpn-network-manager { };
 
+  proton-vpn-network-manager-openvpn = callPackage ../development/python-modules/proton-vpn-network-manager-openvpn { };
+
+  proton-vpn-network-manager-wireguard = callPackage ../development/python-modules/proton-vpn-network-manager-wireguard { };
+
   proton-vpn-session = callPackage ../development/python-modules/proton-vpn-session { };
 
   protonup-ng = callPackage ../development/python-modules/protonup-ng { };
@@ -13137,6 +13149,8 @@ self: super: with self; {
 
   pyyardian = callPackage ../development/python-modules/pyyardian { };
 
+  pyytlounge = callPackage ../development/python-modules/pyytlounge { };
+
   pyzabbix = callPackage ../development/python-modules/pyzabbix { };
 
   pyzerproc = callPackage ../development/python-modules/pyzerproc { };
@@ -15422,6 +15436,8 @@ self: super: with self; {
   textual = callPackage ../development/python-modules/textual { };
 
   textual-dev = callPackage ../development/python-modules/textual-dev { };
+
+  textual-slider = callPackage ../development/python-modules/textual-slider { };
 
   textual-universal-directorytree = callPackage ../development/python-modules/textual-universal-directorytree { };
 

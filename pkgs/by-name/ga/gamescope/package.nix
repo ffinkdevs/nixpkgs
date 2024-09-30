@@ -45,17 +45,17 @@
     hash = "sha256-gR1AeAHV/Kn4ntiEDUSPxASLMFusV6hgSGrTbMCBUZA=";
   };
 in
-  stdenv.mkDerivation (finalAttrs: {
-    pname = "gamescope";
-    version = "3.15.11";
+stdenv.mkDerivation (finalAttrs: {
+  pname = "gamescope";
+  version = "3.15.11";
 
-    src = fetchFromGitHub {
-      owner = "ValveSoftware";
-      repo = "gamescope";
-      rev = "refs/tags/${finalAttrs.version}";
-      fetchSubmodules = true;
-      hash = "sha256-O2pxaPDwEr9ko7Zplv65qRUDzIk1Q54Q7Rgs94VkTII=";
-    };
+  src = fetchFromGitHub {
+    owner = "ValveSoftware";
+    repo = "gamescope";
+    rev = "refs/tags/${finalAttrs.version}";
+    fetchSubmodules = true;
+    hash = "sha256-O2pxaPDwEr9ko7Zplv65qRUDzIk1Q54Q7Rgs94VkTII=";
+  };
 
     patches = [
       # Make it look for shaders in the right place
