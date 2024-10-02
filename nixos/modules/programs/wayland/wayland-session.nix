@@ -3,10 +3,8 @@
   pkgs,
   enableXWayland ? true,
   enableWlrPortal ? true,
-  enableGtkPortal ? true,
-}:
-
-{
+  enableGtkPortal ? false,
+}: {
   security = {
     polkit.enable = true;
     pam.services.swaylock = {};
