@@ -883,6 +883,7 @@
   ./services/monitoring/datadog-agent.nix
   ./services/monitoring/do-agent.nix
   ./services/monitoring/fusion-inventory.nix
+  ./services/monitoring/gatus.nix
   ./services/monitoring/goss.nix
   ./services/monitoring/grafana-agent.nix
   ./services/monitoring/grafana-image-renderer.nix
@@ -1030,6 +1031,7 @@
   ./services/networking/expressvpn.nix
   ./services/networking/fakeroute.nix
   ./services/networking/fastnetmon-advanced.nix
+  ./services/networking/fedimintd.nix
   ./services/networking/ferm.nix
   ./services/networking/firefox-syncserver.nix
   ./services/networking/fireqos.nix
