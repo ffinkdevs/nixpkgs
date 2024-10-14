@@ -114,6 +114,7 @@ self: super: {
   #   A factor of 100 is insufficent, 200 seems seems to work.
   hip = appendConfigureFlag "--ghc-options=-fsimpl-tick-factor=200" super.hip;
 
+  unordered-containers = dontCheck super.unordered-containers;
   # Doctest comments have bogus imports.
   bsb-http-chunked = dontCheck super.bsb-http-chunked;
 
