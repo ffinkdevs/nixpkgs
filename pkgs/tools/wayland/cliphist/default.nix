@@ -1,10 +1,10 @@
 {
   lib,
-  buildGoModule,
+  buildGo122Module,
   fetchFromGitHub,
 }:
 
-buildGoModule rec {
+buildGo122Module rec {
   pname = "cliphist";
   version = "0.5.0";
 
