@@ -370,6 +370,11 @@ in
     nvimRequireCheck = "cmp_neosnippet";
   };
 
+  cmp-nixpkgs-maintainers = super.cmp-nixpkgs-maintainers.overrideAttrs {
+    dependencies = with self; [ nvim-cmp ];
+    nvimRequireCheck = "cmp_nixpkgs_maintainers";
+  };
+
   cmp-npm = super.cmp-npm.overrideAttrs {
     dependencies = with self; [
       nvim-cmp
@@ -2133,6 +2138,10 @@ in
       '';
     meta.platforms = lib.platforms.all;
   });
+
+  telescope-git-conflicts-nvim = super.telescope-git-conflicts-nvim.overrideAttrs {
+    dependencies = with self; [ telescope-nvim ];
+  };
 
   telescope-media-files-nvim = super.telescope-media-files-nvim.overrideAttrs {
     dependencies = with self; [

@@ -2886,6 +2886,8 @@ self: super: with self; {
 
   databricks-sql-connector = callPackage ../development/python-modules/databricks-sql-connector { };
 
+  databricks-sdk = callPackage ../development/python-modules/databricks-sdk { };
+
   dataclass-factory = callPackage ../development/python-modules/dataclass-factory { };
 
   dataclass-wizard = callPackage ../development/python-modules/dataclass-wizard { };
@@ -5391,7 +5393,9 @@ self: super: with self; {
 
   graphrag = callPackage ../development/python-modules/graphrag { };
 
-  graph-tool = callPackage ../development/python-modules/graph-tool { };
+  graph-tool = callPackage ../development/python-modules/graph-tool {
+    inherit (pkgs) cgal;
+  };
 
   graphtage = callPackage ../development/python-modules/graphtage { };
 
@@ -5496,7 +5500,9 @@ self: super: with self; {
     qemu = pkgs.qemu;
   };
 
-  gudhi = callPackage ../development/python-modules/gudhi { };
+  gudhi = callPackage ../development/python-modules/gudhi {
+    inherit (pkgs) cgal;
+  };
 
   guidance = callPackage ../development/python-modules/guidance { };
 
@@ -5713,8 +5719,6 @@ self: super: with self; {
   hjson = callPackage ../development/python-modules/hjson { };
 
   hkavr = callPackage ../development/python-modules/hkavr { };
-
-  hkdf = callPackage ../development/python-modules/hkdf { };
 
   hledger-utils = callPackage ../development/python-modules/hledger-utils { };
 
@@ -5992,7 +5996,7 @@ self: super: with self; {
   ifconfig-parser = callPackage ../development/python-modules/ifconfig-parser { };
 
   ifcopenshell = callPackage ../development/python-modules/ifcopenshell {
-    inherit (pkgs) libxml2;
+    inherit (pkgs) cgal libxml2;
   };
 
   ignite = callPackage ../development/python-modules/ignite { };
@@ -6330,6 +6334,8 @@ self: super: with self; {
   jaconv = callPackage ../development/python-modules/jaconv { };
 
   jaeger-client = callPackage ../development/python-modules/jaeger-client { };
+
+  jalali-core = callPackage ../development/python-modules/jalali-core { };
 
   jamo = callPackage ../development/python-modules/jamo { };
 
@@ -9397,6 +9403,8 @@ self: super: with self; {
 
   opentelemetry-instrumentation-celery = callPackage ../development/python-modules/opentelemetry-instrumentation-celery { };
 
+  opentelemetry-instrumentation-botocore = callPackage ../development/python-modules/opentelemetry-instrumentation-botocore { };
+
   opentelemetry-instrumentation-dbapi = callPackage ../development/python-modules/opentelemetry-instrumentation-dbapi { };
 
   opentelemetry-instrumentation-django = callPackage ../development/python-modules/opentelemetry-instrumentation-django { };
@@ -9407,6 +9415,8 @@ self: super: with self; {
 
   opentelemetry-instrumentation-grpc = callPackage ../development/python-modules/opentelemetry-instrumentation-grpc { };
 
+  opentelemetry-instrumentation-logging = callPackage ../development/python-modules/opentelemetry-instrumentation-logging { };
+
   opentelemetry-instrumentation-psycopg2 = callPackage ../development/python-modules/opentelemetry-instrumentation-psycopg2 { };
 
   opentelemetry-instrumentation-requests = callPackage ../development/python-modules/opentelemetry-instrumentation-requests { };
@@ -9414,6 +9424,8 @@ self: super: with self; {
   opentelemetry-instrumentation-redis = callPackage ../development/python-modules/opentelemetry-instrumentation-redis { };
 
   opentelemetry-instrumentation-wsgi = callPackage ../development/python-modules/opentelemetry-instrumentation-wsgi { };
+
+  opentelemetry-propagator-aws-xray = callPackage ../development/python-modules/opentelemetry-propagator-aws-xray { };
 
   opentelemetry-proto = callPackage ../development/python-modules/opentelemetry-proto { };
 
@@ -10705,14 +10717,14 @@ self: super: with self; {
 
   # Protobuf 4.x
   protobuf4 = callPackage ../development/python-modules/protobuf/4.nix {
-    protobuf = pkgs.protobuf;
+    protobuf = pkgs.protobuf_25;
   };
 
   # Protobuf 5.x
   protobuf5 = callPackage ../development/python-modules/protobuf/default.nix { };
 
   # If a protobuf upgrade causes many Python packages to fail, please pin it here to the previous version.
-  protobuf = protobuf4;
+  protobuf = protobuf5;
 
   protobuf3-to-dict = callPackage ../development/python-modules/protobuf3-to-dict { };
 
@@ -11615,6 +11627,8 @@ self: super: with self; {
 
   pylion = callPackage ../development/python-modules/pylion { };
 
+  pylitejet = callPackage ../development/python-modules/pylitejet { };
+
   pylitterbot = callPackage ../development/python-modules/pylitterbot { };
 
   py-libzfs = callPackage ../development/python-modules/py-libzfs { };
@@ -11762,6 +11776,7 @@ self: super: with self; {
   };
 
   pymupdf = callPackage ../development/python-modules/pymupdf { };
+  pymupdf-fonts = callPackage ../development/python-modules/pymupdf-fonts { };
 
   pymvglive = callPackage ../development/python-modules/pymvglive { };
 
@@ -15395,7 +15410,7 @@ self: super: with self; {
       ).override {
         protobuf = protobufTF;
       };
-      protobuf-pythonTF = self.protobuf.override {
+      protobuf-pythonTF = self.protobuf4.override {
         protobuf = protobufTF;
       };
       grpcioTF = self.grpcio.override {
