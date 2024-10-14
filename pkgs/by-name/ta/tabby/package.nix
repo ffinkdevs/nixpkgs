@@ -125,9 +125,9 @@ in
     };
 
     # https://github.com/TabbyML/tabby/blob/v0.7.0/.github/workflows/release.yml#L39
-
+cargoBuildType = "release";
     cargoBuildFlags = [
-      "--release"
+   
       "--no-default-features"
       "--target"
       buildTarget
