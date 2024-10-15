@@ -139,6 +139,7 @@ in {
   config = lib.mkIf cfg.enable {
     environment = {
       etc."tabby/config.toml".source = format.generate "config.toml" cfg.settings;
+      systemPackages = [tabbyPackage pkgs.git];
     };
 
     systemd = let
