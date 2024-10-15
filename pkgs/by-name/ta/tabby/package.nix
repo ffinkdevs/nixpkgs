@@ -27,7 +27,7 @@
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/misc/ollama/default.nix
 
   pname = "tabby";
-  version = "0.15.0";
+  version = "0.18.0";
 
   availableAccelerations = flatten [
     (optional cudaSupport "cuda")
@@ -107,8 +107,8 @@ in
       owner = "TabbyML";
       repo = "tabby";
       rev = "v${version}";
-      hash = "sha256-4IpG/Pq796nVtB0O0bJerwtNjLAU3DY/kEDC58htYR4=";
-      fetchSubmodules = true;
+      hash = "sha256-rg8BsFXj69ZvKV/nbjwpkLNtlmOnK/LpVnnJEdiMjeg=";
+      # fetchSubmodules = true;
     };
 
     cargoLock = {
@@ -121,13 +121,13 @@ in
         "tree-sitter-solidity-1.2.6" = "sha256-S00hdzMoIccPYBEvE092/RIMnG8YEnDGk6GJhXlr4ng=";
         "tree-sitter-c-0.21.3" = "sha256-ucbHLS2xyGo1uyKZv/K1HNXuMo4GpTY327cgdVS9F3c=";
         "tree-sitter-cpp-0.22.1" = "sha256-3akSuQltFMF6I32HwRU08+Hcl9ojxPGk2ZuOX3gAObw=";
+        "sqlx-0.7.4" = "sha256-tcISzoSfOZ0jjNgGpuPPxjMxmBUPw/5FVDoALZEAHKY=";
       };
     };
 
     # https://github.com/TabbyML/tabby/blob/v0.7.0/.github/workflows/release.yml#L39
-cargoBuildType = "release";
+    cargoBuildType = "release";
     cargoBuildFlags = [
-   
       "--no-default-features"
       "--target"
       buildTarget

@@ -18,6 +18,14 @@ in {
 
       package = lib.mkPackageOption pkgs "tabby" {};
 
+      host = lib.mkOption {
+        type = types.str;
+        default = "127.0.0.1";
+        description = ''
+          Specifies the hostname on which the tabby server HTTP interface listens.
+        '';
+      };
+
       port = lib.mkOption {
         type = types.port;
         default = 11029;
@@ -117,22 +125,6 @@ in {
           > https://tabby.tabbyml.com/docs/configuration#usage-collection
         '';
       };
-
-      indexInterval = lib.mkOption {
-        type = types.str;
-        default = "5hours";
-        example = "5hours";
-        description = ''
-          Run tabby scheduler to generate the index database at this interval.
-          Updates by default every 5 hours. This value applies to
-          `OnUnitInactiveSec`
-
-          The format is described in
-          {manpage}`systemd.time(7)`.
-
-          To disable running `tabby scheduler --now` updates, set to `"never"`
-        '';
-      };
     };
   };
 
@@ -166,35 +158,16 @@ in {
       services.tabby = {
         wantedBy = ["multi-user.target"];
         description = "Self-hosted AI coding assistant using large language models";
-        after = ["network.target"];
-        environment = serviceEnv;
-        serviceConfig = lib.mkMerge [
-          serviceUser
-          {
-            ExecStart = "${lib.getExe tabbyPackage} serve --model ${cfg.model} --port ${toString cfg.port} --device ${tabbyPackage.featureDevice}";
-          }
-        ];
-      };
-
-      services.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
-        wantedBy = ["multi-user.target"];
-        description = "Tabby repository indexing service";
-        after = ["network.target"];
-        environment = serviceEnv;
         preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
+
+        after = ["network.target"];
+        environment = serviceEnv;
         serviceConfig = lib.mkMerge [
           serviceUser
           {
-            # Type = "oneshot";
-            ExecStart = "${lib.getExe tabbyPackage} scheduler --now";
+            ExecStart = "${lib.getExe tabbyPackage} serve --model ${cfg.model}  --host ${cfg.host} --port ${toString cfg.port} --device ${tabbyPackage.featureDevice}";
           }
         ];
-      };
-      timers.tabby-scheduler = lib.mkIf (cfg.indexInterval != "never") {
-        description = "Update timer for tabby-scheduler";
-        partOf = ["tabby-scheduler.service"];
-        wantedBy = ["timers.target"];
-        timerConfig.OnUnitInactiveSec = cfg.indexInterval;
       };
     };
   };

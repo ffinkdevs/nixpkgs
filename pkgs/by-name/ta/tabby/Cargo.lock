@@ -41,7 +41,7 @@ dependencies = [
 
 [[package]]
 name = "aim-downloader"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "async-stream",
  "clap",
@@ -1691,9 +1691,7 @@ dependencies = [
 
 [[package]]
 name = "hash-ids"
-version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9289cbc8064a1c2f505c92d4d17f7fe5050d487728c19cee7936bd204069bc9d"
+version = "0.18.0"
 
 [[package]]
 name = "hashbrown"
@@ -1877,7 +1875,7 @@ dependencies = [
 
 [[package]]
 name = "http-api-bindings"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-openai",
@@ -2089,16 +2087,6 @@ checksum = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
 
 [[package]]
 name = "idna"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7d20d6b07bfbc108882d88ed8e37d39636dcc260e15e30c45e6ba089610b917c"
-dependencies = [
- "unicode-bidi",
- "unicode-normalization",
-]
-
-[[package]]
-name = "idna"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "634d9b1461af396cad843f47fdba5597a4f9e6ddd4bfb6ff5d85028c25cb12f6"
@@ -2106,12 +2094,6 @@ dependencies = [
  "unicode-bidi",
  "unicode-normalization",
 ]
-
-[[package]]
-name = "if_chain"
-version = "1.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cb56e1aa765b4b4f3aadfab769793b7087bb03a4ea4920644a6d238e2df5b9ed"
 
 [[package]]
 name = "ignore"
@@ -2309,6 +2291,7 @@ checksum = "1f81e883bc6ffb2e5a3cc7276bfe9519c49108bdc1330d5aab1b79cb088f2f26"
 dependencies = [
  "axum",
  "bytes",
+ "futures",
  "juniper",
  "juniper_graphql_ws",
  "serde",
@@ -2386,7 +2369,7 @@ dependencies = [
  "futures-util",
  "hostname",
  "httpdate",
- "idna 0.5.0",
+ "idna",
  "mime",
  "native-tls",
  "nom",
@@ -2555,7 +2538,7 @@ checksum = "78b3ae25bc7c8c38cec158d1f2757ee79e9b3740fbc7ccf0e59e4b08d793fa89"
 
 [[package]]
 name = "llama-cpp-server"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-openai",
@@ -3083,7 +3066,7 @@ dependencies = [
 
 [[package]]
 name = "ollama-api-bindings"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-stream",
@@ -4607,8 +4590,7 @@ dependencies = [
 [[package]]
 name = "sqlx"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c9a2ccff1a000a5a59cd33da541d9f2fdcd9e6e8229cc200565942bff36d0aaa"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "sqlx-core",
  "sqlx-macros",
@@ -4620,8 +4602,7 @@ dependencies = [
 [[package]]
 name = "sqlx-core"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24ba59a9342a3d9bab6c56c118be528b27c9b60e490080e9711a04dccac83ef6"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "ahash",
  "atoi",
@@ -4660,8 +4641,7 @@ dependencies = [
 [[package]]
 name = "sqlx-macros"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ea40e2345eb2faa9e1e5e326db8c34711317d2b5e08d0d5741619048a803127"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4673,8 +4653,7 @@ dependencies = [
 [[package]]
 name = "sqlx-macros-core"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5833ef53aaa16d860e92123292f1f6a3d53c34ba8b1969f152ef1a7bb803f3c8"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "dotenvy",
  "either",
@@ -4699,8 +4678,7 @@ dependencies = [
 [[package]]
 name = "sqlx-mysql"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ed31390216d20e538e447a7a9b959e06ed9fc51c37b514b46eb758016ecd418"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "atoi",
  "base64 0.21.7",
@@ -4742,8 +4720,7 @@ dependencies = [
 [[package]]
 name = "sqlx-postgres"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7c824eb80b894f926f89a0b9da0c7f435d27cdd35b8c655b114e58223918577e"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "atoi",
  "base64 0.21.7",
@@ -4781,8 +4758,7 @@ dependencies = [
 [[package]]
 name = "sqlx-sqlite"
 version = "0.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b244ef0a8414da0bed4bb1910426e890b19e5e9bccc27ada6b797d05c55ae0aa"
+source = "git+https://github.com/wsxiaoys/sqlx?rev=8ca573c#8ca573cc0e323a637261a8f2cbc4a7c3c7b4e133"
 dependencies = [
  "atoi",
  "chrono",
@@ -5004,7 +4980,7 @@ dependencies = [
 
 [[package]]
 name = "tabby"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "assert-json-diff",
@@ -5014,7 +4990,6 @@ dependencies = [
  "axum",
  "axum-extra",
  "axum-prometheus",
- "cached",
  "chrono",
  "clap",
  "color-eyre",
@@ -5026,7 +5001,6 @@ dependencies = [
  "llama-cpp-server",
  "nvml-wrapper",
  "openssl",
- "parse-git-url",
  "reqwest",
  "reqwest-eventsource",
  "serde",
@@ -5056,10 +5030,9 @@ dependencies = [
 
 [[package]]
 name = "tabby-common"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
- "async-openai",
  "async-trait",
  "axum",
  "axum-extra",
@@ -5068,6 +5041,7 @@ dependencies = [
  "hash-ids",
  "home",
  "lazy_static",
+ "parse-git-url",
  "reqwest",
  "serde",
  "serde_json",
@@ -5084,7 +5058,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-crawler"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-stream",
@@ -5092,6 +5066,7 @@ dependencies = [
  "htmd",
  "logkit",
  "readable-readability",
+ "regex",
  "serde",
  "serde_json",
  "tokio",
@@ -5102,7 +5077,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-db"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "assert_matches",
@@ -5110,6 +5085,7 @@ dependencies = [
  "chrono",
  "hash-ids",
  "lazy_static",
+ "serde",
  "sql_query_builder",
  "sqlx",
  "tabby-db-macros",
@@ -5119,7 +5095,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-db-macros"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "quote",
  "syn 2.0.66",
@@ -5127,7 +5103,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-download"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "aim-downloader",
  "anyhow",
@@ -5138,7 +5114,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-git"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "assert_matches",
@@ -5159,7 +5135,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-index"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-stream",
@@ -5186,6 +5162,7 @@ dependencies = [
  "tree-sitter-c",
  "tree-sitter-c-sharp",
  "tree-sitter-cpp",
+ "tree-sitter-elixir",
  "tree-sitter-go",
  "tree-sitter-java",
  "tree-sitter-kotlin",
@@ -5199,8 +5176,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "tabby-index-cli"
+version = "0.18.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "serde",
+ "serde_json",
+ "tabby-common",
+ "tantivy",
+]
+
+[[package]]
 name = "tabby-inference"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-openai",
@@ -5217,7 +5206,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-schema"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5242,7 +5231,7 @@ dependencies = [
 
 [[package]]
 name = "tabby-webserver"
-version = "0.15.0"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "argon2",
@@ -5259,6 +5248,7 @@ dependencies = [
  "futures",
  "gitlab",
  "hyper 1.3.1",
+ "insta",
  "jsonwebtoken",
  "juniper",
  "juniper_axum",
@@ -5291,7 +5281,6 @@ dependencies = [
  "tracing",
  "url",
  "urlencoding",
- "utoipa",
  "uuid",
 ]
 
@@ -5966,6 +5955,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "tree-sitter-elixir"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df94bf7f057768b1cab2ee1f14812ed4ae33f9e04d09254043eeaa797db4ef70"
+dependencies = [
+ "cc",
+ "tree-sitter",
+]
+
+[[package]]
 name = "tree-sitter-go"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6188,7 +6187,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "31e6302e3bb753d46e83516cae55ae196fc0c309407cf11ab35cc51a4c2a4633"
 dependencies = [
  "form_urlencoded",
- "idna 0.5.0",
+ "idna",
  "percent-encoding",
  "serde",
 ]
@@ -6292,12 +6291,12 @@ dependencies = [
 
 [[package]]
 name = "validator"
-version = "0.16.1"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b92f40481c04ff1f4f61f304d61793c7b56ff76ac1469f1beb199b1445b253bd"
+checksum = "db79c75af171630a3148bd3e6d7c4f42b6a9a014c2945bc5ed0020cbb8d9478e"
 dependencies = [
- "idna 0.4.0",
- "lazy_static",
+ "idna",
+ "once_cell",
  "regex",
  "serde",
  "serde_derive",
@@ -6308,28 +6307,16 @@ dependencies = [
 
 [[package]]
 name = "validator_derive"
-version = "0.16.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bc44ca3088bb3ba384d9aecf40c6a23a676ce23e09bdaca2073d99c207f864af"
+checksum = "55591299b7007f551ed1eb79a684af7672c19c3193fb9e0a31936987bb2438ec"
 dependencies = [
- "if_chain",
- "lazy_static",
+ "darling 0.20.9",
+ "once_cell",
  "proc-macro-error",
  "proc-macro2",
  "quote",
- "regex",
- "syn 1.0.109",
- "validator_types",
-]
-
-[[package]]
-name = "validator_types"
-version = "0.16.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "111abfe30072511849c5910134e8baf8dc05de4c0e5903d681cbd5c9c4d611e3"
-dependencies = [
- "proc-macro2",
- "syn 1.0.109",
+ "syn 2.0.66",
 ]
 
 [[package]]
