@@ -138,7 +138,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment = {
-      etc."tabby/config.toml".source = format.generate "config.toml" cfg.settings;
+      # etc."tabby/config.toml".source = format.generate "config.toml" cfg.settings;
       systemPackages = [tabbyPackage];
     };
 
@@ -165,7 +165,7 @@ in {
       services.tabby = {
         wantedBy = ["multi-user.target"];
         description = "Self-hosted AI coding assistant using large language models";
-        preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
+        # preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
 
         after = ["network.target"];
         environment = serviceEnv;
