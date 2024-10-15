@@ -25,7 +25,13 @@ in {
           Specifies the hostname on which the tabby server HTTP interface listens.
         '';
       };
-
+      logLevel = lib.mkOption {
+        type = types.str;
+        default = "";
+        description = ''
+          Specifies the Log Level
+        '';
+      };
       port = lib.mkOption {
         type = types.port;
         default = 11029;
@@ -149,6 +155,7 @@ in {
       serviceEnv = lib.mkMerge [
         {
           TABBY_ROOT = "%S/tabby";
+          RUST_LOG = cfg.logLevel;
         }
         (lib.mkIf (!cfg.usageCollection) {
           TABBY_DISABLE_USAGE_COLLECTION = "1";
