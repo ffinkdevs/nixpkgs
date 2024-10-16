@@ -745,8 +745,6 @@ with pkgs;
 
   erosmb = callPackage ../tools/security/erosmb { };
 
-  eslint_d = callPackage ../development/tools/eslint_d { };
-
   oauth2c = callPackage ../tools/security/oauth2c { };
 
   octodns = python3Packages.callPackage ../tools/networking/octodns { };
@@ -4418,8 +4416,6 @@ with pkgs;
 
   clapboard = callPackage ../tools/wayland/clapboard { };
 
-  cliphist = callPackage ../tools/wayland/cliphist { };
-
   clipman = callPackage ../tools/wayland/clipman { };
 
   kabeljau = callPackage ../games/kabeljau { };
@@ -5608,6 +5604,10 @@ with pkgs;
   };
 
   nltk-data = callPackage ../tools/text/nltk-data { };
+
+  seabios-coreboot = seabios.override { ___build-type = "coreboot"; };
+  seabios-csm = seabios.override { ___build-type = "csm"; };
+  seabios-qemu = seabios.override { ___build-type = "qemu"; };
 
   seaborn-data = callPackage ../tools/misc/seaborn-data { };
 
@@ -7253,8 +7253,6 @@ with pkgs;
   xob = callPackage ../tools/X11/xob { };
 
   z-lua = callPackage ../tools/misc/z-lua { };
-
-  zabbix-cli = callPackage ../tools/misc/zabbix-cli { };
 
   zabbixctl = callPackage ../tools/misc/zabbixctl { };
 
@@ -11002,10 +11000,8 @@ with pkgs;
 
   perceptualdiff = callPackage ../tools/graphics/perceptualdiff { };
 
-  inherit (import ../servers/sql/percona-server pkgs) percona-server_lts percona-server_innovation;
-  percona-server = percona-server_lts;
-  inherit (import ../tools/backup/percona-xtrabackup pkgs) percona-xtrabackup_lts percona-xtrabackup_innovation;
-  percona-xtrabackup = percona-xtrabackup_lts;
+  inherit (import ../servers/sql/percona-server pkgs) percona-server_8_0 percona-server_8_4 percona-server;
+  inherit (import ../tools/backup/percona-xtrabackup pkgs) percona-xtrabackup_8_0 percona-xtrabackup_8_4 percona-xtrabackup;
 
   pick = callPackage ../tools/misc/pick { };
 
@@ -12397,8 +12393,6 @@ with pkgs;
 
   soundkonverter = libsForQt5.soundkonverter;
 
-  soundwireserver = callPackage ../applications/audio/soundwireserver { };
-
   sozu = callPackage ../servers/sozu { };
 
   spacer = callPackage ../tools/misc/spacer { };
@@ -13788,10 +13782,6 @@ with pkgs;
 
   wget2 = callPackage ../tools/networking/wget2 { };
 
-  wgpu-utils = callPackage ../tools/graphics/wgpu-utils {
-    inherit (darwin.apple_sdk.frameworks) QuartzCore;
-  };
-
   wg-bond = callPackage ../applications/networking/wg-bond { };
 
   wgcf = callPackage ../applications/networking/wgcf { };
@@ -14383,13 +14373,6 @@ with pkgs;
   libclang = llvmPackages.libclang;
   clang-manpages = llvmPackages.clang-manpages;
 
-  clang-sierraHack = clang.override {
-    name = "clang-wrapper-with-reexport-hack";
-    bintools = darwin.binutils.override {
-      useMacosReexportHack = true;
-    };
-  };
-
   clang = llvmPackages.clang;
   clang_12 = llvmPackages_12.clang;
   clang_13 = llvmPackages_13.clang;
@@ -14412,7 +14395,6 @@ with pkgs;
 
   #Use this instead of stdenv to build with clang
   clangStdenv = if stdenv.cc.isClang then stdenv else lowPrio llvmPackages.stdenv;
-  clang-sierraHack-stdenv = overrideCC stdenv buildPackages.clang-sierraHack;
   libcxxStdenv = if stdenv.hostPlatform.isDarwin then stdenv else lowPrio llvmPackages.libcxxStdenv;
 
   clean = callPackage ../development/compilers/clean { };
@@ -17277,8 +17259,6 @@ with pkgs;
   chruby-fish = callPackage ../development/tools/misc/chruby-fish { };
 
   cl-launch = callPackage ../development/tools/misc/cl-launch { };
-
-  clean-css-cli = callPackage ../development/tools/clean-css-cli { };
 
   cloud-nuke = callPackage ../development/tools/cloud-nuke { };
 
@@ -28140,10 +28120,6 @@ with pkgs;
     audacious = audacious.override { audacious-plugins = null; };
   };
 
-  audacity = callPackage ../applications/audio/audacity {
-    inherit (darwin.apple_sdk.frameworks) AppKit CoreAudioKit;
-  };
-
   audio-recorder = callPackage ../applications/audio/audio-recorder { };
 
   auto-multiple-choice = callPackage ../applications/misc/auto-multiple-choice { };
@@ -28167,8 +28143,6 @@ with pkgs;
   ax25-apps = callPackage ../applications/radio/ax25-apps { };
 
   ax25-tools = callPackage ../applications/radio/ax25-tools { };
-
-  azpainter = callPackage ../applications/graphics/azpainter { };
 
   bambootracker = libsForQt5.callPackage ../applications/audio/bambootracker {
     stdenv = if stdenv.hostPlatform.isDarwin then
@@ -29358,8 +29332,6 @@ with pkgs;
 
   fclones-gui = darwin.apple_sdk_11_0.callPackage ../tools/misc/fclones/gui.nix { };
 
-  fcp = callPackage ../tools/misc/fcp { };
-
   fdupes = callPackage ../tools/misc/fdupes { };
 
   feh = callPackage ../applications/graphics/feh {
@@ -29384,7 +29356,6 @@ with pkgs;
   firefox-unwrapped = firefoxPackages.firefox;
   firefox-beta-unwrapped = firefoxPackages.firefox-beta;
   firefox-devedition-unwrapped = firefoxPackages.firefox-devedition;
-  firefox-esr-115-unwrapped = firefoxPackages.firefox-esr-115;
   firefox-esr-128-unwrapped = firefoxPackages.firefox-esr-128;
   firefox-esr-unwrapped = firefoxPackages.firefox-esr-128;
 
@@ -29405,12 +29376,6 @@ with pkgs;
   firefox-mobile = callPackage ../applications/networking/browsers/firefox/mobile-config.nix { };
 
   firefox-esr-128 = wrapFirefox firefox-esr-128-unwrapped {
-    nameSuffix = "-esr";
-    desktopName = "Firefox ESR";
-    wmClass = "firefox-esr";
-    icon = "firefox-esr";
-  };
-  firefox-esr-115 = wrapFirefox firefox-esr-115-unwrapped {
     nameSuffix = "-esr";
     desktopName = "Firefox ESR";
     wmClass = "firefox-esr";
@@ -30776,10 +30741,6 @@ with pkgs;
 
   lime = callPackage ../development/libraries/lime { };
 
-  luakit = callPackage ../applications/networking/browsers/luakit {
-    inherit (luajitPackages) luafilesystem;
-  };
-
   looking-glass-client = callPackage ../applications/virtualization/looking-glass-client { };
 
   ltc-tools = callPackage ../applications/audio/ltc-tools { };
@@ -31552,7 +31513,6 @@ with pkgs;
     pythonPackages = python3Packages;
   };
 
-  notmuch-mailmover = callPackage ../applications/networking/mailreaders/notmuch/notmuch-mailmover.nix { };
 
   notmuch-mutt = callPackage ../applications/networking/mailreaders/notmuch/mutt.nix { };
 
@@ -32350,8 +32310,6 @@ with pkgs;
   secrets-extractor = callPackage ../tools/security/secrets-extractor { };
 
   secretscanner = callPackage ../tools/security/secretscanner { };
-
-  setconf = python3.pkgs.callPackage ../tools/misc/setconf { };
 
   semiphemeral = callPackage ../tools/misc/semiphemeral { };
 
@@ -33537,8 +33495,6 @@ with pkgs;
 
   wings = callPackage ../applications/graphics/wings { };
 
-  write_stylus = libsForQt5.callPackage ../applications/graphics/write_stylus { };
-
   wlc = callPackage  ../tools/misc/wlc { };
 
   wlclock = callPackage ../applications/misc/wlclock { };
@@ -33899,8 +33855,6 @@ with pkgs;
   ytmdl = callPackage ../tools/misc/ytmdl { };
 
   yuview = libsForQt5.yuview;
-
-  wallust = callPackage ../applications/misc/wallust { };
 
   zam-plugins = callPackage ../applications/audio/zam-plugins { };
 
@@ -34635,7 +34589,9 @@ with pkgs;
 
   extremetuxracer = callPackage ../games/extremetuxracer { };
 
-  exult = callPackage ../games/exult { };
+  exult = callPackage ../games/exult {
+    inherit (darwin.apple_sdk.frameworks) AudioUnit;
+  };
 
   fallout-ce = callPackage ../games/fallout-ce/fallout-ce.nix { };
   fallout2-ce = callPackage ../games/fallout-ce/fallout2-ce.nix { };
@@ -38668,8 +38624,6 @@ with pkgs;
   fac-build = callPackage ../development/tools/build-managers/fac {
     inherit (darwin.apple_sdk.frameworks) CoreServices;
   };
-
-  nufmt = callPackage ../development/tools/nufmt { };
 
   bottom = darwin.apple_sdk_11_0.callPackage ../tools/system/bottom { };
 
