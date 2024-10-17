@@ -20,7 +20,7 @@
     workDir = "console";
     bufArgs = "../proto --include-imports --include-wkt";
     outputPath = "src/app/proto";
-    hash = "sha256-0UaiNGoSjborFVf3vn3r1B3cfqxbt3IzeK8L8/EbMuo=";
+    hash = "sha256-hdtt+d23OF2Cb/plhbbqSBJF0yVe6hOZNdGg7fh87G0=";
     # hash = "sha256-BBXFt4f2SQphr106sQ0eEL4Z2ooAI8fxXhu2rKqhjb4=";
   };
 in
@@ -28,12 +28,12 @@ in
     name = "zitadel-console";
     inherit version;
 
-    src = "${zitadelRepo.outPath}/console";
+    src = zitadelRepo + "/console";
     packageJSON = "${src}/package.json";
     offlineCache = fetchYarnDeps {
       name = "zitadel-yarn-cache";
-      yarnLock = "yarn.lock";
-      hash = "sha256-MWATjfhIbo3cqpzOdXP52f/0Td60n99OTU1Qk6oWmXU=";
+      yarnLock = "${src}/yarn.lock";
+      hash = "sha256-Ik43we7syU1t0dfZHGiRF2At/SXtt1ZKW5Nf/BJ7cLM=";
       #  hash = "sha256-MWATjfhIbo3cqpzOdXP52f/0Td60n99OTU1Qk6oWmXU=";
     };
 
