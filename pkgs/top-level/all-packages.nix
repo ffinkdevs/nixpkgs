@@ -2191,8 +2191,6 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) Security SystemConfiguration;
   };
 
-  git-branchstack = python3.pkgs.callPackage ../applications/version-management/git-branchstack { };
-
   git-bug = callPackage ../applications/version-management/git-bug { };
 
   git-bug-migration = callPackage ../applications/version-management/git-bug-migration { };
@@ -2364,7 +2362,7 @@ with pkgs;
 
   gitls = callPackage ../applications/version-management/gitls { };
 
-  gitmux = callPackage ../applications/version-management/gitmux { };
+  gitmux = callPackage ../applications/version-management/gitmux { buildGoModule = buildGo122Module; };
 
   gitnuro = callPackage ../applications/version-management/gitnuro { };
 
@@ -8604,6 +8602,7 @@ with pkgs;
     fmt = fmt_8.override { inherit stdenv; };
     nanodbc_llvm = nanodbc.override { inherit stdenv; };
     avro-cpp_llvm = avro-cpp.override { inherit stdenv boost; };
+    spdlog_llvm = spdlog.override { inherit stdenv fmt; };
   })
     irods
     irods-icommands;
@@ -8834,7 +8833,9 @@ with pkgs;
 
   jmespath = callPackage ../development/tools/jmespath { };
 
-  juicefs = callPackage ../tools/filesystems/juicefs { };
+  juicefs = callPackage ../tools/filesystems/juicefs {
+    buildGoModule = buildGo122Module;
+  };
 
   juicity = callPackage ../tools/networking/juicity { };
 
@@ -18387,8 +18388,6 @@ with pkgs;
 
   smc = callPackage ../tools/misc/smc { };
 
-  snakemake = callPackage ../applications/science/misc/snakemake { };
-
   snore = callPackage ../tools/misc/snore { };
 
   snzip = callPackage ../tools/archivers/snzip { };
@@ -24479,9 +24478,6 @@ with pkgs;
   };
 
   matrix-alertmanager = callPackage ../servers/monitoring/matrix-alertmanager { };
-
-  mattermost = callPackage ../servers/mattermost { };
-  matterircd = callPackage ../servers/mattermost/matterircd.nix { };
 
   mattermost-desktop = callPackage ../applications/networking/instant-messengers/mattermost-desktop { };
 
@@ -35206,17 +35202,14 @@ with pkgs;
 
   stockfish = callPackage ../games/stockfish { };
 
-  steamPackages = recurseIntoAttrs (callPackage ../games/steam { });
-
-  steam = steamPackages.steam-fhsenv;
-
   steam-run = steam.run;
 
-  steam-run-free = steamPackages.steam-fhsenv-without-steam.run;
+  # This exists so Hydra tries to build all of Steam's dependencies.
+  steam-fhsenv-without-steam = steam.override { steam-unwrapped = null; };
+
+  steam-run-free = steam-fhsenv-without-steam.run;
 
   steam-tui = callPackage ../games/steam-tui { };
-
-  steamcmd = steamPackages.steamcmd;
 
   steam-acf = callPackage ../tools/games/steam-acf { };
 
