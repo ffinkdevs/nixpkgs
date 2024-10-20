@@ -593,6 +593,7 @@
   ./services/hardware/irqbalance.nix
   ./services/hardware/joycond.nix
   ./services/hardware/kanata.nix
+  ./services/hardware/kmonad.nix
   ./services/hardware/lcd.nix
   ./services/hardware/libinput.nix
   ./services/hardware/lirc.nix
@@ -1204,7 +1205,6 @@
   ./services/networking/shellhub-agent.nix
   ./services/networking/shorewall.nix
   ./services/networking/shorewall6.nix
-  ./services/networking/shout.nix
   ./services/networking/sing-box.nix
   ./services/networking/sitespeed-io.nix
   ./services/networking/skydns.nix
@@ -1359,6 +1359,7 @@
   ./services/system/uptimed.nix
   ./services/system/userborn.nix
   ./services/system/zram-generator.nix
+  ./services/torrent/bitmagnet.nix
   ./services/torrent/deluge.nix
   ./services/torrent/flexget.nix
   ./services/torrent/flood.nix
@@ -1379,6 +1380,7 @@
   ./services/video/photonvision.nix
   ./services/video/mediamtx.nix
   ./services/video/v4l2-relayd.nix
+  ./services/video/wivrn.nix
   ./services/wayland/cage.nix
   ./services/wayland/hypridle.nix
   ./services/web-apps/akkoma.nix
