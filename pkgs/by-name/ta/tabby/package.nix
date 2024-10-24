@@ -149,14 +149,15 @@ in
         "--package"
         "tabby"
       ]
-      ++ optionals enableRocm [
-        "--features"
-        "rocm"
-      ]
-      ++ optionals enableCuda [
-        "--features"
-        "cuda"
-      ];
+      #   ++ optionals enableRocm [
+      #     "--features"
+      #     "rocm"
+      #   ]
+      #   ++ optionals enableCuda [
+      #     "--features"
+      #     "cuda"
+      # ]
+      ;
 
     nativeInstallCheckInputs = [
       versionCheckHook
