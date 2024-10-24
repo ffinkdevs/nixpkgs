@@ -15,7 +15,7 @@ with haskellLib;
     unordered-containers
     vector
   ]) super.ghcjs-base;
-
+  unordered-containers = dontCheck super.unordered-containers;
   ghcjs-dom = addBuildDepend self.ghcjs-dom-javascript super.ghcjs-dom;
   ghcjs-dom-javascript = addBuildDepend self.ghcjs-base super.ghcjs-dom-javascript;
   jsaddle = addBuildDepend self.ghcjs-base super.jsaddle;
