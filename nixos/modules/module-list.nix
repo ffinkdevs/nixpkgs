@@ -172,6 +172,7 @@
   ./programs/cpu-energy-meter.nix
   ./programs/command-not-found/command-not-found.nix
   ./programs/coolercontrol.nix
+  ./programs/corefreq.nix
   ./programs/criu.nix
   ./programs/darling.nix
   ./programs/dconf.nix
@@ -312,6 +313,7 @@
   ./programs/wayland/hyprland.nix
   ./programs/wayland/labwc.nix
   ./programs/wayland/miracle-wm.nix
+  ./programs/wayland/niri.nix
   ./programs/wayland/river.nix
   ./programs/wayland/sway.nix
   ./programs/wayland/uwsm.nix
