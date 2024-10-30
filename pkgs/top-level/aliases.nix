@@ -60,6 +60,9 @@ mapAliases {
   forceSystem = system: _:
     (import self.path { localSystem = { inherit system; }; });
 
+  ### _ ###
+  _1password = lib.warn "_1password has been renamed to _1password-cli to better follow upstream name usage" _1password-cli; # Added 2024-10-24
+
   ### A ###
 
   AusweisApp2 = ausweisapp; # Added 2023-11-08
@@ -129,6 +132,8 @@ mapAliases {
   bashInteractive_5 = throw "'bashInteractive_5' has been renamed to/replaced by 'bashInteractive'"; # Converted to throw 2024-10-17
   bash_5 = throw "'bash_5' has been renamed to/replaced by 'bash'"; # Converted to throw 2024-10-17
   BeatSaberModManager = beatsabermodmanager; # Added 2024-06-12
+  betterbird = throw "betterbird has been removed as there were insufficient maintainer resources to keep up with security updates"; # Added 2024-10-25
+  betterbird-unwrapped = throw "betterbird has been removed as there were insufficient maintainer resources to keep up with security updates"; # Added 2024-10-25
   bibata-extra-cursors = throw "bibata-cursors has been removed as it was broken"; # Added 2024-07-15
   bitcoin-unlimited = throw "bitcoin-unlimited has been removed as it was broken and unmaintained"; # Added 2024-07-15
   bitcoind-unlimited = throw "bitcoind-unlimited has been removed as it was broken and unmaintained"; # Added 2024-07-15
@@ -398,6 +403,7 @@ mapAliases {
   gfortran48 = throw "'gfortran48' has been removed from nixpkgs"; # Added 2024-09-10
   gfortran49 = throw "'gfortran49' has been removed from nixpkgs"; # Added 2024-09-11
   ghostwriter = libsForQt5.kdeGear.ghostwriter; # Added 2023-03-18
+  gmp5 = throw "'gmp5' has been removed as it is unmaintained. Consider using 'gmp' instead"; # Added 2024-10-28
   gmpc = throw "'gmpc' has been removed due to lack of maintenance upstream. Consider using 'plattenalbum' instead"; # Added 2024-09-14
   gmtk = throw "'gmtk' has been removed due to lack of maintenance upstream"; # Added 2024-09-14
   gmtp = throw "'gmtp' has been removed due to lack of maintenance upstream. Consider using 'gnome-music' instead"; # Added 2024-09-14
