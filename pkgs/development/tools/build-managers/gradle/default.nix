@@ -23,7 +23,11 @@ rec {
         "x86_64-darwin"
         "x86_64-linux"
         "x86_64-windows"
-      ]
+      ],
+
+      # Extra attributes to be merged into the resulting derivation's
+      # meta attribute.
+      meta ? {}
     }:
 
     { lib
@@ -172,7 +176,7 @@ rec {
         license = licenses.asl20;
         maintainers = with maintainers; [ lorenzleutgeb liff ];
         mainProgram = "gradle";
-      };
+      } // meta;
     });
 
   # NOTE: Default JDKs that are hardcoded below must be LTS versions
@@ -189,12 +193,6 @@ rec {
     version = "7.6.4";
     hash = "sha256-vtHaM8yg9VerE2kcd/OLtnOIEZ5HlNET4FEDm4Cvm7E=";
     defaultJava = jdk17;
-  };
-
-  gradle_6 = gen {
-    version = "6.9.4";
-    hash = "sha256-PiQCKFON6fGHcqV06ZoLqVnoPW7zUQFDgazZYxeBOJo=";
-    defaultJava = jdk11;
   };
 
   wrapGradle = {
