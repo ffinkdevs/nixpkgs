@@ -245987,6 +245987,7 @@ self: {
        description = "REST API for any Postgres database";
        license = lib.licenses.mit;
        mainProgram = "postgrest";
+       maintainers = [ lib.maintainers.wolfgangwalther ];
      }) {};
 
   "postgrest-ws" = callPackage

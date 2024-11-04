@@ -10,14 +10,14 @@
   pkg-config,
   protobuf,
   llama-cpp,
+  apple-sdk_15,
   autoAddDriverRunpath,
+  versionCheckHook,
   cudaSupport ? config.cudaSupport,
   rocmSupport ? config.rocmSupport,
-  darwin,
   metalSupport ? stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64,
   # one of [ null "cpu" "rocm" "cuda" "metal" ];
   acceleration ? null,
-  versionCheckHook,
 }: let
   inherit (lib) optional optionals flatten;
   # References:
@@ -25,7 +25,7 @@
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/misc/ollama/default.nix
 
   pname = "tabby";
-  version = "0.18.0";
+  version = "0.19.0";
 
   availableAccelerations = flatten [
     (optional cudaSupport "cuda")
@@ -97,19 +97,9 @@
   # TODO(ghthor): some of this can be removed
   darwinBuildInputs =
     [llamaccpPackage]
-    ++ optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks;
-        [
-          Foundation
-          Accelerate
-          CoreVideo
-          CoreGraphics
-        ]
-        ++ optionals enableMetal [
-          Metal
-          MetalKit
-        ]
-    );
+    ++ optionals stdenv.hostPlatform.isDarwin [
+      apple-sdk_15
+    ];
 
   cudaBuildInputs = [llamaccpPackage];
   rocmBuildInputs = [llamaccpPackage];
@@ -122,7 +112,7 @@ in
       owner = "TabbyML";
       repo = "tabby";
       rev = "refs/tags/v${version}";
-      hash = "sha256-8clEBWAT+HI2eecOsmldgRcA58Ehq9bZT4ZwUMm494g=";
+      hash = "sha256-RK81gQ5IUzZ4HXJbKBr5bqayH0Xip6ZVAgdMwqP+kx8=";
       fetchSubmodules = true;
     };
 
