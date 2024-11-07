@@ -702,6 +702,8 @@ self: super: with self; {
 
   appdirs = callPackage ../development/python-modules/appdirs { };
 
+  appimage = callPackage ../development/python-modules/appimage { };
+
   apple-weatherkit = callPackage ../development/python-modules/apple-weatherkit { };
 
   applicationinsights = callPackage ../development/python-modules/applicationinsights { };
@@ -4661,6 +4663,8 @@ self: super: with self; {
 
   flax = callPackage ../development/python-modules/flax { };
 
+  flaxlib = callPackage ../development/python-modules/flaxlib { };
+
   fleep = callPackage ../development/python-modules/fleep { };
 
   flet = callPackage ../development/python-modules/flet { };
@@ -5118,6 +5122,8 @@ self: super: with self; {
   git-sweep = callPackage ../development/python-modules/git-sweep { };
 
   git-url-parse = callPackage ../development/python-modules/git-url-parse { };
+
+  git-dummy = callPackage ../development/python-modules/git-dummy { };
 
   gitdb = callPackage ../development/python-modules/gitdb { };
 
@@ -5902,6 +5908,8 @@ self: super: with self; {
   httpx-auth = callPackage ../development/python-modules/httpx-auth { };
 
   httpx-ntlm = callPackage ../development/python-modules/httpx-ntlm { };
+
+  httpx-oauth = callPackage ../development/python-modules/httpx-oauth { };
 
   httpx-socks = callPackage ../development/python-modules/httpx-socks { };
 
@@ -10437,6 +10445,8 @@ self: super: with self; {
   pysqlitecipher = callPackage ../development/python-modules/pysqlitecipher { };
 
   pysyncthru = callPackage ../development/python-modules/pysyncthru { };
+
+  pytask = callPackage ../development/python-modules/pytask { };
 
   pytest-mockito = callPackage ../development/python-modules/pytest-mockito { };
 
@@ -15457,8 +15467,6 @@ self: super: with self; {
 
   teamcity-messages = callPackage ../development/python-modules/teamcity-messages { };
 
-  telegram = callPackage ../development/python-modules/telegram { };
-
   telegraph = callPackage ../development/python-modules/telegraph { };
 
   telepath = callPackage ../development/python-modules/telepath { };
@@ -17732,6 +17740,8 @@ self: super: with self; {
 
   wtforms-bootstrap5 = callPackage ../development/python-modules/wtforms-bootstrap5 { };
 
+  wtforms-sqlalchemy = callPackage ../development/python-modules/wtforms-sqlalchemy { };
+
   wunsen = callPackage ../development/python-modules/wunsen { };
 
   wtf-peewee = callPackage ../development/python-modules/wtf-peewee { };
@@ -17760,8 +17770,6 @@ self: super: with self; {
   xarray = callPackage ../development/python-modules/xarray { };
 
   xarray-dataclasses = callPackage ../development/python-modules/xarray-dataclasses { };
-
-  xarray-datatree = callPackage ../development/python-modules/xarray-datatree { };
 
   xarray-einstats = callPackage ../development/python-modules/xarray-einstats { };
 

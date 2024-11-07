@@ -298,8 +298,8 @@ let
         mktplcRef = {
           name = "openscad";
           publisher = "Antyos";
-          version = "1.1.1";
-          sha256 = "1adcw9jj3npk3l6lnlfgji2l529c4s5xp9jl748r9naiy3w3dpjv";
+          version = "1.3.1";
+          hash = "sha256-J4lJgZT0HXRC2B1eFUl4MoP0YT5EZjLPl3yIY+VLBiI=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/Antyos.openscad/changelog";
@@ -406,8 +406,8 @@ let
         mktplcRef = {
           name = "vscode-neovim";
           publisher = "asvetliakov";
-          version = "1.18.13";
-          hash = "sha256-FFgleWhzFaAE0UdKQ6lZsszBtJ46UZ3bfx1V3SopDNc=";
+          version = "1.18.14";
+          hash = "sha256-Db49bLX0QLr7fS7ZUyeWOustN63LpaJ6IBTKMqAz8uc=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/asvetliakov.vscode-neovim/changelog";
@@ -4531,8 +4531,8 @@ let
         mktplcRef = {
           name = "code-spell-checker";
           publisher = "streetsidesoftware";
-          version = "4.0.7";
-          hash = "sha256-y+xD8rOa/ljavAF7tdEpaOKEd4gUzfH15WBwMHyW7z4=";
+          version = "4.0.14";
+          hash = "sha256-b87sBCprMMfxsP8lyMM3yI82YvKZd5Jc+Z/x7uflnL0=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/streetsidesoftware.code-spell-checker/changelog";
