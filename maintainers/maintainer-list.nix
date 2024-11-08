@@ -4447,6 +4447,12 @@
       { fingerprint = "D8CB 816A B678 A4E6 1EC7  5325 230F 4AC1 53F9 0F29"; }
     ];
   };
+  corbinwunderlich = {
+    email = "corbin@wcopy.net";
+    github = "CorbinWunderlich";
+    githubId = 140280062;
+    name = "Corbin Wunderlich";
+  };
   corngood = {
     email = "corngood@gmail.com";
     github = "corngood";
@@ -8291,6 +8297,13 @@
     githubId = 201997;
     name = "Eric Seidel";
   };
+  griffi-gh = {
+    name = "Alex Prasol";
+    email = "prasol258@gmail.com";
+    matrix = "@voxel:nyanbinary.rs";
+    github = "griffi-gh";
+    githubId = 45996170;
+  };
   grimmauld = {
     name = "Sören Bender";
     email = "soeren@benjos.de";
@@ -11291,6 +11304,12 @@
     name = "Keenan Weaver";
     github = "keenanweaver";
     githubId = 37268985;
+  };
+  kekschen = {
+    email = "kx@imkx.dev";
+    github = "kek5chen";
+    githubId = 52585984;
+    name = "Kek5chen";
   };
   keksgesicht = {
     name = "Jan Braun";

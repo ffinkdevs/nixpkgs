@@ -1768,8 +1768,6 @@ with pkgs;
 
   headset-charge-indicator = callPackage ../tools/audio/headset-charge-indicator { };
 
-  heh = callPackage ../applications/editors/heh { };
-
   hexdiff = callPackage ../tools/misc/hexdiff { };
 
   hexo-cli = callPackage ../development/tools/hexo-cli { };
@@ -2242,8 +2240,6 @@ with pkgs;
   git-mit = callPackage ../applications/version-management/git-mit { };
 
   git-machete = python3Packages.callPackage ../applications/version-management/git-machete { };
-
-  git-nomad = callPackage ../applications/version-management/git-nomad { };
 
   git-octopus = callPackage ../applications/version-management/git-octopus { };
 
@@ -6116,8 +6112,6 @@ with pkgs;
   };
 
   davix-copy = davix.override { enableThirdPartyCopy = true; };
-
-  cantata = libsForQt5.callPackage ../applications/audio/cantata { };
 
   cantoolz = callPackage ../tools/networking/cantoolz { };
 
@@ -13825,6 +13819,9 @@ with pkgs;
 
   ytfzf = callPackage ../tools/misc/ytfzf { };
 
+  # To expose more packages for Yi, override the extraPackages arg.
+  yi = callPackage ../applications/editors/yi/wrapper.nix { };
+
   yaydl = callPackage ../tools/video/yaydl {
     inherit (darwin.apple_sdk.frameworks) Security;
   };
@@ -13854,10 +13851,6 @@ with pkgs;
   zdelta = callPackage ../tools/compression/zdelta { };
 
   zed = callPackage ../development/tools/zed { };
-
-  zellij = callPackage ../tools/misc/zellij {
-    inherit (darwin.apple_sdk.frameworks) DiskArbitration Foundation;
-  };
 
   zenith = callPackage ../tools/system/zenith {
     inherit (darwin.apple_sdk.frameworks) IOKit;
@@ -15471,7 +15464,6 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) Security;
   };
   cargo-readme = callPackage ../development/tools/rust/cargo-readme { };
-  cargo-risczero = callPackage ../development/tools/rust/cargo-risczero { };
   cargo-run-bin = callPackage ../development/tools/rust/cargo-run-bin {};
   cargo-semver-checks = callPackage ../development/tools/rust/cargo-semver-checks { };
 
@@ -22180,6 +22172,7 @@ with pkgs;
   zunclient = with python311Packages; toPythonApplication python-zunclient;
 
   openvdb = callPackage ../development/libraries/openvdb { };
+  openvdb_11 = callPackage ../development/libraries/openvdb/11.nix { };
 
   openvr = callPackage ../by-name/op/openvr/package.nix {
     inherit (darwin.apple_sdk.frameworks) Foundation AppKit;
@@ -23807,8 +23800,6 @@ with pkgs;
   })) // { __attrsFailEvaluation = true; };
 
   ### SERVERS
-
-  _389-ds-base = callPackage ../servers/ldap/389 { };
 
   _5etools = callPackage ../servers/web-apps/5etools { };
 
@@ -25639,6 +25630,8 @@ with pkgs;
   linux_6_1_hardened = linuxKernel.kernels.linux_6_1_hardened;
   linuxPackages_6_6_hardened = linuxKernel.packages.linux_6_6_hardened;
   linux_6_6_hardened = linuxKernel.kernels.linux_6_6_hardened;
+  linuxPackages_6_11_hardened = linuxKernel.packages.linux_6_11_hardened;
+  linux_6_11_hardened = linuxKernel.kernels.linux_6_11_hardened;
 
   # GNU Linux-libre kernels
   linuxPackages-libre = linuxKernel.packages.linux_libre;
@@ -27897,10 +27890,6 @@ with pkgs;
   autotrace = callPackage ../applications/graphics/autotrace { };
 
   av-98 = callPackage ../applications/networking/browsers/av-98 { };
-
-  avalanchego = callPackage ../applications/networking/avalanchego {
-    inherit (darwin.apple_sdk.frameworks) IOKit;
-  };
 
   avizo = callPackage ../applications/misc/avizo { };
 
@@ -30969,8 +30958,6 @@ with pkgs;
   nwg-displays = callPackage ../applications/misc/nwg-displays { };
 
   nwg-dock = callPackage ../applications/misc/nwg-dock { };
-
-  nwg-dock-hyprland = callPackage ../applications/misc/nwg-dock-hyprland { };
 
   nwg-launchers = callPackage ../applications/misc/nwg-launchers { };
 
@@ -34681,8 +34668,6 @@ with pkgs;
 
   pentobi = libsForQt5.callPackage ../games/pentobi { };
 
-  performous = callPackage ../games/performous { };
-
   pinball = callPackage ../games/pinball { };
 
   pingus = callPackage ../games/pingus { };
@@ -38372,5 +38357,9 @@ with pkgs;
 
   dillo = callPackage ../by-name/di/dillo/package.nix {
     fltk = fltk13;
+  };
+
+  cantata = callPackage ../by-name/ca/cantata/package.nix {
+    ffmpeg = ffmpeg_6;
   };
 }
