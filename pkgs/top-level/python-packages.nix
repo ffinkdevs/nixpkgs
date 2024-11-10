@@ -1591,6 +1591,8 @@ self: super: with self; {
 
   betamax-serializers = callPackage ../development/python-modules/betamax-serializers { };
 
+  better-exceptions = callPackage ../development/python-modules/better-exceptions { };
+
   betterproto = callPackage ../development/python-modules/betterproto { };
 
   beziers = callPackage ../development/python-modules/beziers { };
@@ -1710,6 +1712,8 @@ self: super: with self; {
   blinkstick = callPackage ../development/python-modules/blinkstick { };
 
   blis = callPackage ../development/python-modules/blis { };
+
+  blivet = callPackage ../development/python-modules/blivet { };
 
   blobfile = callPackage ../development/python-modules/blobfile { };
 
@@ -1949,6 +1953,8 @@ self: super: with self; {
   bwapy = callPackage ../development/python-modules/bwapy { };
 
   bytecode = callPackage ../development/python-modules/bytecode { };
+
+  bytesize = toPythonModule (pkgs.libbytesize.override { python3Packages = self; });
 
   bytewax = callPackage ../development/python-modules/bytewax { };
 
@@ -3065,6 +3071,8 @@ self: super: with self; {
 
   deepmerge = callPackage ../development/python-modules/deepmerge { };
 
+  deepsearch-toolkit = callPackage ../development/python-modules/deepsearch-toolkit { };
+
   deeptoolsintervals = callPackage ../development/python-modules/deeptoolsintervals { };
 
   deepwave = callPackage ../development/python-modules/deepwave { };
@@ -3389,6 +3397,8 @@ self: super: with self; {
 
   django-csp = callPackage ../development/python-modules/django-csp { };
 
+  django-cte = callPackage ../development/python-modules/django-cte { };
+
   django-currentuser = callPackage ../development/python-modules/django-currentuser { };
 
   django-debug-toolbar = callPackage ../development/python-modules/django-debug-toolbar { };
@@ -3493,6 +3503,10 @@ self: super: with self; {
 
   django-payments = callPackage ../development/python-modules/django-payments { };
 
+  django-pgactivity = callPackage ../development/python-modules/django-pgactivity { };
+
+  django-pglock = callPackage ../development/python-modules/django-pglock { };
+
   django-pglocks = callPackage ../development/python-modules/django-pglocks { };
 
   django-phonenumber-field = callPackage ../development/python-modules/django-phonenumber-field { };
@@ -3593,6 +3607,8 @@ self: super: with self; {
 
   django-tastypie = callPackage ../development/python-modules/django-tastypie { };
 
+  django-tenants = callPackage ../development/python-modules/django-tenants { };
+
   django-timezone-field = callPackage ../development/python-modules/django-timezone-field { };
 
   django-tinymce = callPackage ../development/python-modules/django-tinymce { };
@@ -3688,6 +3704,14 @@ self: super: with self; {
   docker-pycreds = callPackage ../development/python-modules/docker-pycreds { };
 
   dockerspawner = callPackage ../development/python-modules/dockerspawner { };
+
+  docling-core = callPackage ../development/python-modules/docling-core { };
+
+  docling-ibm-models = callPackage ../development/python-modules/docling-ibm-models { };
+
+  docling-parse = callPackage ../development/python-modules/docling-parse {
+    loguru-cpp = pkgs.loguru;
+  };
 
   docloud = callPackage ../development/python-modules/docloud { };
 
@@ -5742,7 +5766,7 @@ self: super: with self; {
   };
 
   hidapi = callPackage ../development/python-modules/hidapi {
-    inherit (pkgs) udev libusb1;
+    inherit (pkgs) udev;
   };
 
   hid-parser = callPackage ../development/python-modules/hid-parser { };
@@ -7734,6 +7758,8 @@ self: super: with self; {
 
   markdownify  = callPackage ../development/python-modules/markdownify { };
 
+  marko = callPackage ../development/python-modules/marko { };
+
   markupsafe = callPackage ../development/python-modules/markupsafe { };
 
   markuppy = callPackage ../development/python-modules/markuppy { };
@@ -7855,6 +7881,8 @@ self: super: with self; {
   mdutils = callPackage ../development/python-modules/mdutils { };
 
   mdp = callPackage ../development/python-modules/mdp { };
+
+  mean-average-precision = callPackage ../development/python-modules/mean-average-precision { };
 
   measurement = callPackage ../development/python-modules/measurement { };
 
@@ -8006,6 +8034,11 @@ self: super: with self; {
   mill-local = callPackage ../development/python-modules/mill-local { };
 
   millheater = callPackage ../development/python-modules/millheater { };
+
+  mim-solvers = toPythonModule (pkgs.mim-solvers.override {
+    python3Packages = self;
+    pythonSupport = true;
+  });
 
   minari = callPackage ../development/python-modules/minari { };
 
@@ -9285,6 +9318,8 @@ self: super: with self; {
   objax = callPackage ../development/python-modules/objax { };
 
   objexplore = callPackage ../development/python-modules/objexplore { };
+
+  objprint = callPackage ../development/python-modules/objprint { };
 
   objsize = callPackage ../development/python-modules/objsize { };
 
@@ -14266,6 +14301,10 @@ self: super: with self; {
 
   semantic-version = callPackage ../development/python-modules/semantic-version { };
 
+  semgrep = callPackage ../development/python-modules/semgrep {
+    semgrep-core = callPackage ../development/python-modules/semgrep/semgrep-core.nix { };
+  };
+
   semaphore-bot = callPackage ../development/python-modules/semaphore-bot { };
 
   semver = callPackage ../development/python-modules/semver { };
@@ -14974,6 +15013,8 @@ self: super: with self; {
 
   sphinx-autodoc-typehints = callPackage ../development/python-modules/sphinx-autodoc-typehints { };
 
+  sphinx-autodoc2 = callPackage ../development/python-modules/sphinx-autodoc2 { };
+
   sphinx-basic-ng = callPackage ../development/python-modules/sphinx-basic-ng { };
 
   sphinx-copybutton = callPackage ../development/python-modules/sphinx-copybutton { };
@@ -15497,6 +15538,8 @@ self: super: with self; {
   tempora = callPackage ../development/python-modules/tempora { };
 
   tenacity = callPackage ../development/python-modules/tenacity { };
+
+  tenant-schemas-celery = callPackage ../development/python-modules/tenant-schemas-celery { };
 
   tencentcloud-sdk-python = callPackage ../development/python-modules/tencentcloud-sdk-python { };
 
