@@ -1229,9 +1229,7 @@ with pkgs;
 
   git-cliff = callPackage ../applications/version-management/git-cliff { };
 
-  git-credential-keepassxc = darwin.apple_sdk_11_0.callPackage ../applications/version-management/git-credential-keepassxc {
-    inherit (darwin.apple_sdk.frameworks) DiskArbitration Foundation;
-  };
+  git-credential-keepassxc = callPackage ../applications/version-management/git-credential-keepassxc { };
 
   git-credential-manager = callPackage ../applications/version-management/git-credential-manager { };
 
@@ -5893,6 +5891,9 @@ with pkgs;
 
   yamllint = with python3Packages; toPythonApplication yamllint;
 
+  # To expose more packages for Yi, override the extraPackages arg.
+  yi = callPackage ../applications/editors/yi/wrapper.nix { };
+
   yaydl = callPackage ../tools/video/yaydl {
     inherit (darwin.apple_sdk.frameworks) Security;
   };
@@ -7603,15 +7604,25 @@ with pkgs;
     bluezSupport = lib.meta.availableOn stdenv.hostPlatform bluez;
     x11Support = true;
   };
+  python314Full = python314.override {
+    self = python314Full;
+    pythonAttr = "python314Full";
+    bluezSupport = lib.meta.availableOn stdenv.hostPlatform bluez;
+    x11Support = true;
+  };
 
   # https://py-free-threading.github.io
   python313FreeThreading = python313.override {
     pythonAttr = "python313FreeThreading";
     enableGIL = false;
   };
+  python314FreeThreading = python314.override {
+    pythonAttr = "python313FreeThreading";
+    enableGIL = false;
+  };
 
   pythonInterpreters = callPackage ./../development/interpreters/python { };
-  inherit (pythonInterpreters) python27 python39 python310 python311 python312 python313 python3Minimal pypy27 pypy310 pypy39 rustpython;
+  inherit (pythonInterpreters) python27 python39 python310 python311 python312 python313 python314 python3Minimal pypy27 pypy310 pypy39 rustpython;
 
   # List of extensions with overrides to apply to all Python package sets.
   pythonPackagesExtensions = [ ];
@@ -7623,6 +7634,7 @@ with pkgs;
   python311Packages = recurseIntoAttrs python311.pkgs;
   python312Packages = recurseIntoAttrs python312.pkgs;
   python313Packages = python313.pkgs;
+  python314Packages = python314.pkgs;
   pypyPackages = pypy.pkgs;
   pypy2Packages = pypy2.pkgs;
   pypy27Packages = pypy27.pkgs;
@@ -7670,7 +7682,7 @@ with pkgs;
   nqp = callPackage  ../development/interpreters/rakudo/nqp.nix { };
   zef = callPackage ../development/interpreters/rakudo/zef.nix { };
 
-  inherit (ocamlPackages) reason;
+  inherit (ocamlPackages) reason rtop;
 
   buildRubyGem = callPackage ../development/ruby-modules/gem {
     inherit (darwin) libobjc;
@@ -10719,9 +10731,7 @@ with pkgs;
     utils = true;
   };
 
-  portaudio = callPackage ../development/libraries/portaudio {
-    inherit (darwin.apple_sdk.frameworks) AudioToolbox AudioUnit CoreAudio CoreServices Carbon;
-  };
+  portaudio = callPackage ../development/libraries/portaudio { };
 
   portmidi = callPackage ../development/libraries/portmidi {
     inherit (darwin.apple_sdk.frameworks) Carbon CoreAudio CoreFoundation CoreMIDI CoreServices;
@@ -13638,10 +13648,7 @@ with pkgs;
 
   cdparanoia = cdparanoiaIII;
 
-  cdparanoiaIII = callPackage ../applications/audio/cdparanoia {
-    inherit (darwin) IOKit;
-    inherit (darwin.apple_sdk.frameworks) Carbon;
-  };
+  cdparanoiaIII = callPackage ../applications/audio/cdparanoia { };
 
   brotab = callPackage ../tools/misc/brotab {
     python = python3;
@@ -15379,8 +15386,6 @@ with pkgs;
 
   opentx = libsForQt5.callPackage ../applications/misc/opentx { };
 
-  openvi = darwin.apple_sdk_11_0.callPackage ../applications/editors/openvi { };
-
   organicmaps = qt6Packages.callPackage ../applications/misc/organicmaps { };
 
   owofetch = callPackage ../tools/misc/owofetch {
@@ -16110,8 +16115,6 @@ with pkgs;
   tinywl = callPackage ../applications/window-managers/tinywl {
     wlroots = wlroots_0_18;
   };
-
-  tree-from-tags = callPackage ../applications/audio/tree-from-tags { };
 
   treesheets = callPackage ../applications/office/treesheets {
     wxGTK = wxGTK32;
@@ -19245,5 +19248,9 @@ with pkgs;
 
   cantata = callPackage ../by-name/ca/cantata/package.nix {
     ffmpeg = ffmpeg_6;
+  };
+
+  tree-from-tags = callPackage ../by-name/tr/tree-from-tags/package.nix {
+    ruby = ruby_3_1;
   };
 }
