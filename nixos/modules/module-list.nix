@@ -148,6 +148,7 @@
   ./programs/alvr.nix
   ./programs/appgate-sdp.nix
   ./programs/appimage.nix
+  ./programs/arp-scan.nix
   ./programs/atop.nix
   ./programs/ausweisapp.nix
   ./programs/autojump.nix
@@ -263,6 +264,7 @@
   ./programs/openvpn3.nix
   ./programs/obs-studio.nix
   ./programs/partition-manager.nix
+  ./programs/pay-respects.nix
   ./programs/plotinus.nix
   ./programs/pqos-wrapper.nix
   ./programs/projecteur.nix
@@ -295,6 +297,7 @@
   ./programs/sysdig.nix
   ./programs/system-config-printer.nix
   ./programs/systemtap.nix
+  ./programs/tcpdump.nix
   ./programs/thefuck.nix
   ./programs/thunar.nix
   ./programs/thunderbird.nix
@@ -1632,7 +1635,6 @@
   ./system/boot/loader/external/external.nix
   ./system/boot/loader/init-script/init-script.nix
   ./system/boot/loader/loader.nix
-  ./system/boot/loader/raspberrypi/raspberrypi.nix
   ./system/boot/loader/systemd-boot/systemd-boot.nix
   ./system/boot/luksroot.nix
   ./system/boot/stratisroot.nix

@@ -1452,6 +1452,8 @@ self: super: with self; {
 
   bagit = callPackage ../development/python-modules/bagit { };
 
+  baize = callPackage ../development/python-modules/baize { };
+
   banal = callPackage ../development/python-modules/banal { };
 
   bandcamp-api = callPackage ../development/python-modules/bandcamp-api { };
@@ -17548,6 +17550,8 @@ self: super: with self; {
   vttlib = callPackage ../development/python-modules/vttlib { };
 
   vulcan-api = callPackage ../development/python-modules/vulcan-api { };
+
+  vulkan = callPackage ../development/python-modules/vulkan { };
 
   vultr = callPackage ../development/python-modules/vultr { };
 
