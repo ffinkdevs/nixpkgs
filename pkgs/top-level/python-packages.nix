@@ -1577,6 +1577,10 @@ self: super: with self; {
 
   bencoder = callPackage ../development/python-modules/bencoder { };
 
+  bencodetools = callPackage ../development/python-modules/bencodetools {
+    bencodetools = pkgs.bencodetools;
+  };
+
   beniget = callPackage ../development/python-modules/beniget { };
 
   bentoml = callPackage ../development/python-modules/bentoml { };
@@ -4590,6 +4594,8 @@ self: super: with self; {
 
   flask-admin = callPackage ../development/python-modules/flask-admin { };
 
+  flask-allowed-hosts = callPackage ../development/python-modules/flask-allowed-hosts { };
+
   flask-api = callPackage ../development/python-modules/flask-api { };
 
   flask-appbuilder = callPackage ../development/python-modules/flask-appbuilder { };
@@ -4690,9 +4696,13 @@ self: super: with self; {
 
   flask-testing = callPackage ../development/python-modules/flask-testing { };
 
+  flask-themer = callPackage ../development/python-modules/flask-themer { };
+
   flask-themes2 = callPackage ../development/python-modules/flask-themes2 { };
 
   flask-versioned = callPackage ../development/python-modules/flask-versioned { };
+
+  flask-webtest = callPackage ../development/python-modules/flask-webtest { };
 
   flask-wtf = callPackage ../development/python-modules/flask-wtf { };
 
@@ -7899,8 +7909,6 @@ self: super: with self; {
   mdurl = callPackage ../development/python-modules/mdurl { };
 
   mdutils = callPackage ../development/python-modules/mdutils { };
-
-  mdp = callPackage ../development/python-modules/mdp { };
 
   mean-average-precision = callPackage ../development/python-modules/mean-average-precision { };
 
@@ -12774,6 +12782,8 @@ self: super: with self; {
 
   pytest-shutil = callPackage ../development/python-modules/pytest-shutil { };
 
+  pytest-smtpd = callPackage ../development/python-modules/pytest-smtpd { };
+
   pytest-spec = callPackage ../development/python-modules/pytest-spec { };
 
   python-status = callPackage ../development/python-modules/python-status { };
@@ -14661,6 +14671,8 @@ self: super: with self; {
 
   slack-sdk = callPackage ../development/python-modules/slack-sdk { };
 
+  slapd = callPackage ../development/python-modules/slapd { };
+
   sleekxmpp = callPackage ../development/python-modules/sleekxmpp { };
 
   sleekxmppfs = callPackage ../development/python-modules/sleekxmppfs { };
@@ -15127,6 +15139,8 @@ self: super: with self; {
   sqlalchemy-file = callPackage ../development/python-modules/sqlalchemy-file { };
 
   sqlalchemy-i18n = callPackage ../development/python-modules/sqlalchemy-i18n { };
+
+  sqlalchemy-json = callPackage ../development/python-modules/sqlalchemy-json { };
 
   sqlalchemy-jsonfield = callPackage ../development/python-modules/sqlalchemy-jsonfield { };
 
@@ -18268,6 +18282,8 @@ self: super: with self; {
   zwave-js-server-python = callPackage ../development/python-modules/zwave-js-server-python { };
 
   zxcvbn = callPackage ../development/python-modules/zxcvbn { };
+
+  zxcvbn-rs-py = callPackage ../development/python-modules/zxcvbn-rs-py { };
 
   zxing-cpp = callPackage ../development/python-modules/zxing-cpp {
     libzxing-cpp = pkgs.zxing-cpp;

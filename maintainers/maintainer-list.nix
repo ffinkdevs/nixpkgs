@@ -6038,6 +6038,12 @@
     githubId = 2025623;
     name = "Luc Chabassier";
   };
+  dwrege = {
+    email = "email@dwrege.de";
+    github = "dominicwrege";
+    githubId = 7389000;
+    name = "Dominic Wrege";
+  };
   dxf = {
     email = "dingxiangfei2009@gmail.com";
     github = "dingxiangfei2009";
@@ -13059,6 +13065,13 @@
     github = "Lunarequest";
     githubId = 30698906;
     name = "Luna D Dragon";
+  };
+  luNeder = {
+    email = "luana@luana.dev.br";
+    matrix = "@luana:catgirl.cloud";
+    github = "LuNeder";
+    githubId = 19750714;
+    name = "Luana Neder";
   };
   lunik1 = {
     email = "ch.nixpkgs@themaw.xyz";

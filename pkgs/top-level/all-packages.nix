@@ -431,9 +431,9 @@ with pkgs;
   dotnet-aspnetcore_7 = dotnetCorePackages.aspnetcore_7_0;
   dotnet-aspnetcore_8 = dotnetCorePackages.aspnetcore_8_0;
 
-  dotnet-sdk = dotnetCorePackages.sdk_6_0;
-  dotnet-runtime = dotnetCorePackages.runtime_6_0;
-  dotnet-aspnetcore = dotnetCorePackages.aspnetcore_6_0;
+  dotnet-sdk = dotnetCorePackages.sdk_8_0;
+  dotnet-runtime = dotnetCorePackages.runtime_8_0;
+  dotnet-aspnetcore = dotnetCorePackages.aspnetcore_8_0;
 
   inherit (dotnetCorePackages) buildDotnetModule buildDotnetGlobalTool mkNugetSource mkNugetDeps;
 
@@ -1546,12 +1546,9 @@ with pkgs;
 
   ### APPLICATIONS/TERMINAL-EMULATORS
 
-  contour = qt6.callPackage ../applications/terminal-emulators/contour {
-    inherit (darwin.apple_sdk_11_0.libs) utmp;
-    inherit (darwin) sigtool;
-    stdenv = if stdenv.hostPlatform.isDarwin then darwin.apple_sdk_11_0.stdenv else stdenv;
-    catch2 = catch2_3;
-    fmt = fmt_9;
+  contour = callPackage ../by-name/co/contour/package.nix {
+    inherit (darwin) libutil sigtool;
+    stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_17.stdenv else stdenv;
   };
 
   cool-retro-term = libsForQt5.callPackage ../applications/terminal-emulators/cool-retro-term { };
@@ -2334,7 +2331,6 @@ with pkgs;
 
   element-desktop = callPackage ../applications/networking/instant-messengers/element/element-desktop.nix {
     inherit (darwin.apple_sdk.frameworks) Security AppKit CoreServices;
-    electron = electron_32;
   };
   element-desktop-wayland = writeScriptBin "element-desktop" ''
     #!/bin/sh
@@ -5291,8 +5287,6 @@ with pkgs;
 
   sigil = libsForQt5.callPackage ../applications/editors/sigil { };
 
-  inherit (callPackage ../applications/networking/instant-messengers/signal-desktop {}) signal-desktop signal-desktop-beta;
-
   slither-analyzer = with python3Packages; toPythonApplication slither-analyzer;
 
   # aka., pgp-tools
@@ -5348,11 +5342,6 @@ with pkgs;
   spire-server = spire.server;
 
   spoof-mac = python3Packages.callPackage ../tools/networking/spoof-mac { };
-
-  suricata = callPackage ../applications/networking/ids/suricata {
-    python = python3;
-    libbpf = libbpf_0;
-  };
 
   softhsm = callPackage ../tools/security/softhsm {
     inherit (darwin) libobjc;
@@ -8936,7 +8925,6 @@ with pkgs;
     else callPackage ../os-specific/linux/bionic-prebuilt { };
 
   inherit (callPackage ../development/libraries/boost { inherit (buildPackages) boost-build; })
-    boost175
     boost177
     boost178
     boost179
@@ -10231,9 +10219,8 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) IOKit Security;
   };
 
-  libunicode = callPackage ../development/libraries/libunicode {
-    catch2 = catch2_3;
-    fmt = fmt_9;
+  libunicode = callPackage ../by-name/li/libunicode/package.nix {
+    stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_17.stdenv else stdenv;
   };
 
   libunwind =
@@ -11132,7 +11119,9 @@ with pkgs;
     harfbuzz = harfbuzzFull;
   };
 
-  termbench-pro = callPackage ../development/libraries/termbench-pro { fmt = fmt_8; };
+  termbench-pro = callPackage ../by-name/te/termbench-pro/package.nix {
+    stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_17.stdenv else stdenv;
+  };
 
   texpresso = callPackage ../tools/typesetting/tex/texpresso {
     texpresso-tectonic = callPackage ../tools/typesetting/tex/texpresso/tectonic.nix { };
@@ -12264,12 +12253,6 @@ with pkgs;
     libtool = cctools;
     protobuf = protobuf_21;
   };
-
-  rippled = callPackage ../servers/rippled {
-    boost = boost177;
-  };
-
-  rippled-validator-keys-tool = callPackage ../servers/rippled/validator-keys-tool.nix { };
 
   rustic = callPackage ../by-name/ru/rustic/package.nix {
     inherit (darwin.apple_sdk.frameworks) Security SystemConfiguration;
@@ -13499,22 +13482,6 @@ with pkgs;
 
   schismtracker = callPackage ../applications/audio/schismtracker {
     inherit (darwin.apple_sdk.frameworks) Cocoa;
-  };
-
-  libbitcoin = callPackage ../tools/misc/libbitcoin/libbitcoin.nix {
-    boost = boost175; # fatal error: 'boost/interprocess/detail/posix_time_types_wrk.hpp' file not found
-  };
-  libbitcoin-protocol = callPackage ../tools/misc/libbitcoin/libbitcoin-protocol.nix {
-    boost = boost175;
-  };
-  libbitcoin-client   = callPackage ../tools/misc/libbitcoin/libbitcoin-client.nix {
-    boost = boost175;
-  };
-  libbitcoin-network  = callPackage ../tools/misc/libbitcoin/libbitcoin-network.nix {
-    boost = boost175;
-  };
-  libbitcoin-explorer = callPackage ../tools/misc/libbitcoin/libbitcoin-explorer.nix {
-    boost = boost175;
   };
 
   ausweisapp = qt6Packages.callPackage ../applications/misc/ausweisapp { };
@@ -15864,10 +15831,6 @@ with pkgs;
 
   super-slicer-latest = super-slicer.latest;
 
-  bambu-studio = callPackage ../applications/misc/bambu-studio { };
-
-  orca-slicer = callPackage ../applications/misc/bambu-studio/orca-slicer.nix {};
-
   skrooge = libsForQt5.callPackage ../applications/office/skrooge { };
 
   smartdeblur = libsForQt5.callPackage ../applications/graphics/smartdeblur { };
@@ -16353,11 +16316,6 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) AppKit Cocoa CoreServices Security;
   };
 
-  vuze = callPackage ../applications/networking/p2p/vuze {
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-    jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-  };
-
   whispers = with python3Packages; toPythonApplication whispers;
 
   warp = callPackage ../applications/networking/warp {
@@ -16738,12 +16696,6 @@ with pkgs;
   };
 
   ledger-agent = with python3Packages; toPythonApplication ledger-agent;
-
-  litecoin  = libsForQt5.callPackage ../applications/blockchains/litecoin {
-    inherit (darwin.apple_sdk.frameworks) AppKit;
-    boost = pkgs.boost177;
-  };
-  litecoind = litecoin.override { withGui = false; };
 
   monero-cli = callPackage ../applications/blockchains/monero-cli {
     inherit (darwin.apple_sdk.frameworks) CoreData IOKit;
@@ -18117,8 +18069,6 @@ with pkgs;
     withNgshared = false;
   };
 
-  nvc = darwin.apple_sdk_11_0.callPackage ../applications/science/electronics/nvc { };
-
   openems = callPackage ../applications/science/electronics/openems {
     qcsxcad = libsForQt5.qcsxcad;
   };
@@ -18945,7 +18895,7 @@ with pkgs;
   });
 
   inherit (callPackage ../servers/web-apps/wordpress {})
-    wordpress wordpress_6_6;
+    wordpress wordpress_6_7;
 
   wordpressPackages = ( callPackage ../servers/web-apps/wordpress/packages {
     plugins = lib.importJSON ../servers/web-apps/wordpress/packages/plugins.json;
@@ -19236,6 +19186,10 @@ with pkgs;
 
   cantata = callPackage ../by-name/ca/cantata/package.nix {
     ffmpeg = ffmpeg_6;
+  };
+
+  libkazv = callPackage ../by-name/li/libkazv/package.nix {
+    libcpr = libcpr_1_10_5;
   };
 
   tree-from-tags = callPackage ../by-name/tr/tree-from-tags/package.nix {
