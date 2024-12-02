@@ -13,6 +13,3 @@ nixos-render-docs = "nixos_render_docs:main"
 
 [build-system]
 requires = ["setuptools"]
-
-[tool.setuptools.package-data]
-nixos_render_docs = ["redirects.js"]

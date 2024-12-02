@@ -122,7 +122,6 @@ in rec {
 
       nixos-render-docs -j $NIX_BUILD_CORES manual html \
         --manpage-urls ${manpageUrls} \
-        --redirects ${./redirects.json} \
         --revision ${escapeShellArg revision} \
         --generator "nixos-render-docs ${pkgs.lib.version}" \
         --stylesheet style.css \
