@@ -179,7 +179,7 @@ in {
         serviceConfig = lib.mkMerge [
           serviceUser
           {
-            ExecStart = "${lib.getExe tabbyPackage} serve --host ${cfg.host} --port ${toString cfg.port}";
+            ExecStart = "${lib.getExe tabbyPackage} serve  --port ${toString cfg.port}";
           }
         ];
       };
