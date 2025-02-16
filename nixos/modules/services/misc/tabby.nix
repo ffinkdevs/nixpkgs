@@ -174,6 +174,7 @@ in {
         description = "Self-hosted AI coding assistant using large language models";
         after = ["network.target"];
         environment = serviceEnv;
+        path = [pkgs.git];
         preStart = "cp -f /etc/tabby/config.toml \${TABBY_ROOT}/config.toml";
 
         serviceConfig = lib.mkMerge [
