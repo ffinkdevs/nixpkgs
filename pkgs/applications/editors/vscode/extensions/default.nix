@@ -1730,24 +1730,6 @@ let
         };
       };
 
-      equinusocio.vsc-material-theme = callPackage ./equinusocio.vsc-material-theme { };
-
-      equinusocio.vsc-material-theme-icons = buildVscodeMarketplaceExtension {
-        mktplcRef = {
-          name = "vsc-material-theme-icons";
-          publisher = "Equinusocio";
-          version = "3.8.8";
-          hash = "sha256-el2hQaq1gZBn2PZ+f+S1fHM/g3V0sX7Chyre04sds8k=";
-        };
-        meta = {
-          description = "Material Theme Icons, the most epic icons theme for Visual Studio Code and Material Theme";
-          downloadPage = "https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme-icons";
-          homepage = "https://github.com/material-theme/vsc-material-theme-icons";
-          license = lib.licenses.asl20;
-          maintainers = [ lib.maintainers.themaxmur ];
-        };
-      };
-
       esbenp.prettier-vscode = buildVscodeMarketplaceExtension {
         mktplcRef = {
           name = "prettier-vscode";
@@ -5624,6 +5606,8 @@ let
     _2gua = throw "_2gua is deprecated in favor of 2gua"; # Added 2024-05-29
     _4ops = throw "_4ops is deprecated in favor of 4ops"; # Added 2024-05-29
     Arjun.swagger-viewer = throw "Arjun.swagger-viewer is deprecated in favor of arjun.swagger-viewer"; # Added 2024-05-29
+    equinusocio.vsc-material-theme = throw "'equinusocio.vsc-material-theme' has been removed due to security concerns. The extension contained potentially malicious code and was taken down."; # Added 2025-02-28
+    equinusocio.vsc-material-theme-icons = throw "'equinusocio.vsc-material-theme-icons' has been removed due to security concerns. The extension contained potentially malicious code and was taken down."; # Added 2025-02-28
     jakebecker.elixir-ls = throw "jakebecker.elixir-ls is deprecated in favor of elixir-lsp.vscode-elixir-ls"; # Added 2024-05-29
     jpoissonnier.vscode-styled-components = throw "jpoissonnier.vscode-styled-components is deprecated in favor of styled-components.vscode-styled-components"; # Added 2024-05-29
     matklad.rust-analyzer = throw "matklad.rust-analyzer is deprecated in favor of rust-lang.rust-analyzer"; # Added 2024-05-29
