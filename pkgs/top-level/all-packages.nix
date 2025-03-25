@@ -10815,6 +10815,8 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) Security;
   };
 
+  reposilitePlugins = recurseIntoAttrs (callPackage ../by-name/re/reposilite/plugins.nix {});
+
   rhino = callPackage ../development/libraries/java/rhino {
     javac = jdk8;
     jvm = jre8;
@@ -12423,10 +12425,6 @@ with pkgs;
 
   cpupower-gui = python3Packages.callPackage ../os-specific/linux/cpupower-gui {
     inherit (pkgs) meson;
-  };
-
-  cryptomator = callPackage ../tools/security/cryptomator {
-    jdk = jdk23.override { enableJavaFX = true; };
   };
 
   # Darwin package set
