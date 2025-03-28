@@ -3345,7 +3345,7 @@ with pkgs;
 
   # The latest version used by elasticsearch, logstash, kibana and the the beats from elastic.
   # When updating make sure to update all plugins or they will break!
-  elk7Version = "7.17.16";
+  elk7Version = "7.17.27";
 
   elasticsearch7 = callPackage ../servers/search/elasticsearch/7.x.nix {
     util-linux = util-linuxMinimal;
@@ -4558,11 +4558,12 @@ with pkgs;
   nm-tray = libsForQt5.callPackage ../tools/networking/networkmanager/tray.nix { };
 
   inherit (callPackages ../servers/nextcloud {})
-    nextcloud28 nextcloud29 nextcloud30;
+    nextcloud28 nextcloud29 nextcloud30 nextcloud31;
 
   nextcloud28Packages = callPackage ../servers/nextcloud/packages { ncVersion = "28"; };
   nextcloud29Packages = callPackage ../servers/nextcloud/packages { ncVersion = "29"; };
   nextcloud30Packages = callPackage ../servers/nextcloud/packages { ncVersion = "30"; };
+  nextcloud31Packages = callPackage ../servers/nextcloud/packages { ncVersion = "31"; };
 
 
   nextcloud-client = qt6Packages.callPackage ../applications/networking/nextcloud-client { };
@@ -7100,6 +7101,7 @@ with pkgs;
   tbb_2020_3 = callPackage ../development/libraries/tbb/2020_3.nix { };
   tbb_2021_5 = callPackage ../development/libraries/tbb/2021_5.nix { } ;
   tbb_2021_11 = callPackage ../development/libraries/tbb { };
+  tbb_2022_0 = callPackage ../development/libraries/tbb/2022_0.nix { };
   # many packages still fail with latest version
   tbb = tbb_2020_3;
 
@@ -7875,6 +7877,7 @@ with pkgs;
     electron_32-bin
     electron_33-bin
     electron_34-bin
+    electron_35-bin
     ;
 
   inherit (callPackages ../development/tools/electron/chromedriver { })
@@ -7884,6 +7887,7 @@ with pkgs;
     electron-chromedriver_32
     electron-chromedriver_33
     electron-chromedriver_34
+    electron-chromedriver_35
     ;
 
   electron_24 = electron_24-bin;
@@ -7895,6 +7899,7 @@ with pkgs;
   electron_32 = electron_32-bin;
   electron_33 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_33 then electron-source.electron_33 else electron_33-bin;
   electron_34 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_34 then electron-source.electron_34 else electron_34-bin;
+  electron_35 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_35 then electron-source.electron_35 else electron_35-bin;
   electron = electron_34;
   electron-bin = electron_34-bin;
   electron-chromedriver = electron-chromedriver_34;
@@ -12265,10 +12270,6 @@ with pkgs;
 
   sickgear = callPackage ../servers/sickbeard/sickgear.nix { };
 
-  snipe-it = callPackage ../by-name/sn/snipe-it/package.nix {
-    php = php81;
-  };
-
   spacecookie =
     haskell.lib.compose.justStaticExecutables haskellPackages.spacecookie;
 
@@ -12595,10 +12596,10 @@ with pkgs;
   linux_6_1_hardened = linuxKernel.kernels.linux_6_1_hardened;
   linuxPackages_6_6_hardened = linuxKernel.packages.linux_6_6_hardened;
   linux_6_6_hardened = linuxKernel.kernels.linux_6_6_hardened;
-  linuxPackages_6_11_hardened = linuxKernel.packages.linux_6_11_hardened;
-  linux_6_11_hardened = linuxKernel.kernels.linux_6_11_hardened;
   linuxPackages_6_12_hardened = linuxKernel.packages.linux_6_12_hardened;
   linux_6_12_hardened = linuxKernel.kernels.linux_6_12_hardened;
+  linuxPackages_6_13_hardened = linuxKernel.packages.linux_6_13_hardened;
+  linux_6_13_hardened = linuxKernel.kernels.linux_6_13_hardened;
 
   # GNU Linux-libre kernels
   linuxPackages-libre = linuxKernel.packages.linux_libre;
