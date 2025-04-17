@@ -4599,8 +4599,6 @@ with pkgs;
 
   maubot = with python3Packages; toPythonApplication maubot;
 
-  mautrix-signal = recurseIntoAttrs (callPackage ../servers/mautrix-signal { });
-
   mautrix-telegram = recurseIntoAttrs (callPackage ../servers/mautrix-telegram { });
 
   m2r = with python3Packages; toPythonApplication m2r;
@@ -12602,6 +12600,11 @@ with pkgs;
   };
   buildGo123Package = callPackage ../build-support/go/package.nix {
     go = buildPackages.go_1_23;
+  };
+
+  go_1_24 = callPackage ../development/compilers/go/1.24.nix { };
+  buildGo124Module = callPackage ../build-support/go/module.nix {
+    go = buildPackages.go_1_24;
   };
 
   ### DEVELOPMENT / HARE
